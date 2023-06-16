@@ -4,30 +4,37 @@ publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.1.0-206.0.dev <4.0.0"
+  sdk: ">=3.1.0-213.0.dev <4.0.0"
 dependencies:
   flutter:
     sdk: flutter
+
   cupertino_icons: ^1.0.2
-  flutter_localization: ^0.1.12
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+  http: ^1.0.0
+  get_storage: ^2.1.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
   flutter_lints: ^2.0.0
+
 flutter:
-  generate: true
   uses-material-design: true
+
   assets:
-    - assets/images/
+    - images/
 
   fonts:
     - family: Tajawal
       fonts:
-        - asset: assets/fonts/Tajawal-Regular.ttf
-        - asset: assets/fonts/Tajawal-Black.ttf
-        - asset: assets/fonts/Tajawal-Bold.ttf
-        - asset: assets/fonts/Tajawal-ExtraBold.ttf
-        - asset: assets/fonts/Tajawal-ExtraLight.ttf
-        - asset: assets/fonts/Tajawal-Light.ttf
-        - asset: assets/fonts/Tajawal-Medium.ttf
+        - asset: fonts/Tajawal-Black.ttf
+        - asset: fonts/Tajawal-Bold.ttf
+        - asset: fonts/Tajawal-ExtraBold.ttf
+        - asset: fonts/Tajawal-ExtraLight.ttf
+        - asset: fonts/Tajawal-Light.ttf
+        - asset: fonts/Tajawal-Medium.ttf
+        - asset: fonts/Tajawal-Regular.ttf
