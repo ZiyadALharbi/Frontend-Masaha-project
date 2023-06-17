@@ -92,6 +92,7 @@ class _SignUpState extends State<SignUp> {
                         },
                         child: const CustomButton(
                           buttonTitle: 'حساب جديد',
+                          textSize: 18,
                         )),
                   ),
                   Center(
