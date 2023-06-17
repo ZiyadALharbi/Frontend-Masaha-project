@@ -1,6 +1,7 @@
-// ignore_for_file: must_be_immutable
+// ignore_for_file: must_be_immutable, use_build_context_synchronously
 
 import 'package:flutter/material.dart';
+import 'package:frontend/constants/spaces.dart';
 import '../../services/extensions/next_page.dart';
 import '../../components/auth/popup_message.dart';
 import '../../components/auth/radio_button.dart';
@@ -28,7 +29,7 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: white,
       body: SafeArea(
         child: SingleChildScrollView(
           child: ConstrainedBox(
@@ -37,10 +38,9 @@ class _SignUpState extends State<SignUp> {
               padding: const EdgeInsets.symmetric(vertical: 52, horizontal: 48),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   const TitlePage(title: 'حساب جديد'),
-                  const TextButtonQuestion(
+                   TextButtonQuestion(
                     question: 'لديك حساب؟',
                     login: 'تسجيل الدخول',
                     page: LogIn(),
@@ -49,25 +49,25 @@ class _SignUpState extends State<SignUp> {
                     label: 'الإسم',
                     textController: nameController,
                   ),
-                  const SizedBox(height: 24),
+                  kVSpace24,
                   TextFieldCustom(
                       label: 'رقم الجوال', textController: phoneController),
-                  const SizedBox(height: 24),
+                  kVSpace24,
                   TextFieldCustom(
                       label: 'البريد الالكتروني',
                       textController: emailController),
-                  const SizedBox(height: 24),
+                  kVSpace24,
                   const Row(
                     children: [
                       RadioButton(text: 'عميل'),
-                      SizedBox(width: 24),
+                      kHSpace24,
                       RadioButton(text: 'مالك'),
                     ],
                   ),
-                  const SizedBox(height: 24),
+                  kVSpace24,
                   TextFieldCustom(
                       label: 'كلمة المرور', textController: passwordController),
-                  const SizedBox(height: 24),
+                  kVSpace32,
                   Center(
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
@@ -94,11 +94,12 @@ class _SignUpState extends State<SignUp> {
                           buttonTitle: 'حساب جديد',
                         )),
                   ),
+                  kVSpace16,
                   Center(
                       child: SizedBox(
-                          width: 300,
-                          height: 300,
-                          child: Image.asset('images/work-place.png'))),
+                          width: 266,
+                          height: 266,
+                          child: Image.asset('images/office-workplace.png'))),
                 ],
               ),
             ),

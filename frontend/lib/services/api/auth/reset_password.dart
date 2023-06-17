@@ -5,9 +5,9 @@ import 'package:frontend/services/constant_api.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 
-Future<Response> loginUser({required Map body}) async {
+Future<Response> resetPassword({required Map body}) async {
   try {
-    var url = Uri.http(Api().url, Api().loginAccount);
+    var url = Uri.http(Api().url, Api().resetPassword);
     var response = await http.post(url, body: json.encode(body));
 
     return response;

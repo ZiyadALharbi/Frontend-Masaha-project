@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/constants/colors.dart';
-
+import '../../constants/colors.dart';
 import '../../components/home/home_nav.dart';
 
 class HomeScreen extends StatefulWidget {

@@ -1,8 +1,10 @@
-// ignore_for_file: must_be_immutable
+// ignore_for_file: must_be_immutable, use_build_context_synchronously
 
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:frontend/services/extensions/next_page.dart';
+import '../../constants/spaces.dart';
+import '../../services/extensions/next_page.dart';
+import 'reset_password.dart';
 import 'sign_up.dart';
 import 'package:get_storage/get_storage.dart';
 import '../../components/auth/popup_message.dart';
@@ -28,7 +30,7 @@ class _LogInState extends State<LogIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: white,
       body: SafeArea(
         child: SingleChildScrollView(
           child: ConstrainedBox(
@@ -40,18 +42,24 @@ class _LogInState extends State<LogIn> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   const TitlePage(title: 'تسجيل الدخول'),
-                  const TextButtonQuestion(
+                  TextButtonQuestion(
                     question: 'ليس لديك حساب؟',
                     login: 'حساب جديد',
                     page: SignUp(),
                   ),
+                  kVSpace32,
                   TextFieldCustom(
                       label: 'البريد الالكتروني',
                       textController: emailController),
-                  const SizedBox(height: 24),
+                  kVSpace24,
                   TextFieldCustom(
                       label: 'كلمة المرور', textController: passwordController),
-                  const SizedBox(height: 24),
+                  kVSpace24,
+                  TextButtonQuestion(
+                    login: 'نسيت كلمة المرور؟',
+                    page: ResetPassowrd(),
+                  ),
+                  kVSpace64,
                   Center(
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
@@ -80,12 +88,12 @@ class _LogInState extends State<LogIn> {
                           buttonTitle: 'تسجيل الدخول',
                         )),
                   ),
-                  const SizedBox(height: 24),
+                  kVSpace16,
                   Center(
                       child: SizedBox(
-                          width: 300,
-                          height: 300,
-                          child: Image.asset('images/work-place.png'))),
+                          width: 266,
+                          height: 266,
+                          child: Image.asset('images/office-workplace.png'))),
                   ElevatedButton(
                       onPressed: () {
                         context.nextPage(

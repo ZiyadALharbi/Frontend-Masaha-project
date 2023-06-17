@@ -1,18 +1,15 @@
-import 'package:flutter/material.dart';
-import 'package:frontend/services/extensions/next_page.dart';
+// ignore_for_file: must_be_immutable
 
+import 'package:flutter/material.dart';
+import '../services/extensions/next_page.dart';
 import '../constants/colors.dart';
 
 class TextButtonQuestion extends StatefulWidget {
-  const TextButtonQuestion(
-      {super.key,
-      required this.question,
-      required this.login,
-      required this.page});
+  TextButtonQuestion({super.key, this.question, this.login, this.page});
 
-  final String question;
-  final String login;
-  final Widget page;
+  String? question;
+  String? login;
+  Widget? page;
 
   @override
   State<TextButtonQuestion> createState() => _TextButtonQuestionState();
@@ -24,7 +21,7 @@ class _TextButtonQuestionState extends State<TextButtonQuestion> {
     return Row(
       children: [
         Text(
-          widget.question,
+          widget.question ?? '',
           style: TextStyle(
               fontFamily: 'Tajawal',
               fontWeight: FontWeight.w400,
@@ -34,9 +31,9 @@ class _TextButtonQuestionState extends State<TextButtonQuestion> {
         TextButton(
           onPressed: () {
             setState(() {});
-            context.nextPage(view: widget.page);
+            context.nextPage(view: widget.page ?? SizedBox.shrink());
           },
-          child: Text(widget.login,
+          child: Text(widget.login ?? '',
               style: TextStyle(
                   fontFamily: 'Tajawal',
                   fontWeight: FontWeight.w400,
