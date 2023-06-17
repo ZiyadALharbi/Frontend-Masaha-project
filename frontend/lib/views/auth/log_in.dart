@@ -2,15 +2,17 @@
 
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import '../views/sign_up.dart';
+import 'package:frontend/services/extensions/next_page.dart';
+import 'sign_up.dart';
 import 'package:get_storage/get_storage.dart';
-import '../components/auth/popup_message.dart';
-import '../components/custom_button.dart';
-import '../components/text_button.dart';
-import '../components/textfield.dart';
-import '../components/title_page.dart';
-import '../constants/colors.dart';
-import '../services/api/auth/login_user.dart';
+import '../../components/auth/popup_message.dart';
+import '../../components/custom_button.dart';
+import '../../components/text_button.dart';
+import '../../components/textfield.dart';
+import '../../components/title_page.dart';
+import '../../constants/colors.dart';
+import '../../services/api/auth/login_user.dart';
+import '../owner/home_screen.dart';
 
 class LogIn extends StatefulWidget {
   const LogIn({super.key});
@@ -30,15 +32,15 @@ class _LogInState extends State<LogIn> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: ConstrainedBox(
-            constraints: BoxConstraints(),
+            constraints: const BoxConstraints(),
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 88, horizontal: 48),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  TitlePage(title: 'تسجيل الدخول'),
-                  TextButtonQuestion(
+                  const TitlePage(title: 'تسجيل الدخول'),
+                  const TextButtonQuestion(
                     question: 'ليس لديك حساب؟',
                     login: 'حساب جديد',
                     page: SignUp(),
@@ -46,10 +48,10 @@ class _LogInState extends State<LogIn> {
                   TextFieldCustom(
                       label: 'البريد الالكتروني',
                       textController: emailController),
-                  SizedBox(height: 24),
+                  const SizedBox(height: 24),
                   TextFieldCustom(
                       label: 'كلمة المرور', textController: passwordController),
-                  SizedBox(height: 24),
+                  const SizedBox(height: 24),
                   Center(
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
@@ -69,20 +71,28 @@ class _LogInState extends State<LogIn> {
                           } else {
                             showDialog(
                               context: context,
-                              builder: (BuildContext context) => PopUpMessage(),
+                              builder: (BuildContext context) =>
+                                  const PopUpMessage(),
                             );
                           }
                         },
-                        child: CustomButton(
+                        child: const CustomButton(
                           buttonTitle: 'تسجيل الدخول',
                         )),
                   ),
-                  SizedBox(height: 24),
+                  const SizedBox(height: 24),
                   Center(
                       child: SizedBox(
                           width: 300,
                           height: 300,
                           child: Image.asset('images/work-place.png'))),
+                  ElevatedButton(
+                      onPressed: () {
+                        context.nextPage(
+                          view: const HomeScreen(),
+                        );
+                      },
+                      child: const Icon(Icons.next_plan))
                 ],
               ),
             ),

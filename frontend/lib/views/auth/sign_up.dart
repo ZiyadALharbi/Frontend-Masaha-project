@@ -1,15 +1,15 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
-import '../services/extensions/next_page.dart';
-import '../components/auth/popup_message.dart';
-import '../components/auth/radio_button.dart';
-import '../components/custom_button.dart';
-import '../components/text_button.dart';
-import '../components/textfield.dart';
-import '../components/title_page.dart';
-import '../constants/colors.dart';
-import '../services/api/auth/create_user.dart';
+import '../../services/extensions/next_page.dart';
+import '../../components/auth/popup_message.dart';
+import '../../components/auth/radio_button.dart';
+import '../../components/custom_button.dart';
+import '../../components/text_button.dart';
+import '../../components/textfield.dart';
+import '../../components/title_page.dart';
+import '../../constants/colors.dart';
+import '../../services/api/auth/create_user.dart';
 import 'log_in.dart';
 
 class SignUp extends StatefulWidget {
@@ -32,15 +32,15 @@ class _SignUpState extends State<SignUp> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: ConstrainedBox(
-            constraints: BoxConstraints(),
+            constraints: const BoxConstraints(),
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 52, horizontal: 48),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  TitlePage(title: 'حساب جديد'),
-                  TextButtonQuestion(
+                  const TitlePage(title: 'حساب جديد'),
+                  const TextButtonQuestion(
                     question: 'لديك حساب؟',
                     login: 'تسجيل الدخول',
                     page: LogIn(),
@@ -49,25 +49,25 @@ class _SignUpState extends State<SignUp> {
                     label: 'الإسم',
                     textController: nameController,
                   ),
-                  SizedBox(height: 24),
+                  const SizedBox(height: 24),
                   TextFieldCustom(
                       label: 'رقم الجوال', textController: phoneController),
-                  SizedBox(height: 24),
+                  const SizedBox(height: 24),
                   TextFieldCustom(
                       label: 'البريد الالكتروني',
                       textController: emailController),
-                  SizedBox(height: 24),
-                  Row(
+                  const SizedBox(height: 24),
+                  const Row(
                     children: [
                       RadioButton(text: 'عميل'),
                       SizedBox(width: 24),
                       RadioButton(text: 'مالك'),
                     ],
                   ),
-                  SizedBox(height: 24),
+                  const SizedBox(height: 24),
                   TextFieldCustom(
                       label: 'كلمة المرور', textController: passwordController),
-                  SizedBox(height: 24),
+                  const SizedBox(height: 24),
                   Center(
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
@@ -81,15 +81,16 @@ class _SignUpState extends State<SignUp> {
                             "name": nameController.text
                           });
                           if (response.statusCode == 200) {
-                            context.nextPage(view: LogIn());
+                            context.nextPage(view: const LogIn());
                           } else {
                             showDialog(
                               context: context,
-                              builder: (BuildContext context) => PopUpMessage(),
+                              builder: (BuildContext context) =>
+                                  const PopUpMessage(),
                             );
                           }
                         },
-                        child: CustomButton(
+                        child: const CustomButton(
                           buttonTitle: 'حساب جديد',
                         )),
                   ),
