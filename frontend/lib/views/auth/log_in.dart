@@ -45,7 +45,7 @@ class _LogInState extends State<LogIn> {
                   TextButtonQuestion(
                     question: 'ليس لديك حساب؟',
                     login: 'حساب جديد',
-                    page: SignUp(),
+                    page: const SignUp(),
                   ),
                   kVSpace32,
                   TextFieldCustom(
@@ -57,7 +57,7 @@ class _LogInState extends State<LogIn> {
                   kVSpace24,
                   TextButtonQuestion(
                     login: 'نسيت كلمة المرور؟',
-                    page: ResetPassowrd(),
+                    page: const ResetPassowrd(),
                   ),
                   kVSpace64,
                   Center(

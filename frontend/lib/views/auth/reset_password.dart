@@ -26,13 +26,13 @@ class _ResetPassowrdState extends State<ResetPassowrd> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: ConstrainedBox(
-            constraints: BoxConstraints(),
+            constraints: const BoxConstraints(),
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 75, horizontal: 28),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  TitlePage(title: 'نسيت كلمة المرور'),
+                  const TitlePage(title: 'نسيت كلمة المرور'),
                   TextButtonQuestion(
                       question:
                           'سوف يتم إرسال رمز التحقق على البريد الالكتروني'),
@@ -56,7 +56,7 @@ class _ResetPassowrdState extends State<ResetPassowrd> {
                             context.nextPage(view: const ConfirmPassword());
                           }
                         },
-                        child: CustomButton(buttonTitle: 'أرسل رمز التحقق', textSize: 18)),
+                        child: const CustomButton(buttonTitle: 'أرسل رمز التحقق', textSize: 18)),
                   )
                 ],
               ),

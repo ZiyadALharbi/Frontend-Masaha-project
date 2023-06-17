@@ -43,7 +43,7 @@ class _SignUpState extends State<SignUp> {
                    TextButtonQuestion(
                     question: 'لديك حساب؟',
                     login: 'تسجيل الدخول',
-                    page: LogIn(),
+                    page: const LogIn(),
                   ),
                   TextFieldCustom(
                     label: 'الإسم',

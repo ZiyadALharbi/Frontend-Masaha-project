@@ -31,7 +31,7 @@ class _TextButtonQuestionState extends State<TextButtonQuestion> {
         TextButton(
           onPressed: () {
             setState(() {});
-            context.nextPage(view: widget.page ?? SizedBox.shrink());
+            context.nextPage(view: widget.page ?? const SizedBox.shrink());
           },
           child: Text(widget.login ?? '',
               style: TextStyle(

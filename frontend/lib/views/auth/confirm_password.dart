@@ -24,13 +24,13 @@ class _ConfirmPasswordState extends State<ConfirmPassword> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: ConstrainedBox(
-            constraints: BoxConstraints(),
+            constraints: const BoxConstraints(),
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 75, horizontal: 29),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  TitlePage(title: 'تأكيد كلمة المرور'),
+                  const TitlePage(title: 'تأكيد كلمة المرور'),
                   TextButtonQuestion(question: 'استعدت حسابك بنجاح'),
                   Image.asset('images/otp-security.png',
                       width: 316, height: 316),
@@ -56,7 +56,7 @@ class _ConfirmPasswordState extends State<ConfirmPassword> {
                             // context.nextPage(view: ??);
                           }
                         },
-                        child: CustomButton(buttonTitle: ' حفظ', textSize: 18)),
+                        child: const CustomButton(buttonTitle: ' حفظ', textSize: 18)),
                   )
                 ],
               ),
