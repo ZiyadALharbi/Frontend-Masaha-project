@@ -86,6 +86,7 @@ class _LogInState extends State<LogIn> {
                         },
                         child: const CustomButton(
                           buttonTitle: 'تسجيل الدخول',
+                          textSize: 18,
                         )),
                   ),
                   kVSpace16,

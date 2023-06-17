@@ -56,7 +56,7 @@ class _ConfirmPasswordState extends State<ConfirmPassword> {
                             // context.nextPage(view: ??);
                           }
                         },
-                        child: CustomButton(buttonTitle: ' حفظ')),
+                        child: CustomButton(buttonTitle: ' حفظ', textSize: 18)),
                   )
                 ],
               ),

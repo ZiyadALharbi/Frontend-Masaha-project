@@ -56,7 +56,7 @@ class _ResetPassowrdState extends State<ResetPassowrd> {
                             context.nextPage(view: const ConfirmPassword());
                           }
                         },
-                        child: CustomButton(buttonTitle: 'أرسل رمز التحقق')),
+                        child: CustomButton(buttonTitle: 'أرسل رمز التحقق', textSize: 18)),
                   )
                 ],
               ),
