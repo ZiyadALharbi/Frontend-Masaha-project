@@ -9,4 +9,6 @@ const kVSpace8 = SizedBox(height: 8);
 const kVSpace16 = SizedBox(height: 16);
 const kVSpace24 = SizedBox(height: 24);
 const kVSpace32 = SizedBox(height: 32);
+const kVSpace40 = SizedBox(height: 40);
+const kVSpace48 = SizedBox(height: 48);
 const kVSpace64 = SizedBox(height: 64);
