@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 import '../../constants/colors.dart';
 import '../../views/CustomerScreens/List_of_reservationsScreen.dart';
+import '../../views/CustomerScreens/Profile.dart';
 import '../../views/CustomerScreens/test.dart';
 import '../../views/CustomerScreens/test1.dart';
-import '../../views/CustomerScreens/test2.dart';
 
 class CustomerNavBar extends StatefulWidget {
   const CustomerNavBar({super.key});
@@ -19,7 +19,7 @@ class _CustomerNavBarState extends State<CustomerNavBar> {
     const MyWidget2(),
     const ListOfReservationsScreen(),
     const MyWidget1(),
-    const MyWidget()
+    const ProfileCustomer()
   ];
   int currentIndex = 0;
 
