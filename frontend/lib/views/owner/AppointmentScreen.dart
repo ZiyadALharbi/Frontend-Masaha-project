@@ -31,12 +31,12 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
             ),
 
             //____________body or TabBarView____________
-            body: const Directionality(
+            body: Directionality(
               textDirection: TextDirection.ltr,
               child: TabBarView(children: [
                 //_____________Saturday Page____________________
-                Column(
-                  children: [
+                ListView(
+                  children: const [
                     kVSpace48,
                     AppointmentsText(),
                     CardCustomerAppointments(
@@ -48,8 +48,8 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                   ],
                 ),
                 //_____________Friday Page_________________
-                Column(
-                  children: [
+                ListView(
+                  children: const [
                     kVSpace48,
                     AppointmentsText(),
                     CardCustomerAppointments(
@@ -61,8 +61,8 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                   ],
                 ),
                 //_____________Thursday Page_________________
-                Column(
-                  children: [
+                ListView(
+                  children: const [
                     kVSpace48,
                     AppointmentsText(),
                     CardCustomerAppointments(
@@ -74,8 +74,8 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                   ],
                 ),
                 //_____________Wednesday Page_________________
-                Column(
-                  children: [
+                ListView(
+                  children: const [
                     kVSpace48,
                     AppointmentsText(),
                     CardCustomerAppointments(
@@ -87,8 +87,8 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                   ],
                 ),
                 //_____________Tuesday Page_________________
-                Column(
-                  children: [
+                ListView(
+                  children: const [
                     kVSpace48,
                     AppointmentsText(),
                     CardCustomerAppointments(
@@ -100,8 +100,8 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                   ],
                 ),
                 //_____________Monday Page_________________
-                Column(
-                  children: [
+                ListView(
+                  children: const [
                     kVSpace48,
                     AppointmentsText(),
                     CardCustomerAppointments(
@@ -113,8 +113,8 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                   ],
                 ),
                 //_____________Sunday Page_________________
-                Column(
-                  children: [
+                ListView(
+                  children: const [
                     kVSpace48,
                     AppointmentsText(),
                     CardCustomerAppointments(
@@ -122,6 +122,24 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                       DateAppointments: "5:30-2023/6/23 ",
                       BookingStatus: "تم الحجز",
                       Diys: " الاحد",
+                    ),
+                    CardCustomerAppointments(
+                      NameCustomer: "عمر الشهري",
+                      DateAppointments: "5:30-2023/6/23 ",
+                      BookingStatus: "ملغي",
+                      Diys: " الجمعة ",
+                    ),
+                    CardCustomerAppointments(
+                      NameCustomer: "فايز خشيم",
+                      DateAppointments: "5:30-2023/6/23 ",
+                      BookingStatus: "تم الحجز",
+                      Diys: " الاحد",
+                    ),
+                    CardCustomerAppointments(
+                      NameCustomer: "عمر الشهري",
+                      DateAppointments: "5:30-2023/6/23 ",
+                      BookingStatus: "ملغي",
+                      Diys: " الجمعة ",
                     ),
                   ],
                 ),
