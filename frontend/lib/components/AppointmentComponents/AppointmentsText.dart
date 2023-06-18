@@ -17,6 +17,7 @@ class AppointmentsText extends StatelessWidget {
           ),
           child: Text(
             "المواعيد",
+            
             textAlign: TextAlign.start,
             style: TextStyle(
                 fontFamily: 'Tajawal',

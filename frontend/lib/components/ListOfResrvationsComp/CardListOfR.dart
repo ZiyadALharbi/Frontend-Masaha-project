@@ -47,45 +47,76 @@ class CardListOfReservations extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(
-                            top: 11.0, bottom: 32, left: 20, right: 60),
+                            top: 11.0, bottom: 20, left: 20, right: 60),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Row(
                               children: [
-                                Text(
-                                  "$ThePrice  ر.س",
-                                  style: const TextStyle(fontSize: 19),
+                                SizedBox(
+                                  width: 70,
+                                  child: Text(
+                                    "$ThePrice  ر.س",
+                                    overflow: TextOverflow.ellipsis,
+                                    style: const TextStyle(
+                                      fontSize: 19,
+                                      fontFamily: 'Tajawal',
+                                    ),
+                                  ),
                                 )
                               ],
                             ),
                             Row(
-                              children: [Text(Date)],
+                              children: [
+                                SizedBox(
+                                    width: 25,
+                                    child: Text(Date,
+                                        style: const TextStyle(
+                                          fontFamily: 'Tajawal',
+                                        ),
+                                        overflow: TextOverflow.ellipsis))
+                              ],
                             ),
                           ],
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 12.0, right: 5),
+                        padding: const EdgeInsets.only(
+                            top: 12.0, right: 12, bottom: 20),
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Row(
                               children: [
-                                Text(
-                                  NameSpace,
-                                  style: const TextStyle(
+                                SizedBox(
+                                  width: 50,
+                                  child: Text(
+                                    NameSpace,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: const TextStyle(
+                                      fontFamily: 'Tajawal',
                                       fontSize: 20,
-                                      fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
                                 )
                               ],
                             ),
-                            const Padding(
-                              padding: EdgeInsets.only(top: 24),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 39),
                               child: Row(
-                                children: [Text("Address")],
+                                children: [
+                                  InkWell(
+                                      onTap: () {},
+                                      child: const Text(
+                                        "الموقع",
+                                        style: TextStyle(
+                                          fontSize: 17,
+                                          fontFamily: 'Tajawal',
+                                        ),
+                                      ))
+                                ],
                               ),
                             ),
                           ],

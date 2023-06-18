@@ -15,7 +15,10 @@ class TextListOfReservations extends StatelessWidget {
           child: Text(
             "قائمة الحجوزات",
             textAlign: TextAlign.end,
-            style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              fontSize: 35,
+              fontFamily: 'Tajawal',
+            ),
           ),
         )
       ],
