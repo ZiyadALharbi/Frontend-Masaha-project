@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:frontend/views/auth/sign_up.dart';
 import 'views/onboard/onboard.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       ],
       supportedLocales: [Locale("ar", "")],
       locale: Locale("ar", ""),
-      home: OnBoard(),
+      home: SignUp(),
     );
   }
 }

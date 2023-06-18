@@ -40,7 +40,7 @@ class _SignUpState extends State<SignUp> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const TitlePage(title: 'حساب جديد'),
-                   TextButtonQuestion(
+                  TextButtonQuestion(
                     question: 'لديك حساب؟',
                     login: 'تسجيل الدخول',
                     page: const LogIn(),
@@ -57,13 +57,7 @@ class _SignUpState extends State<SignUp> {
                       label: 'البريد الالكتروني',
                       textController: emailController),
                   kVSpace24,
-                  const Row(
-                    children: [
-                      RadioButton(text: 'عميل'),
-                      kHSpace24,
-                      RadioButton(text: 'مالك'),
-                    ],
-                  ),
+                  const RadioButton(),
                   kVSpace24,
                   TextFieldCustom(
                       label: 'كلمة المرور', textController: passwordController),
