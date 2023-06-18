@@ -3,12 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/constants/spaces.dart';
 import '../../services/extensions/next_page.dart';
-import '../../components/auth/popup_message.dart';
 import '../../components/auth/radio_button.dart';
-import '../../components/custom_button.dart';
-import '../../components/text_button.dart';
-import '../../components/textfield.dart';
-import '../../components/title_page.dart';
+import '../../components/All/custom_button.dart';
+import '../../components/All/text_button.dart';
+import '../../components/All/textfield.dart';
+import '../../components/All/title_page.dart';
 import '../../constants/colors.dart';
 import 'log_in.dart';
 

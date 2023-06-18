@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/components/title_page.dart';
+import 'package:frontend/components/All/title_page.dart';
 import 'package:frontend/constants/colors.dart';
 import 'package:frontend/constants/spaces.dart';
 import 'package:frontend/services/extensions/next_page.dart';
-import '../../components/custom_button.dart';
-import '../../components/text_button.dart';
-import '../../components/textfield.dart';
+import '../../components/All/custom_button.dart';
+import '../../components/All/text_button.dart';
+import '../../components/All/textfield.dart';
 import '../../services/api/auth/reset_password.dart';
 import 'confirm_password.dart';
 
@@ -49,14 +49,14 @@ class _ResetPassowrdState extends State<ResetPassowrd> {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10))),
                         onPressed: () async {
-                          final response = await resetPassword(body: {
-                            "email": emailController.text
-                          });
+                          final response = await resetPassword(
+                              body: {"email": emailController.text});
                           if (response.statusCode == 200) {
                             context.nextPage(view: const ConfirmPassword());
                           }
                         },
-                        child: const CustomButton(buttonTitle: 'أرسل رمز التحقق', textSize: 18)),
+                        child: const CustomButton(
+                            buttonTitle: 'أرسل رمز التحقق', textSize: 18)),
                   )
                 ],
               ),

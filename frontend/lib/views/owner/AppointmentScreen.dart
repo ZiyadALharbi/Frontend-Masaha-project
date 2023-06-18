@@ -142,9 +142,6 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
               ),
             ]),
           ),
-
-          //_____________bottomNavigationBar________________
-          // bottomNavigationBar: const HomeNav(),
         ));
   }
 }

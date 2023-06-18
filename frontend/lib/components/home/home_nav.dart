@@ -1,7 +1,7 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:frontend/views/owner/profile.dart';
-import 'package:frontend/views/owner/test.dart';
+import 'package:frontend/views/owner/home_screen.dart';
 import '../../constants/colors.dart';
 import '../../views/owner/AppointmentScreen.dart';
 // import '../../views/owner/home_screen.dart';
@@ -15,9 +15,9 @@ class HomeNav extends StatefulWidget {
 
 class _HomeNavState extends State<HomeNav> {
   List screens = [
-    const TestHome(),
+    const HomeScreen(),
     const AppointmentScreen(),
-    const Profile(),
+    const ProfileOwner(),
   ];
   int currentIndex = 0;
 

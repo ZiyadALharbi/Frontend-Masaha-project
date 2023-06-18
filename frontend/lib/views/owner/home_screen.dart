@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/services/extensions/next_page.dart';
 
-import '../../components/custom_button.dart';
+import '../../components/All/custom_button.dart';
 import '../../components/home/space_card.dart';
 import '../../constants/colors.dart';
 import 'add_space.dart';
 
-class TestHome extends StatefulWidget {
-  const TestHome({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<TestHome> createState() => _TestHomeState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _TestHomeState extends State<TestHome> {
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return ListView(

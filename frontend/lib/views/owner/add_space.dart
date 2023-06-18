@@ -2,10 +2,10 @@
 
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-import 'package:frontend/components/custom_button.dart';
-import 'package:frontend/components/textfield.dart';
+import 'package:frontend/components/All/custom_button.dart';
+import 'package:frontend/components/All/textfield.dart';
 import 'package:frontend/constants/spaces.dart';
-import '../../components/drop_down_menu.dart';
+import '../../components/All/drop_down_menu.dart';
 import '../../constants/colors.dart';
 
 class AddSpace extends StatefulWidget {

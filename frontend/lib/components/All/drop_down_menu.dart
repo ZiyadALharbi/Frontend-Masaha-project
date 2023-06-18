@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:multiselect/multiselect.dart';
-import '../constants/colors.dart';
+import '../../constants/colors.dart';
 
 class DropDownMenuOwner extends StatefulWidget {
   DropDownMenuOwner(

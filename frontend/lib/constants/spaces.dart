@@ -12,3 +12,5 @@ const kVSpace32 = SizedBox(height: 32);
 const kVSpace40 = SizedBox(height: 40);
 const kVSpace48 = SizedBox(height: 48);
 const kVSpace64 = SizedBox(height: 64);
+const kVSpace70 = SizedBox(height: 70);
+const kVSpace90 = SizedBox(height: 90);

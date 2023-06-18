@@ -1,20 +1,16 @@
 // ignore_for_file: must_be_immutable, use_build_context_synchronously
 
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:frontend/views/owner/test.dart';
+import 'package:frontend/views/owner/home_screen.dart';
 import '../../constants/spaces.dart';
-import '../../services/api/auth/login_user.dart';
 import '../../services/extensions/next_page.dart';
 import '../owner/bottom_bar.dart';
 import 'reset_password.dart';
 import 'sign_up.dart';
-import 'package:get_storage/get_storage.dart';
-import '../../components/auth/popup_message.dart';
-import '../../components/custom_button.dart';
-import '../../components/text_button.dart';
-import '../../components/textfield.dart';
-import '../../components/title_page.dart';
+import '../../components/All/custom_button.dart';
+import '../../components/All/text_button.dart';
+import '../../components/All/textfield.dart';
+import '../../components/All/title_page.dart';
 import '../../constants/colors.dart';
 
 class LogIn extends StatefulWidget {
@@ -99,7 +95,7 @@ class _LogInState extends State<LogIn> {
                   ElevatedButton(
                       onPressed: () {
                         context.nextPage(
-                          view: const TestHome(),
+                          view: const HomeScreen(),
                         );
                       },
                       child: const Icon(Icons.next_plan))

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../constants/colors.dart';
+import '../../constants/colors.dart';
 
 class TitlePage extends StatelessWidget {
   const TitlePage({super.key, required this.title});
