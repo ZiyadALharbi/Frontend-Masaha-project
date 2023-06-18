@@ -111,7 +111,8 @@ class _AddSpaceState extends State<AddSpace> {
                                   onPressed: () {},
                                   child: const CustomButton(
                                       buttonTitle: 'اختيار من الجهاز',
-                                      textSize: 8))
+                                      textSize: 8,
+                                      fontWeight: FontWeight.w400))
                             ],
                           ),
                         ),
@@ -125,7 +126,9 @@ class _AddSpaceState extends State<AddSpace> {
                             ElevatedButton.styleFrom(backgroundColor: darkBlue),
                         onPressed: () {},
                         child: const CustomButton(
-                            buttonTitle: 'اضافة', textSize: 8)),
+                            buttonTitle: 'اضافة',
+                            textSize: 8,
+                            fontWeight: FontWeight.w400)),
                   )
                 ],
               ),

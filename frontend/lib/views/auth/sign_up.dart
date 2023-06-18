@@ -69,20 +69,21 @@ class _SignUpState extends State<SignUp> {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10))),
                         onPressed: () async {
-                          final response = await createUser(body: {
-                            "email": emailController.text,
-                            "password": passwordController.text,
-                            "name": nameController.text
-                          });
-                          if (response.statusCode == 200) {
-                            context.nextPage(view: const LogIn());
-                          } else {
-                            showDialog(
-                              context: context,
-                              builder: (BuildContext context) =>
-                                  const PopUpMessage(),
-                            );
-                          }
+                          // final response = await createUser(body: {
+                          //   "email": emailController.text,
+                          //   "password": passwordController.text,
+                          //   "name": nameController.text
+                          // });
+                          context.nextPage(view: const LogIn());
+                          // if (response.statusCode == 200) {
+                          //   context.nextPage(view: const LogIn());
+                          // } else {
+                          //   showDialog(
+                          //     context: context,
+                          //     builder: (BuildContext context) =>
+                          //         const PopUpMessage(),
+                          //   );
+                          // }
                         },
                         child: const CustomButton(
                           buttonTitle: 'حساب جديد',

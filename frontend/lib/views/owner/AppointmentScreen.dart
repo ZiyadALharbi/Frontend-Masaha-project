@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-
 import '../../components/AppointmentComponents/AppointmentsText.dart';
 import '../../components/AppointmentComponents/CardCustomerAppointments.dart';
 import '../../components/AppointmentComponents/TabBarAppointmentComp.dart';
-
 import '../../components/home/home_nav.dart';
 import '../../constants/colors.dart';
 import '../../constants/spaces.dart';
