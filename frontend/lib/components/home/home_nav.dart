@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../constants/colors.dart';
 
 class HomeNav extends StatefulWidget {
-  const HomeNav( {super.key});
+  const HomeNav({super.key});
 
   @override
   State<HomeNav> createState() => _HomeNavState();

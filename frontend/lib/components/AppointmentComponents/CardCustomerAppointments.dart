@@ -31,18 +31,12 @@ class CardCustomerAppointments extends StatelessWidget {
       ColorStatys = green;
     }
 
-    return SizedBox(
-      height: 500,
-      child: ListView(children: [
-        const Column(
-          children: [
-            
-           
-            kVSpace8,
-          ],
-        ),
+    return Column(
+      children: [
+        kVSpace8,
         Column(
           children: [
+            kVSpace8,
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ClipRRect(
@@ -130,7 +124,7 @@ class CardCustomerAppointments extends StatelessWidget {
                                           ),
                                         ],
                                       ),
-                                    )
+                                    ),
                                   ],
                                 ),
                               ],
@@ -144,8 +138,8 @@ class CardCustomerAppointments extends StatelessWidget {
               ),
             ),
           ],
-        )
-      ]),
+        ),
+      ],
     );
   }
 }
