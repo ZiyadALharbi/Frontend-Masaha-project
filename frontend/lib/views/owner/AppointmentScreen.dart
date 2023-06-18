@@ -40,7 +40,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                     kVSpace48,
                     AppointmentsText(),
                     CardCustomerAppointments(
-                      NameCustomer: "وليد خشيم",
+                      NameCustomer: "الوليد خشيم",
                       DateAppointments: " 5:30-2023/6/23  ",
                       BookingStatus: "تم الحجز",
                       Diys: " السبت",
@@ -53,7 +53,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                     kVSpace48,
                     AppointmentsText(),
                     CardCustomerAppointments(
-                      NameCustomer: "الشهري عمر",
+                      NameCustomer: "عمر الشهري",
                       DateAppointments: "5:30-2023/6/23 ",
                       BookingStatus: "ملغي",
                       Diys: " الجمعة ",
@@ -79,7 +79,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                     kVSpace48,
                     AppointmentsText(),
                     CardCustomerAppointments(
-                      NameCustomer: "رياد الحربي",
+                      NameCustomer: "زياد الحربي",
                       DateAppointments: "5:30-2023/6/23 ",
                       BookingStatus: "ملغي",
                       Diys: " الابعاء",
@@ -105,7 +105,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                     kVSpace48,
                     AppointmentsText(),
                     CardCustomerAppointments(
-                      NameCustomer: "اخمد خالد",
+                      NameCustomer: "احمد خالد",
                       DateAppointments: "5:30-2023/6/23 ",
                       BookingStatus: "تم الحجز",
                       Diys: " الاثنين",

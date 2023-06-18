@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:frontend/views/owner/AppointmentScreen.dart';
+import 'package:frontend/views/owner/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       ],
       supportedLocales: [Locale("ar", "")],
       locale: Locale("ar", ""),
-      home: AppointmentScreen(),
+      home: HomeScreen(),
     );
   }
 }
