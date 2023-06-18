@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/services/extensions/next_page.dart';
+import 'package:frontend/views/owner/add_space.dart';
 import '../../constants/colors.dart';
 import '../../components/custom_button.dart';
 import '../../components/home/home_nav.dart';
@@ -37,7 +39,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           backgroundColor: darkBlue,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10))),
-                      onPressed: () async {},
+                      onPressed: () async {
+                        context.nextPage(view: const AddSpace());
+                        setState(() {});
+                      },
                       child: const CustomButton(
                         buttonTitle: '     إضافة     ',
                         textSize: 12,
