@@ -19,6 +19,7 @@ dependencies:
   multiselect: ^0.1.0
   image_picker: ^0.8.9
   dotted_border: ^2.0.0+3
+  smooth_page_indicator: ^1.1.0
 
 dev_dependencies:
   flutter_test:

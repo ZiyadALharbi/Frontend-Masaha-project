@@ -3,10 +3,14 @@ import '../constants/colors.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton(
-      {super.key, required this.buttonTitle, required this.textSize});
+      {super.key,
+      required this.buttonTitle,
+      required this.textSize,
+      this.fontWeight});
 
   final String buttonTitle;
   final double textSize;
+  final FontWeight? fontWeight;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +18,7 @@ class CustomButton extends StatelessWidget {
       buttonTitle,
       style: TextStyle(
           fontFamily: 'Tajawal',
-          fontWeight: FontWeight.w700,
+          fontWeight: fontWeight ?? FontWeight.w700,
           fontSize: textSize,
           color: white),
     );
