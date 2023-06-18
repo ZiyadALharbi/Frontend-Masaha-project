@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CardArchivesScreens extends StatelessWidget {
-  const CardArchivesScreens({
+class CardArchives extends StatelessWidget {
+  const CardArchives({
     super.key,
     required this.NameSpace,
     this.Address,
@@ -43,8 +43,8 @@ class CardArchivesScreens extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Padding(
-                        padding:  EdgeInsets.only(
+                      const Padding(
+                        padding: EdgeInsets.only(
                             top: 11.0, bottom: 20, left: 20, right: 60),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -54,7 +54,9 @@ class CardArchivesScreens extends StatelessWidget {
                               children: [
                                 SizedBox(
                                   width: 70,
-                                  child: Icon(Icons.heart_broken),
+                                  child: Icon(Icons.favorite,
+                                      size: 35,
+                                      color: Color.fromARGB(255, 255, 0, 0)),
                                 )
                               ],
                             ),
@@ -62,8 +64,9 @@ class CardArchivesScreens extends StatelessWidget {
                               children: [
                                 SizedBox(
                                   width: 70,
-                                  child:
-                                      Icon(Icons.restore_from_trash_outlined),
+                                  child: Icon(Icons.restore_from_trash_outlined,
+                                      size: 32,
+                                      color: Color.fromARGB(255, 239, 124, 0)),
                                 )
                               ],
                             ),
@@ -81,15 +84,15 @@ class CardArchivesScreens extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 SizedBox(
-                                  width: 50,
+                                  width: 80,
                                   child: Text(
                                     NameSpace,
                                     textAlign: TextAlign.end,
                                     overflow: TextOverflow.ellipsis,
                                     style: const TextStyle(
-                                      fontFamily: 'Tajawal',
-                                      fontSize: 20,
-                                    ),
+                                        fontFamily: 'Tajawal',
+                                        fontSize: 26,
+                                        fontWeight: FontWeight.bold),
                                   ),
                                 )
                               ],

@@ -2,10 +2,11 @@ import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/colors.dart';
+import '../../views/CustomerScreens/ArchivesScreens.dart';
 import '../../views/CustomerScreens/List_of_reservationsScreen.dart';
 import '../../views/CustomerScreens/Profile.dart';
 import '../../views/CustomerScreens/home_screen.dart';
-import '../../views/CustomerScreens/test1.dart';
+
 
 class CustomerNavBar extends StatefulWidget {
   const CustomerNavBar({super.key});
@@ -18,7 +19,7 @@ class _CustomerNavBarState extends State<CustomerNavBar> {
   List screens = [
     const CustomerHome(),
     const ListOfReservationsScreen(),
-    const MyWidget1(),
+    const ArchivesScreens(),
     const ProfileCustomer()
   ];
   int currentIndex = 0;
