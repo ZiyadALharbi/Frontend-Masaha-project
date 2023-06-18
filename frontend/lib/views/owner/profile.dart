@@ -3,6 +3,7 @@ import 'package:frontend/constants/colors.dart';
 import 'package:frontend/constants/spaces.dart';
 
 import '../../components/All/profile_card.dart';
+import '../../components/All/signout_button.dart';
 
 class ProfileOwner extends StatelessWidget {
   const ProfileOwner({super.key});
@@ -41,30 +42,8 @@ class ProfileOwner extends StatelessWidget {
               cardTilte: 'الخصوصية والأمان',
               cardIcon: (Icons.shield_outlined),
             ),
-            ListTile(
-              title: Row(
-                children: [
-                  kHSpace16,
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'تسجيل الخروج',
-                      style: TextStyle(
-                          fontFamily: 'Tajawal',
-                          fontWeight: FontWeight.w400,
-                          fontSize: 16,
-                          color: orange),
-                    ),
-                  ),
-                ],
-              ),
-              trailing: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 24),
-                  child: Icon(
-                    Icons.arrow_back_ios_new_rounded,
-                    color: black,
-                  )),
-            ),
+            kVSpace16,
+            const SignOutButton(),
             Divider(
               height: 1,
               color: darkGrey,
