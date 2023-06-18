@@ -2,8 +2,11 @@
 
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:frontend/views/owner/test.dart';
 import '../../constants/spaces.dart';
+import '../../services/api/auth/login_user.dart';
 import '../../services/extensions/next_page.dart';
+import '../owner/bottom_bar.dart';
 import 'reset_password.dart';
 import 'sign_up.dart';
 import 'package:get_storage/get_storage.dart';
@@ -13,8 +16,6 @@ import '../../components/text_button.dart';
 import '../../components/textfield.dart';
 import '../../components/title_page.dart';
 import '../../constants/colors.dart';
-import '../../services/api/auth/login_user.dart';
-import '../owner/home_screen.dart';
 
 class LogIn extends StatefulWidget {
   const LogIn({super.key});
@@ -67,22 +68,22 @@ class _LogInState extends State<LogIn> {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10))),
                         onPressed: () async {
-                          final response = await loginUser(body: {
-                            "email": emailController.text,
-                            "password": passwordController.text,
-                          });
-                          if (response.statusCode == 200) {
-                            final box = GetStorage();
-                            box.write("token",
-                                json.decode(response.body)["data"]["token"]);
-                            // context.nextPage(view: ??);
-                          } else {
-                            showDialog(
-                              context: context,
-                              builder: (BuildContext context) =>
-                                  const PopUpMessage(),
-                            );
-                          }
+                          // final response = await loginUser(body: {
+                          //   "email": emailController.text,
+                          //   "password": passwordController.text,
+                          // });
+                          context.nextPage(view: const BottomNavBar());
+                          // if (response.statusCode == 200) {
+                          //   final box = GetStorage();
+                          //   box.write("token",
+                          //       json.decode(response.body)["data"]["token"]);
+                          // } else {
+                          //   showDialog(
+                          //     context: context,
+                          //     builder: (BuildContext context) =>
+                          //         const PopUpMessage(),
+                          //   );
+                          // }
                         },
                         child: const CustomButton(
                           buttonTitle: 'تسجيل الدخول',
@@ -98,7 +99,7 @@ class _LogInState extends State<LogIn> {
                   ElevatedButton(
                       onPressed: () {
                         context.nextPage(
-                          view: const HomeScreen(),
+                          view: const TestHome(),
                         );
                       },
                       child: const Icon(Icons.next_plan))

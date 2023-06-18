@@ -10,7 +10,6 @@ import '../../components/text_button.dart';
 import '../../components/textfield.dart';
 import '../../components/title_page.dart';
 import '../../constants/colors.dart';
-import '../../services/api/auth/create_user.dart';
 import 'log_in.dart';
 
 class SignUp extends StatefulWidget {
