@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../../constants/colors.dart';
 import '../../views/CustomerScreens/List_of_reservationsScreen.dart';
 import '../../views/CustomerScreens/Profile.dart';
-import '../../views/CustomerScreens/test.dart';
+import '../../views/CustomerScreens/home_screen.dart';
 import '../../views/CustomerScreens/test1.dart';
 
 class CustomerNavBar extends StatefulWidget {
@@ -16,7 +16,7 @@ class CustomerNavBar extends StatefulWidget {
 
 class _CustomerNavBarState extends State<CustomerNavBar> {
   List screens = [
-    const MyWidget2(),
+    const CustomerHome(),
     const ListOfReservationsScreen(),
     const MyWidget1(),
     const ProfileCustomer()
