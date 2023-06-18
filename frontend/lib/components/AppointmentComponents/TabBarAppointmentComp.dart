@@ -16,11 +16,19 @@ TabBar TabBarAppointmentComp() {
     tabs: const [
       Tab(
           child: Tab_In_TabBar(
-        Deys: "السبت",
+        Deys: "الاحد",
       )),
       Tab(
           child: Tab_In_TabBar(
-        Deys: "الجمعة",
+        Deys: "الاثنين",
+      )),
+      Tab(
+          child: Tab_In_TabBar(
+        Deys: "الثلثاء",
+      )),
+      Tab(
+          child: Tab_In_TabBar(
+        Deys: "الاربعاء",
       )),
       Tab(
         child: Tab_In_TabBar(
@@ -29,19 +37,11 @@ TabBar TabBarAppointmentComp() {
       ),
       Tab(
           child: Tab_In_TabBar(
-        Deys: "الاربعاء",
+        Deys: "الجمعة",
       )),
       Tab(
           child: Tab_In_TabBar(
-        Deys: "الثلثاء",
-      )),
-      Tab(
-          child: Tab_In_TabBar(
-        Deys: "الاثنين",
-      )),
-      Tab(
-          child: Tab_In_TabBar(
-        Deys: "الاحد",
+        Deys: "السبت",
       )),
     ],
   );
