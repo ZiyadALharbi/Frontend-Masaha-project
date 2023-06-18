@@ -89,11 +89,13 @@ class CardListOfReservations extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 SizedBox(
                                   width: 50,
                                   child: Text(
                                     NameSpace,
+                                    textAlign: TextAlign.end,
                                     overflow: TextOverflow.ellipsis,
                                     style: const TextStyle(
                                       fontFamily: 'Tajawal',
