@@ -80,15 +80,8 @@ class _CustomerHomeState extends State<CustomerHome> {
                           color: black),
                     ),
                   ),
-                  Tab(
-                    child: Text(
-                      'مكتب خاص',
-                      style: TextStyle(
-                          fontFamily: 'Tajawal',
-                          fontWeight: FontWeight.w800,
-                          fontSize: 12,
-                          color: black),
-                    ),
+                  const Tab(
+                    child: TabTitle(),
                   ),
                   Tab(
                     child: Text(
@@ -127,6 +120,24 @@ class _CustomerHomeState extends State<CustomerHome> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class TabTitle extends StatelessWidget {
+  const TabTitle({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      'مكتب خاص',
+      style: TextStyle(
+          fontFamily: 'Tajawal',
+          fontWeight: FontWeight.w800,
+          fontSize: 12,
+          color: black),
     );
   }
 }
