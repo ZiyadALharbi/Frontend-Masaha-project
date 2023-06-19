@@ -47,12 +47,14 @@ class _BookingScreenState extends State<BookingScreen> {
             ),
             kVSpace32,
             DropDownMenuOwner(
-                width: 400,
-                height: 56,
-                label: 'الخطط',
-                hint: 'إختر نوع الخطة التي تريد إضافتها',
-                typesAndPlans: planTypes,
-                selectedTypesAndPlans: selectedPlanTypes),
+              width: 400,
+              height: 56,
+              label: 'الخطط',
+              hint: 'إختر نوع الخطة التي تريد إضافتها',
+              typesAndPlans: planTypes,
+              selectedTypesAndPlans: selectedPlanTypes,
+              onTypeChange: (List<dynamic> hhh) {},
+            ),
             kVSpace32,
             TextFieldCustom(
               icon: Icon(
