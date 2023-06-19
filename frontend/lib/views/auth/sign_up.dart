@@ -1,8 +1,12 @@
 // ignore_for_file: must_be_immutable, use_build_context_synchronously
 
 import 'package:flutter/material.dart';
+
 import 'package:frontend/constants/spaces.dart';
+import '../../components/auth/popup_message.dart';
+import '../../services/api/auth/create_user.dart';
 import '../../services/extensions/nav.dart';
+
 import '../../components/auth/radio_button.dart';
 import '../../components/All/custom_button.dart';
 import '../../components/All/text_button.dart';
@@ -23,6 +27,7 @@ class _SignUpState extends State<SignUp> {
   final phoneController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  String userType = 'customer';
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +60,12 @@ class _SignUpState extends State<SignUp> {
                       label: 'البريد الالكتروني',
                       textController: emailController),
                   kVSpace24,
-                  const RadioButton(),
+                  RadioButton(
+                    onTypeChange: (newValue) {
+                      userType = newValue;
+                      setState(() {});
+                    },
+                  ),
                   kVSpace24,
                   TextFieldCustom(
                       label: 'كلمة المرور', textController: passwordController),
@@ -67,21 +77,27 @@ class _SignUpState extends State<SignUp> {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10))),
                         onPressed: () async {
-                          // final response = await createUser(body: {
-                          //   "email": emailController.text,
-                          //   "password": passwordController.text,
-                          //   "name": nameController.text
-                          // });
-                          context.nextPage(view: const LogIn());
-                          // if (response.statusCode == 200) {
-                          //   context.nextPage(view: const LogIn());
-                          // } else {
-                          //   showDialog(
-                          //     context: context,
-                          //     builder: (BuildContext context) =>
-                          //         const PopUpMessage(),
-                          //   );
-                          // }
+                          setState(() {});
+                          final response = await createUser(
+                            body: {
+                              "email": emailController.text,
+                              "password": passwordController.text,
+                              "name": nameController.text,
+                              "username": nameController.text,
+                              "phone": phoneController.text
+                            },
+                            userType: userType,
+                          );
+
+                          if (response.statusCode == 200) {
+                            context.nextPage(view: const LogIn());
+                          } else {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) =>
+                                  const PopUpMessage(),
+                            );
+                          }
                         },
                         child: const CustomButton(
                           buttonTitle: 'حساب جديد',

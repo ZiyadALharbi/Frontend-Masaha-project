@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/constants/colors.dart';
-import 'package:frontend/constants/spaces.dart';
-
-enum UserType { owner, customer }
+import '../../constants/colors.dart';
+import '../../constants/spaces.dart';
 
 class RadioButton extends StatefulWidget {
-  const RadioButton({super.key});
+  const RadioButton({super.key, required this.onTypeChange});
+
+  final Function(String) onTypeChange;
 
   @override
   State<RadioButton> createState() => _RadioButtonState();
@@ -19,7 +19,11 @@ class _RadioButtonState extends State<RadioButton> {
     return Row(
       children: <Widget>[
         GestureDetector(
-          onTap: () => setState(() => value = 0),
+          onTap: () async {
+            setState(() {});
+           widget.onTypeChange('customer');
+            value = 0;
+          },
           child: Container(
             decoration: BoxDecoration(
                 color: value == 0 ? lightBlue : white,
@@ -38,7 +42,11 @@ class _RadioButtonState extends State<RadioButton> {
         ),
         kHSpace16,
         GestureDetector(
-          onTap: () => setState(() => value = 1),
+          onTap: () async {
+            setState(() {});
+           widget.onTypeChange('owner');
+            value = 1;
+          },
           child: Container(
             decoration: BoxDecoration(
                 color: value == 1 ? lightBlue : white,

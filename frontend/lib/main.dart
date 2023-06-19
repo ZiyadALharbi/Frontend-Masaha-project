@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:frontend/components/Customer/CustomerNavBar.dart';
 
-void main() {
+import 'package:frontend/components/Customer/CustomerNavBar.dart';
+import 'package:get_storage/get_storage.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await GetStorage.init();
   runApp(const MyApp());
 }
 

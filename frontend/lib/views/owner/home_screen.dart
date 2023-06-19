@@ -1,5 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
-import 'package:frontend/services/extensions/nav.dart';
+import 'package:frontend/services/extensions/next_page.dart';
 
 import '../../components/All/custom_button.dart';
 import '../../components/home/space_card.dart';
@@ -14,6 +16,22 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  List ownerProducts = [];
+
+  @override
+  void initState() {
+    super.initState();
+    getProducts();
+  }
+
+  getProducts() async {
+    final response = await displayProduct();
+    if (response.statusCode == 200) {
+      ownerProducts = json.decode(response.body)["data"];
+      setState(() {});
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -53,20 +71,28 @@ class _HomeScreenState extends State<HomeScreen> {
             decoration: BoxDecoration(boxShadow: [
               BoxShadow(
                 color: darkGrey.withOpacity(0.3),
-
                 blurRadius: 7,
                 offset: const Offset(0, 3), // changes position of shadow
               ),
             ], borderRadius: BorderRadius.circular(30), color: white),
-            child: const Padding(
-              padding: EdgeInsets.all(8.0),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
-                  CustomCard(),
-                  CustomCard(),
-                  CustomCard(),
-                  CustomCard(),
-                  CustomCard(),
+                  for (var item in ownerProducts) CustomCard(card: item)
+                  // CustomCard()
+                  // CustomCard(
+                  //   order: availableSpace as Map,
+                  // ),
+                  // CustomCard(
+                  //   order: availableSpace as Map,
+                  // ),
+                  // CustomCard(
+                  //   order: availableSpace as Map,
+                  // ),
+                  // CustomCard(
+                  //   order: availableSpace as Map,
+                  // ),
                 ],
               ),
             ),
