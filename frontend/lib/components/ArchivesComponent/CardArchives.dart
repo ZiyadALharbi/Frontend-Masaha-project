@@ -24,23 +24,19 @@ class CardArchives extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 4.0, left: 4, top: 16),
             child: Container(
-              decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 2,
-                      blurRadius: 4,
-                      offset: const Offset(0, 3), // changes position of shadow
-                    ),
-                  ],
-                  color: const Color.fromARGB(255, 255, 255, 255),
-                  borderRadius: BorderRadius.circular(20)),
+              decoration: BoxDecoration(boxShadow: [
+                BoxShadow(
+                  color: darkGrey.withOpacity(0.3),
+                  spreadRadius: 2,
+                  blurRadius: 4,
+                  offset: const Offset(0, 3), // changes position of shadow
+                ),
+              ], color: white, borderRadius: BorderRadius.circular(20)),
               child: Padding(
                 padding: const EdgeInsets.all(3.0),
                 child: Container(
                   decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(30)),
+                      color: white, borderRadius: BorderRadius.circular(30)),
                   width: 430,
                   height: 130,
                   child: Row(
