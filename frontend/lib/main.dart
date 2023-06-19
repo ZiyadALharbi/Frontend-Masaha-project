@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'views/CustomerScreens/product_details.dart';
+import 'components/Customer/CustomerNavBar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       ],
       supportedLocales: [Locale("ar", "")],
       locale: Locale("ar", ""),
-      home: ProductDetails(),
+      home: CustomerNavBar(),
     );
   }
 }
