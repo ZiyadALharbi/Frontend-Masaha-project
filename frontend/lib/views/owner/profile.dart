@@ -43,7 +43,7 @@ class ProfileOwner extends StatelessWidget {
               cardIcon: (Icons.shield_outlined),
             ),
             kVSpace16,
-            const SignOutButton(),
+            SignOutButton(),
             Divider(
               height: 1,
               color: darkGrey,

@@ -1,11 +1,12 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:frontend/services/extensions/next_page.dart';
+import 'package:frontend/services/extensions/nav.dart';
 
 import '../../components/All/custom_button.dart';
 import '../../components/home/space_card.dart';
 import '../../constants/colors.dart';
+import '../../services/api/owner/display_product_api.dart';
 import 'add_space.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -21,14 +22,21 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    print("---11");
     getProducts();
   }
 
   getProducts() async {
-    final response = await displayProduct();
-    if (response.statusCode == 200) {
+    try {
+      print("---11");
+      final response = await displayProduct();
+      print("--22");
       ownerProducts = json.decode(response.body)["data"];
+      print(response.body);
+      print(ownerProducts);
       setState(() {});
+    } catch (error) {
+      print(error);
     }
   }
 

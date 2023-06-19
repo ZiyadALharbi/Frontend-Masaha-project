@@ -8,9 +8,14 @@ import '../../components/All/textfield.dart';
 import '../owner/add_space.dart';
 import 'confirm_booking.dart';
 
-class BookingScreen extends StatelessWidget {
+class BookingScreen extends StatefulWidget {
   const BookingScreen({super.key});
 
+  @override
+  State<BookingScreen> createState() => _BookingScreenState();
+}
+
+class _BookingScreenState extends State<BookingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,12 +47,17 @@ class BookingScreen extends StatelessWidget {
             ),
             kVSpace32,
             DropDownMenuOwner(
-                width: 400,
-                height: 56,
-                label: 'الخطط',
-                hint: 'إختر نوع الخطة التي تريد إضافتها',
-                typesAndPlans: planTypes,
-                selectedTypesAndPlans: selectedPlanTypes),
+              width: 400,
+              height: 56,
+              label: 'الخطط',
+              hint: 'إختر نوع الخطة التي تريد إضافتها',
+              typesAndPlans: planTypes,
+              selectedTypesAndPlans: selectedPlanTypes,
+              onTypeChange: (newValue) {
+                planType = newValue;
+                setState(() {});
+              },
+            ),
             kVSpace32,
             TextFieldCustom(
               icon: Icon(

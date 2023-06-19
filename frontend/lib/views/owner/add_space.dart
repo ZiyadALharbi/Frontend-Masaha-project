@@ -1,7 +1,8 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
-import 'package:frontend/services/extensions/next_page.dart';
+import 'package:frontend/services/extensions/nav.dart';
+
 import 'package:frontend/views/owner/home_screen.dart';
 // import 'package:frontend/views/onboard/onboard.dart';
 import '../../components/All/custom_button.dart';
@@ -85,10 +86,15 @@ class _AddSpaceState extends State<AddSpace> {
                       label: 'إسم المساحة', textController: nameOfSpace),
                   kVSpace24,
                   DropDownMenuOwner(
-                      label: 'الخطط',
-                      hint: 'إختر نوع الخطة التي تريد إضافتها',
-                      typesAndPlans: planTypes,
-                      selectedTypesAndPlans: selectedPlanTypes),
+                    label: 'الخطط',
+                    hint: 'إختر نوع الخطة التي تريد إضافتها',
+                    typesAndPlans: planTypes,
+                    selectedTypesAndPlans: selectedPlanTypes,
+                    onTypeChange: (newValue) {
+                      planType = newValue;
+                      setState(() {});
+                    },
+                  ),
                   kVSpace24,
                   GridView(
                       shrinkWrap: true,
