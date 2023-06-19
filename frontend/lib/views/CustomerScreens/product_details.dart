@@ -62,7 +62,6 @@ class MyIcons extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           FloatingActionButton(
-            heroTag: null,
             onPressed: () {},
             mini: true,
             elevation: 0,
@@ -76,7 +75,6 @@ class MyIcons extends StatelessWidget {
             children: [
               const SizedBox(width: 8),
               FloatingActionButton(
-                heroTag: null,
                 onPressed: () {},
                 mini: true,
                 elevation: 0,
