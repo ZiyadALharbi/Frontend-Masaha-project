@@ -116,6 +116,7 @@ class Details extends StatelessWidget {
                       color: darkBlue),
                 ),
                 Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       "إسم المالك",
@@ -126,12 +127,12 @@ class Details extends StatelessWidget {
                           color: orange),
                     ),
                     Text(
-                      "ر.س500",
+                      "500ر.س",
                       style: TextStyle(
                           fontFamily: 'Tajawal',
-                          fontWeight: FontWeight.w400,
-                          fontSize: 15,
-                          color: orange),
+                          fontWeight: FontWeight.w700,
+                          fontSize: 20,
+                          color: darkBlue),
                     ),
                   ],
                 ),
