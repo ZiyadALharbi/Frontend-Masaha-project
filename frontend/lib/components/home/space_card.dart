@@ -38,7 +38,7 @@ class CustomCard extends StatelessWidget {
             trailing: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                card['$price'],
+                card['price'].toString(),
                 style: TextStyle(
                     fontFamily: 'Tajawal',
                     fontSize: 16,

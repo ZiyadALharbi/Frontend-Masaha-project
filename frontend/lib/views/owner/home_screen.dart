@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:frontend/services/extensions/nav.dart';
+import 'package:frontend/services/extensions/next_page.dart';
 
 import '../../components/All/custom_button.dart';
 import '../../components/home/space_card.dart';
@@ -27,13 +27,9 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   getProducts() async {
-    try {
-      print("---11");
-      final response = await displayProduct();
-      print("--22");
+    final response = await displayProduct();
+    if (response.statusCode == 200) {
       ownerProducts = json.decode(response.body)["data"];
-      print(response.body);
-      print(ownerProducts);
       setState(() {});
     } catch (error) {
       print(error);
@@ -88,19 +84,6 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 children: [
                   for (var item in ownerProducts) CustomCard(card: item)
-                  // CustomCard()
-                  // CustomCard(
-                  //   order: availableSpace as Map,
-                  // ),
-                  // CustomCard(
-                  //   order: availableSpace as Map,
-                  // ),
-                  // CustomCard(
-                  //   order: availableSpace as Map,
-                  // ),
-                  // CustomCard(
-                  //   order: availableSpace as Map,
-                  // ),
                 ],
               ),
             ),
