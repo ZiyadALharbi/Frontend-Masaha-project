@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/constants/spaces.dart';
-import 'package:frontend/services/extensions/next_page.dart';
+import 'package:frontend/services/extensions/nav.dart';
 // import 'package:frontend/extan/PushPage.dart';
 import 'package:frontend/views/CustomerScreens/product_details.dart';
 

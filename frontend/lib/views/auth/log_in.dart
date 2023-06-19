@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/views/owner/home_screen.dart';
 import '../../constants/spaces.dart';
-import '../../services/extensions/next_page.dart';
+import '../../services/extensions/nav.dart';
 import '../owner/bottom_bar.dart';
 import 'reset_password.dart';
 import 'sign_up.dart';

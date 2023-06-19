@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:frontend/constants/spaces.dart';
-import '../../services/extensions/next_page.dart';
+import '../../services/extensions/nav.dart';
 import '../../components/auth/radio_button.dart';
 import '../../components/All/custom_button.dart';
 import '../../components/All/text_button.dart';

@@ -1,7 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
-import '../../services/extensions/next_page.dart';
+import '../../services/extensions/nav.dart';
 import '../../constants/colors.dart';
 
 class TextButtonQuestion extends StatefulWidget {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/services/extensions/next_page.dart';
+import 'package:frontend/services/extensions/nav.dart';
 
 import '../../components/All/custom_button.dart';
 import '../../components/home/space_card.dart';

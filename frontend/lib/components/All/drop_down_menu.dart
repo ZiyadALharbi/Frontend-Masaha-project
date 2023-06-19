@@ -5,28 +5,37 @@ import 'package:multiselect/multiselect.dart';
 import '../../constants/colors.dart';
 
 class DropDownMenuOwner extends StatefulWidget {
-  DropDownMenuOwner(
-      {super.key,
-      required this.label,
-      required this.hint,
-      required this.typesAndPlans,
-      this.selectedTypesAndPlans});
+  DropDownMenuOwner({
+    super.key,
+    required this.label,
+    required this.hint,
+    required this.typesAndPlans,
+    this.selectedTypesAndPlans,
+    this.width,
+    this.height,
+  });
 
   final String label;
   final String hint;
   final List typesAndPlans;
   List? selectedTypesAndPlans;
+  final double? width;
+  final double? height;
 
   @override
   State<DropDownMenuOwner> createState() => _DropDownMenuOwnerState();
 }
 
 class _DropDownMenuOwnerState extends State<DropDownMenuOwner> {
+  var width;
+
+  var height;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 313,
-      height: 58,
+      width: width ?? 350,
+      height: height ?? 53,
       child: DropDownMultiSelect(
           selected_values_style: TextStyle(color: blue, fontFamily: 'Tajawal'),
           decoration: InputDecoration(

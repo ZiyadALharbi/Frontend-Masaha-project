@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:frontend/components/All/title_page.dart';
 import 'package:frontend/constants/colors.dart';
 import 'package:frontend/constants/spaces.dart';
-import 'package:frontend/services/extensions/next_page.dart';
+import 'package:frontend/services/extensions/nav.dart';
 import '../../components/All/custom_button.dart';
 import '../../components/All/text_button.dart';
 import '../../components/All/textfield.dart';

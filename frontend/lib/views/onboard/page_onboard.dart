@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/constants/colors.dart';
-import 'package:frontend/services/extensions/next_page.dart';
+import 'package:frontend/services/extensions/nav.dart';
 import 'package:frontend/views/auth/sign_up.dart';
 
 class PageOnboard extends StatefulWidget {
