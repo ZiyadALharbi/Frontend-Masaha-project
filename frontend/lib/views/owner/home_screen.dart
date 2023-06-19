@@ -1,11 +1,11 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:frontend/services/extensions/next_page.dart';
-
+import 'package:frontend/services/extensions/nav.dart';
 import '../../components/All/custom_button.dart';
 import '../../components/home/space_card.dart';
 import '../../constants/colors.dart';
+import '../../services/api/owner/display_product_api.dart';
 import 'add_space.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
   getProducts() async {
     final response = await displayProduct();
     if (response.statusCode == 200) {
-      ownerProducts = json.decode(response.body)["data"];
+      ownerProducts = json.decode(response.body);
       setState(() {});
     }
   }
@@ -80,19 +80,6 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 children: [
                   for (var item in ownerProducts) CustomCard(card: item)
-                  // CustomCard()
-                  // CustomCard(
-                  //   order: availableSpace as Map,
-                  // ),
-                  // CustomCard(
-                  //   order: availableSpace as Map,
-                  // ),
-                  // CustomCard(
-                  //   order: availableSpace as Map,
-                  // ),
-                  // CustomCard(
-                  //   order: availableSpace as Map,
-                  // ),
                 ],
               ),
             ),

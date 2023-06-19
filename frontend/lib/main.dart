@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:frontend/components/Customer/CustomerNavBar.dart';
+import 'package:frontend/views/auth/log_in.dart';
+import 'package:frontend/views/onboard/onboard.dart';
 import 'package:get_storage/get_storage.dart';
 
 Future<void> main() async {
@@ -14,16 +16,16 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      localizationsDelegates: [
-        GlobalCupertinoLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ],
-      supportedLocales: [Locale("ar", "")],
-      locale: Locale("ar", ""),
-      home: CustomerNavBar(),
-    );
+    final box = GetStorage();
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        localizationsDelegates: const [
+          GlobalCupertinoLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+        ],
+        supportedLocales: const [Locale("ar", "")],
+        locale: const Locale("ar", ""),
+        home: box.hasData('token') ? const LogIn() : const OnBoard());
   }
 }

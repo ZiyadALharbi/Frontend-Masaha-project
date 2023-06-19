@@ -42,12 +42,14 @@ class BookingScreen extends StatelessWidget {
             ),
             kVSpace32,
             DropDownMenuOwner(
-                width: 400,
-                height: 56,
-                label: 'الخطط',
-                hint: 'إختر نوع الخطة التي تريد إضافتها',
-                typesAndPlans: planTypes,
-                selectedTypesAndPlans: selectedPlanTypes),
+              width: 400,
+              height: 56,
+              label: 'الخطط',
+              hint: 'إختر نوع الخطة التي تريد إضافتها',
+              typesAndPlans: planTypes,
+              selectedTypesAndPlans: selectedPlanTypes,
+              onTypeChange: (p0) {},
+            ),
             kVSpace32,
             TextFieldCustom(
               icon: Icon(

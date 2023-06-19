@@ -12,9 +12,10 @@ class DropDownMenuOwner extends StatefulWidget {
     required this.typesAndPlans,
     this.selectedTypesAndPlans,
     this.width,
-    this.height,
+    this.height,required this.onTypeChange,
   });
 
+  final Function(List) onTypeChange;
   final String label;
   final String hint;
   final List typesAndPlans;
@@ -28,7 +29,6 @@ class DropDownMenuOwner extends StatefulWidget {
 
 class _DropDownMenuOwnerState extends State<DropDownMenuOwner> {
   var width;
-
   var height;
 
   @override
