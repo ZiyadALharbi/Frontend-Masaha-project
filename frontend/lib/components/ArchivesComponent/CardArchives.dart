@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import '../../constants/colors.dart';
 
 class CardArchives extends StatelessWidget {
   const CardArchives({
@@ -39,12 +42,12 @@ class CardArchives extends StatelessWidget {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(30)),
                   width: 430,
-                  height: 110,
+                  height: 130,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Padding(
-                        padding: EdgeInsets.only(
+                      Padding(
+                        padding: const EdgeInsets.only(
                             top: 11.0, bottom: 20, left: 20, right: 60),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -54,9 +57,8 @@ class CardArchives extends StatelessWidget {
                               children: [
                                 SizedBox(
                                   width: 70,
-                                  child: Icon(Icons.favorite,
-                                      size: 35,
-                                      color: Color.fromARGB(255, 255, 0, 0)),
+                                  child: Icon(FontAwesomeIcons.solidHeart,
+                                      size: 30, color: red),
                                 )
                               ],
                             ),
@@ -64,9 +66,8 @@ class CardArchives extends StatelessWidget {
                               children: [
                                 SizedBox(
                                   width: 70,
-                                  child: Icon(Icons.restore_from_trash_outlined,
-                                      size: 32,
-                                      color: Color.fromARGB(255, 239, 124, 0)),
+                                  child: Icon(FontAwesomeIcons.trashCan,
+                                      size: 25, color: orange),
                                 )
                               ],
                             ),
