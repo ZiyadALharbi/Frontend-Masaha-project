@@ -12,21 +12,27 @@ import 'add_space.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
-  
-  
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  List ownerProducts = [];
 
-  final List? ownerProducts = [];
-  
   @override
   void initState() {
     super.initState();
-
+    getProducts();
   }
+
+  getProducts() async {
+    final response = await displayProduct();
+    if (response.statusCode == 200) {
+      ownerProducts = json.decode(response.body)["data"];
+      setState(() {});
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -74,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
-                  for (var item in availableSpace) CustomCard(card: item)
+                  for (var item in ownerProducts) CustomCard(card: item)
                   // CustomCard()
                   // CustomCard(
                   //   order: availableSpace as Map,
