@@ -16,7 +16,6 @@ class DropDownMenuOwner extends StatefulWidget {
     required this.onTypeChange,
   });
 
-  final Function(List) onTypeChange;
   final String label;
   final String hint;
   final List typesAndPlans;
