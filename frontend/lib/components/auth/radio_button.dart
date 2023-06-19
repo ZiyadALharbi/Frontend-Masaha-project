@@ -21,7 +21,7 @@ class _RadioButtonState extends State<RadioButton> {
         GestureDetector(
           onTap: () async {
             setState(() {});
-           widget.onTypeChange('customer');
+            widget.onTypeChange('customer');
             value = 0;
           },
           child: Container(
@@ -44,7 +44,7 @@ class _RadioButtonState extends State<RadioButton> {
         GestureDetector(
           onTap: () async {
             setState(() {});
-           widget.onTypeChange('owner');
+            widget.onTypeChange('owner');
             value = 1;
           },
           child: Container(

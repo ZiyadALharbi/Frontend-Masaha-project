@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/services/extensions/nav.dart';
-import 'package:frontend/views/auth/log_in.dart';
+import 'package:frontend/views/onboard/onboard.dart';
 import 'package:get_storage/get_storage.dart';
 
 import '../../constants/colors.dart';
@@ -21,7 +21,7 @@ class SignOutButton extends StatelessWidget {
             onPressed: () {
               final box = GetStorage();
               box.remove("token");
-              context.pushAndRemove(view: const LogIn());
+              context.pushAndRemove(view: const OnBoard());
             },
             child: Text(
               'تسجيل الخروج',

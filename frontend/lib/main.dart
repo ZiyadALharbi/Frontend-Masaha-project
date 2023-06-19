@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:frontend/views/auth/log_in.dart';
+import 'package:frontend/views/auth/sign_up.dart';
 
 import 'package:frontend/views/onboard/onboard.dart';
 import 'package:get_storage/get_storage.dart';
@@ -26,6 +27,6 @@ class MyApp extends StatelessWidget {
         ],
         supportedLocales: const [Locale("ar", "")],
         locale: const Locale("ar", ""),
-        home: box.hasData('token') ? const LogIn() : const OnBoard());
+        home: box.hasData('token') ? const SignUp() : const OnBoard());
   }
 }

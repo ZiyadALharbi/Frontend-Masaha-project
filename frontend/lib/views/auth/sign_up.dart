@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:frontend/constants/spaces.dart';
+import 'package:frontend/views/CustomerScreens/home_screen.dart';
+import 'package:frontend/views/owner/home_screen.dart';
 import '../../components/auth/popup_message.dart';
 import '../../services/api/auth/create_user.dart';
 import '../../services/extensions/nav.dart';
@@ -46,7 +48,7 @@ class _SignUpState extends State<SignUp> {
                   TextButtonQuestion(
                     question: 'لديك حساب؟',
                     login: 'تسجيل الدخول',
-                    page: const LogIn(),
+                    page: LogIn(userType: userType),
                   ),
                   TextFieldCustom(
                     label: 'الإسم',
@@ -90,7 +92,7 @@ class _SignUpState extends State<SignUp> {
                           );
 
                           if (response.statusCode == 200) {
-                            context.nextPage(view: const LogIn());
+                            context.nextPage(view: LogIn(userType: userType));
                           } else {
                             showDialog(
                               context: context,

@@ -2,6 +2,8 @@
 
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:frontend/views/CustomerScreens/home_screen.dart';
+import 'package:frontend/views/owner/home_screen.dart';
 import 'package:get_storage/get_storage.dart';
 import '../../components/auth/popup_message.dart';
 import '../../constants/spaces.dart';
@@ -18,7 +20,9 @@ import '../../components/All/title_page.dart';
 import '../../constants/colors.dart';
 
 class LogIn extends StatefulWidget {
-  const LogIn({super.key});
+  const LogIn({super.key, required this.userType});
+
+  final String userType;
 
   @override
   State<LogIn> createState() => _LogInState();
@@ -76,7 +80,7 @@ class _LogInState extends State<LogIn> {
                             final box = GetStorage();
                             box.write(
                                 "token", json.decode(response.body)["token"]);
-                            context.nextPage(view: const BottomNavBar());
+                            context.nextPage(view: widget.userType == 'customer' ? CustomerHome() : HomeScreen());
                           } else {
                             showDialog(
                               context: context,

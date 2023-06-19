@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import '../../constants/colors.dart';
-import '../../views/owner/add_space.dart';
 
 class CustomCard extends StatelessWidget {
   const CustomCard({super.key, required this.card});
