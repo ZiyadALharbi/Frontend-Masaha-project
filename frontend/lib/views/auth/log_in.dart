@@ -1,8 +1,15 @@
 // ignore_for_file: must_be_immutable, use_build_context_synchronously
 
+import 'dart:convert';
+import 'dart:developer';
+// import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:frontend/views/owner/home_screen.dart';
+import 'package:get_storage/get_storage.dart';
+import '../../components/auth/popup_message.dart';
 import '../../constants/spaces.dart';
+import '../../services/api/auth/login_user.dart';
 import '../../services/extensions/next_page.dart';
 import '../owner/bottom_bar.dart';
 import 'reset_password.dart';
@@ -64,22 +71,24 @@ class _LogInState extends State<LogIn> {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10))),
                         onPressed: () async {
-                          // final response = await loginUser(body: {
-                          //   "email": emailController.text,
-                          //   "password": passwordController.text,
-                          // });
-                          context.nextPage(view: const BottomNavBar());
-                          // if (response.statusCode == 200) {
-                          //   final box = GetStorage();
-                          //   box.write("token",
-                          //       json.decode(response.body)["data"]["token"]);
-                          // } else {
-                          //   showDialog(
-                          //     context: context,
-                          //     builder: (BuildContext context) =>
-                          //         const PopUpMessage(),
-                          //   );
-                          // }
+                          log(emailController.text);
+                          log(passwordController.text);
+                          final response = await loginUser(body: {
+                            "email": emailController.text,
+                            "password": passwordController.text,
+                          });
+                          if (response.statusCode == 200) {
+                            context.nextPage(view: const BottomNavBar());
+                            final box = GetStorage();
+                            box.write("token",
+                                json.decode(response.body)["data"]["token"]);
+                          } else {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) =>
+                                  const PopUpMessage(),
+                            );
+                          }
                         },
                         child: const CustomButton(
                           buttonTitle: 'تسجيل الدخول',

@@ -1,7 +1,7 @@
 class Api with ConstApi, AuthEndpoint, CustomerEndPoint, OwnerEndPoint {}
 
 mixin ConstApi {
-  String url = "10.0.2.2:8080";
+  String url = "localhost:8080";
 }
 mixin AuthEndpoint {
   String createAccount = "/auth/create-account";

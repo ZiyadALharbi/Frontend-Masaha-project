@@ -5,12 +5,15 @@ import 'package:multiselect/multiselect.dart';
 import '../../constants/colors.dart';
 
 class DropDownMenuOwner extends StatefulWidget {
-  DropDownMenuOwner(
+    DropDownMenuOwner(
       {super.key,
       required this.label,
       required this.hint,
       required this.typesAndPlans,
-      this.selectedTypesAndPlans});
+      this.selectedTypesAndPlans, required this.onTypeChange});
+
+  final Function(List) onTypeChange;
+
 
   final String label;
   final String hint;
@@ -49,7 +52,9 @@ class _DropDownMenuOwnerState extends State<DropDownMenuOwner> {
           options: widget.typesAndPlans,
           selectedValues: widget.selectedTypesAndPlans ?? [],
           onChanged: (value) {
-            widget.selectedTypesAndPlans = value;
+           widget.onTypeChange(widget.selectedTypesAndPlans = value);
+
+            // widget.selectedTypesAndPlans = value;
             setState(() {});
           }),
     );

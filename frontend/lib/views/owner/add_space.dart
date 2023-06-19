@@ -2,11 +2,12 @@
 
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-import 'package:frontend/components/All/custom_button.dart';
-import 'package:frontend/components/All/textfield.dart';
-import 'package:frontend/constants/spaces.dart';
+import '../../components/All/custom_button.dart';
+import '../../components/All/textfield.dart';
+import '../../constants/spaces.dart';
 import '../../components/All/drop_down_menu.dart';
 import '../../constants/colors.dart';
+import '../../services/api/owner/add_product_api.dart';
 
 class AddSpace extends StatefulWidget {
   const AddSpace({super.key});
@@ -26,9 +27,19 @@ List<String> spaceTypes = [
 List<String> selectedspaceTypes = [];
 List<String> planTypes = ['بالساعات', 'بالأيام', 'بالأسابيع', 'بالشهر'];
 List<String> selectedPlanTypes = [];
+List userType = ['Meeting room'];
+TextEditingController nameOfSpace = TextEditingController();
+TextEditingController price = TextEditingController();
+TextEditingController place = TextEditingController();
+TextEditingController feature1 = TextEditingController();
+TextEditingController feature2 = TextEditingController();
+TextEditingController feature3 = TextEditingController();
+TextEditingController feature4 = TextEditingController();
+TextEditingController feature5 = TextEditingController();
+TextEditingController feature6 = TextEditingController();
 
 class _AddSpaceState extends State<AddSpace> {
-  dynamic file;
+  // dynamic file;
 
   @override
   Widget build(BuildContext context) {
@@ -44,15 +55,23 @@ class _AddSpaceState extends State<AddSpace> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const TextFieldCustom(label: 'إسم المساحة'),
+                   TextFieldCustom(label: 'إسم المساحة', textController: nameOfSpace),
                   kVSpace24,
                   DropDownMenuOwner(
+                    onTypeChange: (newValue) {
+                      userType = newValue;
+                      setState(() {});
+                    },
                       label: 'المساحات',
                       hint: 'إختر نوع مساحات العمل التي تريد إضافتها',
                       typesAndPlans: spaceTypes,
                       selectedTypesAndPlans: selectedspaceTypes),
                   kVSpace24,
                   DropDownMenuOwner(
+                    onTypeChange: (newValue) {
+                      userType = newValue;
+                      setState(() {});
+                    },
                       label: 'الخطط',
                       hint: 'إختر نوع الخطة التي تريد إضافتها',
                       typesAndPlans: planTypes,
@@ -124,7 +143,22 @@ class _AddSpaceState extends State<AddSpace> {
                     child: ElevatedButton(
                         style:
                             ElevatedButton.styleFrom(backgroundColor: darkBlue),
-                        onPressed: () {},
+                        onPressed: () async {
+                        await addProductOwner(body: {
+                          "name": nameOfSpace.text,
+                          "type": userType,
+                          "description": nameOfSpace.text,
+                          "price": double.parse(price.text),
+                          "plan_type": userType,
+                          "feature_1": feature1.text,
+                          "feature_2": feature2.text,
+                          "feature_3": feature3.text,
+                          "feature_4": feature4.text,
+                          "feature_5": feature5.text,
+                          "feature_6": feature6.text,
+                        });
+                        setState(() {});
+                      },
                         child: const CustomButton(
                             buttonTitle: 'اضافة',
                             textSize: 8,
