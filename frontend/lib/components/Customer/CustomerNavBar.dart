@@ -7,7 +7,6 @@ import '../../views/CustomerScreens/List_of_reservationsScreen.dart';
 import '../../views/CustomerScreens/Profile.dart';
 import '../../views/CustomerScreens/home_screen.dart';
 
-
 class CustomerNavBar extends StatefulWidget {
   const CustomerNavBar({super.key});
 

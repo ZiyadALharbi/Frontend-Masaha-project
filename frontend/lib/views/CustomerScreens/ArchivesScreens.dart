@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../components/ArchivesComponent/CardArchives.dart';
 import '../../components/ArchivesComponent/TextArchives.dart';
+import '../../constants/colors.dart';
 
 class ArchivesScreens extends StatefulWidget {
   const ArchivesScreens({super.key});
@@ -15,10 +16,10 @@ class _ArchivesScreensState extends State<ArchivesScreens> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: white,
           shadowColor: const Color.fromARGB(0, 255, 255, 255),
         ),
-        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: white,
         body: Directionality(
           textDirection: TextDirection.ltr,
           child: SafeArea(

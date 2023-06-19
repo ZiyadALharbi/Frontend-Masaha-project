@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../components/ListOfResrvationsComp/CardListOfR.dart';
 import '../../components/ListOfResrvationsComp/TextListOfReservations.dart';
+import '../../constants/colors.dart';
 
 class ListOfReservationsScreen extends StatefulWidget {
   const ListOfReservationsScreen({super.key});
@@ -16,10 +17,10 @@ class _ListOfReservationsScreenState extends State<ListOfReservationsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: white,
           shadowColor: const Color.fromARGB(0, 255, 255, 255),
         ),
-        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: white,
         body: Directionality(
           textDirection: TextDirection.ltr,
           child: SafeArea(
