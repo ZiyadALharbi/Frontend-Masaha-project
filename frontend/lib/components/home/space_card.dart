@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 import '../../constants/colors.dart';
+import '../../views/owner/add_space.dart';
 
 class CustomCard extends StatelessWidget {
-  const CustomCard({
-    super.key,
-  });
+  const CustomCard({super.key, required this.card});
+
+  final Map card;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class CustomCard extends StatelessWidget {
         children: [
           ListTile(
             title: Text(
-              "اسم المساحة",
+              card['name'],
               style: TextStyle(
                   fontFamily: 'Tajawal',
                   fontSize: 20,
@@ -26,7 +27,7 @@ class CustomCard extends StatelessWidget {
             subtitle: Padding(
               padding: const EdgeInsets.only(top: 12),
               child: Text(
-                "نوع المساحة",
+                card['type'],
                 style: TextStyle(
                     fontFamily: 'Tajawal',
                     fontSize: 14,
@@ -37,7 +38,7 @@ class CustomCard extends StatelessWidget {
             trailing: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                "السعر",
+                card['$price'],
                 style: TextStyle(
                     fontFamily: 'Tajawal',
                     fontSize: 16,

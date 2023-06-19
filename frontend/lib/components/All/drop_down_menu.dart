@@ -53,8 +53,6 @@ class _DropDownMenuOwnerState extends State<DropDownMenuOwner> {
           selectedValues: widget.selectedTypesAndPlans ?? [],
           onChanged: (value) {
            widget.onTypeChange(widget.selectedTypesAndPlans = value);
-
-            // widget.selectedTypesAndPlans = value;
             setState(() {});
           }),
     );

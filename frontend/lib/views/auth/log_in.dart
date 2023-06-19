@@ -1,11 +1,7 @@
 // ignore_for_file: must_be_immutable, use_build_context_synchronously
 
 import 'dart:convert';
-import 'dart:developer';
-// import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:frontend/views/owner/home_screen.dart';
 import 'package:get_storage/get_storage.dart';
 import '../../components/auth/popup_message.dart';
 import '../../constants/spaces.dart';
@@ -71,17 +67,15 @@ class _LogInState extends State<LogIn> {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10))),
                         onPressed: () async {
-                          log(emailController.text);
-                          log(passwordController.text);
                           final response = await loginUser(body: {
                             "email": emailController.text,
                             "password": passwordController.text,
                           });
                           if (response.statusCode == 200) {
-                            context.nextPage(view: const BottomNavBar());
                             final box = GetStorage();
-                            box.write("token",
-                                json.decode(response.body)["data"]["token"]);
+                            box.write(
+                                "token", json.decode(response.body)["token"]);
+                            context.nextPage(view: const BottomNavBar());
                           } else {
                             showDialog(
                               context: context,
@@ -100,14 +94,7 @@ class _LogInState extends State<LogIn> {
                       child: SizedBox(
                           width: 266,
                           height: 266,
-                          child: Image.asset('images/office-workplace.png'))),
-                  ElevatedButton(
-                      onPressed: () {
-                        context.nextPage(
-                          view: const HomeScreen(),
-                        );
-                      },
-                      child: const Icon(Icons.next_plan))
+                          child: Image.asset('images/office-workplace.png')))
                 ],
               ),
             ),
