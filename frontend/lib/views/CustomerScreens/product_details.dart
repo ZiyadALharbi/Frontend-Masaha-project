@@ -32,6 +32,7 @@ class Images extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ImageSlideshow(
+      width: double.infinity,
       height: MediaQuery.of(context).size.height * 0.36,
       indicatorBackgroundColor: white,
       children: const [
@@ -62,6 +63,7 @@ class MyIcons extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           FloatingActionButton(
+            heroTag: null,
             onPressed: () {},
             mini: true,
             elevation: 0,
@@ -75,6 +77,7 @@ class MyIcons extends StatelessWidget {
             children: [
               const SizedBox(width: 8),
               FloatingActionButton(
+                heroTag: null,
                 onPressed: () {},
                 mini: true,
                 elevation: 0,
@@ -116,23 +119,28 @@ class Details extends StatelessWidget {
                       color: darkBlue),
                 ),
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      "إسم المالك",
-                      style: TextStyle(
-                          fontFamily: 'Tajawal',
-                          fontWeight: FontWeight.w400,
-                          fontSize: 15,
-                          color: orange),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 20),
+                      child: Text(
+                        "إسم المالك",
+                        style: TextStyle(
+                            fontFamily: 'Tajawal',
+                            fontWeight: FontWeight.w400,
+                            fontSize: 15,
+                            color: orange),
+                      ),
                     ),
-                    Text(
-                      "500ر.س",
-                      style: TextStyle(
-                          fontFamily: 'Tajawal',
-                          fontWeight: FontWeight.w700,
-                          fontSize: 20,
-                          color: darkBlue),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 20),
+                      child: Text(
+                        "500ر.س",
+                        style: TextStyle(
+                            fontFamily: 'Tajawal',
+                            fontWeight: FontWeight.w700,
+                            fontSize: 20,
+                            color: darkBlue),
+                      ),
                     ),
                   ],
                 ),
@@ -155,6 +163,13 @@ class Details extends StatelessWidget {
               ],
             ),
           ),
+          const Divider(),
+          const Column(
+            children: [
+              Text(
+                  "بْجَدْ هَوَّزْ حُطِّي كَلَمُنْ سَعْفُصْ قُرشت ثخذ ضظغ أَبْجَدْ هَوَّزْبْجَدْ هَوَّزْ حُطِّي كَلَمُنْ سَعْفُصْ قُرشت ثخذ ضظغ أَبْجَدْ هَوَّزْبْجَدْ هَوَّزْ حُطِّي كَلَمُنْ سَعْفُصْ قُرشت ثخذ ضظغ أَبْجَدْ هَوَّزْبْجَدْ هَوَّزْ حُطِّي كَلَمُنْ سَعْفُصْ قُرشت ثخذ ضظغ أَبْجَدْ هَوَّزْبْجَدْ هَوَّزْ حُطِّي بْجَدْ هَوَّزْ حُطِّي كَلَمُنْ سَعْفُصْ قُرشت ثخذ ضظغ أَبْجَدْ هَوَّزْكَلَمُنْ سَعْفُصْ قُرشت ثخذ ضظغ أَبْجَدْ هَوَّزْ")
+            ],
+          )
         ],
       ),
     );
