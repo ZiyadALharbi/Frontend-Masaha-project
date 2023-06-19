@@ -112,55 +112,114 @@ class _CustomerHomeState extends State<CustomerHome> {
                 Expanded(
                   child: TabBarView(
                     children: [
-                      const Column(
+                      ListView(
                         children: [
-                          CardHomeCus(
-                            NameSpace: 'كفة',
-                            match: "4.5",
-                            tybeSpace: "mating",
-                            ThePrice: "١٠٠",
-                            imgUrl:
-                                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYIa6D7LhMk7211BoEiPhRGHFRpLUEBmWjOQ&usqp=CAU",
+                          InkWell(
+                            child: const CardHomeCus(
+                              NameSpace: 'كفة',
+                              match: "4.5",
+                              tybeSpace: "mating",
+                              ThePrice: "١٠٠",
+                              imgUrl:
+                                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYIa6D7LhMk7211BoEiPhRGHFRpLUEBmWjOQ&usqp=CAU",
+                            ),
+                            onTap: () {
+                              context.nextPage(view: const ProductDetails());
+                            },
+                          ),
+                          InkWell(
+                            child: const CardHomeCus(
+                              NameSpace: 'كفة',
+                              match: "4.5",
+                              tybeSpace: "mating",
+                              ThePrice: "١٠٠",
+                              imgUrl:
+                                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYIa6D7LhMk7211BoEiPhRGHFRpLUEBmWjOQ&usqp=CAU",
+                            ),
+                            onTap: () {
+                              context.nextPage(view: const ProductDetails());
+                            },
+                          ),
+                          InkWell(
+                            child: const CardHomeCus(
+                              NameSpace: 'كفة',
+                              match: "4.5",
+                              tybeSpace: "mating",
+                              ThePrice: "١٠٠",
+                              imgUrl:
+                                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYIa6D7LhMk7211BoEiPhRGHFRpLUEBmWjOQ&usqp=CAU",
+                            ),
+                            onTap: () {
+                              context.nextPage(view: const ProductDetails());
+                            },
+                          ),
+                          InkWell(
+                            child: const CardHomeCus(
+                              NameSpace: 'كفة',
+                              match: "4.5",
+                              tybeSpace: "mating",
+                              ThePrice: "١٠٠",
+                              imgUrl:
+                                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYIa6D7LhMk7211BoEiPhRGHFRpLUEBmWjOQ&usqp=CAU",
+                            ),
+                            onTap: () {
+                              context.nextPage(view: const ProductDetails());
+                            },
                           ),
                         ],
                       ),
-                      const Column(
+                      ListView(
                         children: [
-                          CardHomeCus(
-                            NameSpace: 'كفة',
-                            match: "4.5",
-                            tybeSpace: "mating",
-                            ThePrice: "١٠٠",
-                            imgUrl:
-                                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYIa6D7LhMk7211BoEiPhRGHFRpLUEBmWjOQ&usqp=CAU",
+                          InkWell(
+                            child: const CardHomeCus(
+                              NameSpace: 'كفة',
+                              match: "4.5",
+                              tybeSpace: "mating",
+                              ThePrice: "١٠٠",
+                              imgUrl:
+                                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYIa6D7LhMk7211BoEiPhRGHFRpLUEBmWjOQ&usqp=CAU",
+                            ),
+                            onTap: () {
+                              context.nextPage(view: const ProductDetails());
+                            },
                           ),
                         ],
                       ),
-                      const Column(
+                      ListView(
                         children: [
-                          CardHomeCus(
-                            NameSpace: 'كفة',
-                            match: "4.5",
-                            tybeSpace: "mating",
-                            ThePrice: "١٠٠",
-                            imgUrl:
-                                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYIa6D7LhMk7211BoEiPhRGHFRpLUEBmWjOQ&usqp=CAU",
+                          InkWell(
+                            child: const CardHomeCus(
+                              NameSpace: 'كفة',
+                              match: "4.5",
+                              tybeSpace: "mating",
+                              ThePrice: "١٠٠",
+                              imgUrl:
+                                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYIa6D7LhMk7211BoEiPhRGHFRpLUEBmWjOQ&usqp=CAU",
+                            ),
+                            onTap: () {
+                              context.nextPage(view: const ProductDetails());
+                            },
                           ),
                         ],
                       ),
-                      const Column(
+                      ListView(
                         children: [
-                          CardHomeCus(
-                            NameSpace: 'كفة',
-                            match: "4.5",
-                            tybeSpace: "mating",
-                            ThePrice: "١٠٠",
-                            imgUrl:
-                                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYIa6D7LhMk7211BoEiPhRGHFRpLUEBmWjOQ&usqp=CAU",
+                          InkWell(
+                            child: const CardHomeCus(
+                              NameSpace: 'كفة',
+                              match: "4.5",
+                              tybeSpace: "mating",
+                              ThePrice: "١٠٠",
+                              imgUrl:
+                                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYIa6D7LhMk7211BoEiPhRGHFRpLUEBmWjOQ&usqp=CAU",
+                            ),
+                            onTap: () {
+                              context.nextPage(view: const ProductDetails());
+                            },
                           ),
                         ],
                       ),
-                      Column(
+                      ListView(
                         children: [
                           InkWell(
                             child: const CardHomeCus(
