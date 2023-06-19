@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:frontend/constants/colors.dart';
+import 'package:frontend/constants/spaces.dart';
 
 class ProductDetails extends StatelessWidget {
   const ProductDetails({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListView(
-        children: const [
+    return const Scaffold(
+      body: Column(
+        children: [
           Stack(
             children: [
               Images(),
               MyIcons(),
-              Positioned(child: Details()),
             ],
           ),
+          Details(),
         ],
       ),
     );
@@ -31,9 +32,8 @@ class Images extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ImageSlideshow(
-      height: MediaQuery.of(context).size.height * 0.30,
-      indicatorColor: Colors.white,
-      indicatorRadius: 5,
+      height: MediaQuery.of(context).size.height * 0.36,
+      indicatorBackgroundColor: white,
       children: const [
         Image(
           image: AssetImage('images/Group 71.png'),
@@ -98,8 +98,64 @@ class Details extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: darkBlue,
-      height: 100,
+      color: lightBlue,
+      child: Column(
+        children: [
+          kVSpace8,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "المساحة",
+                  style: TextStyle(
+                      fontFamily: 'Tajawal',
+                      fontWeight: FontWeight.w700,
+                      fontSize: 36,
+                      color: darkBlue),
+                ),
+                Column(
+                  children: [
+                    Text(
+                      "إسم المالك",
+                      style: TextStyle(
+                          fontFamily: 'Tajawal',
+                          fontWeight: FontWeight.w400,
+                          fontSize: 15,
+                          color: orange),
+                    ),
+                    Text(
+                      "ر.س500",
+                      style: TextStyle(
+                          fontFamily: 'Tajawal',
+                          fontWeight: FontWeight.w400,
+                          fontSize: 15,
+                          color: orange),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "المكان",
+                  style: TextStyle(
+                      fontFamily: 'Tajawal',
+                      fontWeight: FontWeight.w400,
+                      fontSize: 20,
+                      color: lightGrey),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
