@@ -14,14 +14,14 @@ class ProductDetails extends StatelessWidget {
     return Scaffold(
       body: ListView(
         children: [
-          const Stack(
+          Stack(
             children: [
-              Images(
+              const Images(
                 image1Url: 'images/Group 71.png',
                 image2Url: 'images/Group 68.png',
                 image3Url: 'images/Group 72.png',
               ),
-              DetailsIcons(),
+              DetailsIcons(product: product),
             ],
           ),
           Details(

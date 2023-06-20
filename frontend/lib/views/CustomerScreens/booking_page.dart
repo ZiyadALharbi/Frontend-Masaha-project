@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:frontend/constants/colors.dart';
 import 'package:frontend/constants/spaces.dart';
 
-import '../../components/All/drop_down_menu.dart';
 import '../../components/All/textfield.dart';
 import '../../components/Customer/Product_Details/booking/confirm_button.dart';
 import '../../components/Customer/Product_Details/booking/label_booking.dart';
-import '../owner/add_space.dart';
 
 class BookingScreen extends StatefulWidget {
   const BookingScreen({super.key});
@@ -50,15 +48,28 @@ class _BookingScreenState extends State<BookingScreen> {
                   height: 56,
                 ),
                 kVSpace32,
-                DropDownMenuOwner(
-                  width: 400,
-                  height: 56,
-                  label: 'الخطط',
-                  hint: 'إختر نوع الخطة التي تريد إضافتها',
-                  typesAndPlans: planTypes,
-                  selectedTypesAndPlans: selectedPlanTypes,
-                  onTypeChange: (List<dynamic> hhh) {},
-                ),
+                // DropDownMenuOwner(
+                //   width: 400,
+                //   height: 56,
+                //   label: 'الخطط',
+                //   hint: 'إختر نوع الخطة التي تريد إضافتها',
+                //   typesAndPlans: planTypes,
+                //   selectedTypesAndPlans: selectedPlanTypes,
+                //   onTypeChange: (List<dynamic> hhh) {},
+                // ),
+
+                // RadioButton(
+                //   onTypeChange: (newValue) {
+                //     var userType = newValue;
+                //     setState(() {});
+                //   },
+                // ),
+                // RadioButton(
+                //   onTypeChange: (newValue) {
+                //     var userType = newValue;
+                //     setState(() {});
+                //   },
+                // ),
                 kVSpace32,
                 TextFieldCustom(
                   icon: Icon(

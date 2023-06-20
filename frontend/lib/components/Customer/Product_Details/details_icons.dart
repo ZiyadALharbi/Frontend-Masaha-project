@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/services/api/customer/add_to_bookmark.dart';
 import 'package:frontend/services/extensions/nav.dart';
 
 import '../../../views/CustomerScreens/home_screen.dart';
@@ -6,8 +7,10 @@ import '../../../views/CustomerScreens/home_screen.dart';
 class DetailsIcons extends StatelessWidget {
   const DetailsIcons({
     super.key,
+    required this.product,
   });
 
+  final Map product;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -17,7 +20,10 @@ class DetailsIcons extends StatelessWidget {
         children: [
           FloatingActionButton(
             heroTag: null,
-            onPressed: () {},
+            onPressed: () async {
+              final Map body = {"id_product": product["id"]};
+              final response = await addToBookmark(body: body);
+            },
             mini: true,
             elevation: 0,
             backgroundColor: Colors.white,
