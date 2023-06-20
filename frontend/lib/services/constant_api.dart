@@ -18,4 +18,5 @@ mixin OwnerEndPoint {
   String addProductImage = '/owner/add-product-image/';
   String cancelReservationOwner = '/owner/cancel-reservation-owner';
   String displayOwnerProduct = '/owner/display-owner-product';
+  String deleteProduct = "/owner/delete-product/";
 }

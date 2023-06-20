@@ -7,7 +7,7 @@ import 'package:http/http.dart';
 
 Future<Response> createUser({Map? body, String? userType}) async {
   try {
-    final newBody = {...body ?? {}, 'type': userType};
+    final newBody = {...body ?? {}, 'user-type': userType};
     var url = Uri.http(Api().url, Api().createAccount);
     var response = await http.post(
       url,

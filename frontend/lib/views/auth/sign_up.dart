@@ -25,7 +25,7 @@ class _SignUpState extends State<SignUp> {
   final phoneController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  String userType = 'customer';
+  String? userType;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class _SignUpState extends State<SignUp> {
                   TextButtonQuestion(
                     question: 'لديك حساب؟',
                     login: 'تسجيل الدخول',
-                    page: LogIn(userType: userType),
+                    page: LogIn(),
                   ),
                   TextFieldCustom(
                     label: 'الإسم',
@@ -75,7 +75,6 @@ class _SignUpState extends State<SignUp> {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10))),
                         onPressed: () async {
-                          setState(() {});
                           final response = await createUser(
                             body: {
                               "email": emailController.text,
@@ -88,7 +87,7 @@ class _SignUpState extends State<SignUp> {
                           );
 
                           if (response.statusCode == 200) {
-                            context.nextPage(view: LogIn(userType: userType));
+                            context.nextPage(view: LogIn());
                           } else {
                             showDialog(
                               context: context,
