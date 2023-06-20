@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:frontend/services/api/customer/add_to_bookmark.dart';
 import 'package:frontend/services/extensions/nav.dart';
@@ -25,7 +23,6 @@ class DetailsIcons extends StatelessWidget {
             onPressed: () async {
               final Map body = {"id_product": product["id"]};
               final response = await addToBookmark(body: body);
-              log(response.statusCode);
             },
             mini: true,
             elevation: 0,

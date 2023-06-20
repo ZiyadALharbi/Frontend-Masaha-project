@@ -6,7 +6,8 @@ import 'package:frontend/views/CustomerScreens/product_details.dart';
 import '../../constants/spaces.dart';
 import '../../components/HomeCusComp/CardHomeCus.dart';
 import '../../constants/colors.dart';
-import '../../services/api/owner/display_product_api.dart';
+import '../../services/api/customer/display_product_api.dart';
+
 
 class CustomerHome extends StatefulWidget {
   const CustomerHome({super.key});

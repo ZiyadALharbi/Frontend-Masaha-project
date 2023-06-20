@@ -26,7 +26,7 @@ class ProductDetails extends StatelessWidget {
           ),
           Details(
             ownerName: product['owner_username'],
-            spaceName: product['type'],
+            spaceName: product['name'],
             price: product['price'].toString(),
             location: 'الموقع',
             description: product['description'],
