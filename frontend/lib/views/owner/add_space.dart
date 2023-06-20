@@ -1,13 +1,11 @@
 // ignore_for_file: must_be_immutable
 
 import 'dart:io';
-
+import 'dart:math';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:frontend/components/home/home_nav.dart';
-// import 'package:frontend/services/api/owner/add_image_api.dart';
 import 'package:frontend/services/extensions/nav.dart';
-// import 'package:frontend/views/owner/home_screen.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../components/All/custom_button.dart';
 import '../../components/All/textfield.dart';
@@ -15,6 +13,7 @@ import '../../constants/spaces.dart';
 import '../../components/All/drop_down_menu.dart';
 import '../../constants/colors.dart';
 import '../../services/api/owner/add_product_api.dart';
+import '../../services/supabase/supabaseEnv.dart';
 
 class AddSpace extends StatefulWidget {
   const AddSpace({super.key});
@@ -23,6 +22,7 @@ class AddSpace extends StatefulWidget {
   State<AddSpace> createState() => _AddSpaceState();
 }
 
+List<String> images = [];
 List<String> spaceTypes = [
   'مساحة مشتركة',
   'مساحة خاصة',
@@ -170,13 +170,21 @@ class _AddSpaceState extends State<AddSpace> {
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: darkBlue),
                                   onPressed: () async {
-                                              // image = await picker.pickImage(
-                                              //     source: ImageSource.gallery);
-                                    //               final Map body = {
-                                    //                 "id_product":
-                                    //                 "url_image":
-                                    // };
-                                              // await addImage(body: body);
+                                    final image = await ImagePicker()
+                                        .pickImage(source: ImageSource.gallery);
+
+                                    final randomNumber =
+                                        Random().nextInt(9999999);
+                                    final supabase = SupabaseEnv().supabase;
+                                    File file = File((image ?? XFile('')).path);
+                                    print("loading");
+                                    final result = await supabase.storage
+                                        .from("ProductImages")
+                                        .upload("$randomNumber.png", file);
+                                    print("loaded");
+                                    print(result);
+
+                                    setState(() {});
                                   },
                                   child: const CustomButton(
                                       buttonTitle: 'اختيار من الجهاز',
@@ -206,6 +214,7 @@ class _AddSpaceState extends State<AddSpace> {
                             "feature_4": feature4.text,
                             "feature_5": feature5.text,
                             "feature_6": feature6.text,
+                            "images": images,
                           };
                           await addProductOwner(body: body);
                           context.nextPage(view: const HomeNav());
@@ -225,3 +234,10 @@ class _AddSpaceState extends State<AddSpace> {
     );
   }
 }
+
+
+ //           await addImage(body: body);
+                                    //  var bytes = await ImagePicker.pickImage(source: ImageSource.gallery).readAsBytes();
+                                    // var bytes = await ImagePicker()
+                                        // .pickImage(source: ImageSource.gallery)
+                                        // .asStream();
