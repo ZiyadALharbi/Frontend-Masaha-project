@@ -4,6 +4,7 @@ import 'dart:io';
 
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:frontend/components/home/home_nav.dart';
 import 'package:frontend/services/api/owner/add_image_api.dart';
 import 'package:frontend/services/extensions/nav.dart';
 import 'package:frontend/views/owner/home_screen.dart';
@@ -213,7 +214,7 @@ class _AddSpaceState extends State<AddSpace> {
                             "feature_6": feature6.text,
                           };
                           await addProductOwner(body: body);
-                          context.nextPage(view: const HomeScreen());
+                          context.nextPage(view: const HomeNav());
                           setState(() {});
                         },
                         child: const CustomButton(

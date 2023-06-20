@@ -4,10 +4,12 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:frontend/components/home/home_nav.dart';
 import 'package:get_storage/get_storage.dart';
+import '../../components/Customer/CustomerNavBar.dart';
 import '../../components/auth/popup_message.dart';
 import '../../constants/spaces.dart';
 import '../../services/api/auth/login_user.dart';
 import '../../services/extensions/nav.dart';
+import '../owner/home_screen.dart';
 import 'reset_password.dart';
 import 'sign_up.dart';
 import '../../components/All/custom_button.dart';
@@ -78,6 +80,10 @@ class _LogInState extends State<LogIn> {
                             box.write(
                                 "token", json.decode(response.body)["token"]);
                             context.nextPage(view: const HomeNav());
+                            context.nextPage(
+                                view: widget.userType == 'customer'
+                                    ? const CustomerNavBar()
+                                    : const HomeNav());
                           } else {
                             showDialog(
                               context: context,
