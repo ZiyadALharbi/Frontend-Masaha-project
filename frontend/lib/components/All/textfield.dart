@@ -9,7 +9,8 @@ class TextFieldCustom extends StatelessWidget {
       this.icon,
       this.suffixText,
       this.width,
-      this.height});
+      this.height,
+      this.hint});
 
   final String label;
   final TextEditingController? textController;
@@ -17,6 +18,7 @@ class TextFieldCustom extends StatelessWidget {
   final String? suffixText;
   final double? width;
   final double? height;
+  final String? hint;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,7 @@ class TextFieldCustom extends StatelessWidget {
                 fontSize: 8,
                 fontWeight: FontWeight.w400,
                 color: darkGrey),
-            hintText: label,
+            hintText: hint ?? label,
             focusedBorder:
                 OutlineInputBorder(borderSide: BorderSide(color: darkBlue)),
             hintStyle: TextStyle(

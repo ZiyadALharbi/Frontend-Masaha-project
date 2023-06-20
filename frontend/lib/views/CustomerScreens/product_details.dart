@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../components/Customer/Product_Details/booking_button.dart';
+import '../../components/Customer/Product_Details/booking/booking_button.dart';
 import '../../components/Customer/Product_Details/details.dart';
 import '../../components/Customer/Product_Details/details_icons.dart';
 import '../../components/Customer/Product_Details/images_product.dart';

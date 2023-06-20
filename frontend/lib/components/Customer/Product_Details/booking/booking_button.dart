@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/services/extensions/nav.dart';
 
-import '../../../constants/colors.dart';
-import '../../../views/CustomerScreens/booking_page.dart';
+import '../../../../constants/colors.dart';
+import '../../../../views/CustomerScreens/booking_page.dart';
 
 class BookingButton extends StatelessWidget {
   const BookingButton({
