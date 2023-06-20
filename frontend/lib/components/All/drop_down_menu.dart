@@ -36,7 +36,7 @@ class _DropDownMenuOwnerState extends State<DropDownMenuOwner> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: width ?? 350,
-      height: height ?? 53,
+      height: height ?? 100,
       child: DropDownMultiSelect(
           selected_values_style: TextStyle(color: blue, fontFamily: 'Tajawal'),
           decoration: InputDecoration(
@@ -44,7 +44,7 @@ class _DropDownMenuOwnerState extends State<DropDownMenuOwner> {
               labelStyle: TextStyle(
                   fontFamily: 'Tajawal',
                   fontWeight: FontWeight.w400,
-                  fontSize: 14,
+                  fontSize: 24,
                   color: black),
               focusedBorder:
                   OutlineInputBorder(borderSide: BorderSide(color: darkBlue)),
@@ -53,7 +53,7 @@ class _DropDownMenuOwnerState extends State<DropDownMenuOwner> {
           hintStyle: TextStyle(
               fontFamily: 'Tajawal',
               fontWeight: FontWeight.w400,
-              fontSize: 11,
+              fontSize: 14,
               color: black),
           hint: Text(widget.hint),
           options: widget.typesAndPlans,
