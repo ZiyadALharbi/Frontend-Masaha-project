@@ -15,6 +15,7 @@ mixin CustomerEndPoint {
   String displayReservationCustomer = '/customer/display-customer-reservations';
 }
 mixin OwnerEndPoint {
+  String displayReservationOwner = '/owner/display-owner-reservations';
   String addProduct = "/owner/add-product";
   String addProductImage = '/owner/add-product-image/';
   String cancelReservationOwner = '/owner/cancel-reservation-owner';

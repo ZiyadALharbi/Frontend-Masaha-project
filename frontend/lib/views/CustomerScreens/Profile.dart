@@ -1,7 +1,8 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:frontend/constants/colors.dart';
 import 'package:frontend/constants/spaces.dart';
-
 import '../../components/All/profile_card.dart';
 import '../../components/All/signout_button.dart';
 

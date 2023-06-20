@@ -8,17 +8,11 @@ import '../../constants/spaces.dart';
 class CardCustomerAppointments extends StatelessWidget {
   const CardCustomerAppointments({
     super.key,
-    required this.NameCustomer,
-    required this.DateAppointments,
-    required this.BookingStatus,
-    required this.Diys,
+    required this.BookingStatus,required this.listOfReservation,
   });
-  //________this Pramitar in Card______________
-
-  final String NameCustomer;
-  final DateAppointments;
   final BookingStatus;
-  final Diys;
+
+  final Map listOfReservation;
   @override
   Widget build(BuildContext context) {
     Color ColorStatys = const Color.fromARGB(255, 0, 0, 0);
@@ -97,7 +91,7 @@ class CardCustomerAppointments extends StatelessWidget {
                                           Padding(
                                             padding: const EdgeInsets.all(9.0),
                                             child: Text(
-                                              NameCustomer,
+                                              listOfReservation['customer_username'],
                                               textAlign: TextAlign.end,
                                               style: const TextStyle(
                                                 fontSize: 20,
@@ -109,12 +103,12 @@ class CardCustomerAppointments extends StatelessWidget {
                                             padding: const EdgeInsets.all(9.0),
                                             child: Row(
                                               children: [
-                                                Text(DateAppointments,
+                                                Text(listOfReservation['created_at'],
                                                     textAlign: TextAlign.end,
                                                     style: const TextStyle(
                                                         fontFamily: 'Tajawal',
                                                         fontSize: 15)),
-                                                Text(Diys,
+                                                Text(listOfReservation['created_at'],
                                                     textAlign: TextAlign.end,
                                                     style: const TextStyle(
                                                         fontFamily: 'Tajawal',
