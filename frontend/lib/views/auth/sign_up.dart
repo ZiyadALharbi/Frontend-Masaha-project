@@ -1,14 +1,10 @@
 // ignore_for_file: must_be_immutable, use_build_context_synchronously
 
 import 'package:flutter/material.dart';
-
 import 'package:frontend/constants/spaces.dart';
-import 'package:frontend/views/CustomerScreens/home_screen.dart';
-import 'package:frontend/views/owner/home_screen.dart';
 import '../../components/auth/popup_message.dart';
 import '../../services/api/auth/create_user.dart';
 import '../../services/extensions/nav.dart';
-
 import '../../components/auth/radio_button.dart';
 import '../../components/All/custom_button.dart';
 import '../../components/All/text_button.dart';

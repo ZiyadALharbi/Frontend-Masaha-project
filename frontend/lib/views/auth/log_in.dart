@@ -2,15 +2,12 @@
 
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:frontend/views/CustomerScreens/home_screen.dart';
-import 'package:frontend/views/owner/home_screen.dart';
+import 'package:frontend/components/home/home_nav.dart';
 import 'package:get_storage/get_storage.dart';
 import '../../components/auth/popup_message.dart';
 import '../../constants/spaces.dart';
 import '../../services/api/auth/login_user.dart';
 import '../../services/extensions/nav.dart';
-
-import '../owner/bottom_bar.dart';
 import 'reset_password.dart';
 import 'sign_up.dart';
 import '../../components/All/custom_button.dart';
@@ -80,7 +77,7 @@ class _LogInState extends State<LogIn> {
                             final box = GetStorage();
                             box.write(
                                 "token", json.decode(response.body)["token"]);
-                            context.nextPage(view: widget.userType == 'customer' ? CustomerHome() : HomeScreen());
+                            context.nextPage(view: const HomeNav());
                           } else {
                             showDialog(
                               context: context,

@@ -1,8 +1,13 @@
 // ignore_for_file: must_be_immutable
 
+import 'dart:io';
+
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:frontend/services/api/owner/add_image_api.dart';
 import 'package:frontend/services/extensions/nav.dart';
 import 'package:frontend/views/owner/home_screen.dart';
+import 'package:image_picker/image_picker.dart';
 import '../../components/All/custom_button.dart';
 import '../../components/All/textfield.dart';
 import '../../constants/spaces.dart';
@@ -42,6 +47,9 @@ TextEditingController feature5 = TextEditingController();
 TextEditingController feature6 = TextEditingController();
 
 class _AddSpaceState extends State<AddSpace> {
+  // final ImagePicker picker = ImagePicker();
+  // XFile? image;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -130,45 +138,61 @@ class _AddSpaceState extends State<AddSpace> {
                     icon: const Icon(Icons.location_pin,
                         color: Color.fromRGBO(243, 17, 17, 1)),
                   ),
-                  // Center(
-                  //   child: DottedBorder(
-                  //     dashPattern: const [5, 5],
-                  //     color: darkGrey,
-                  //     strokeCap: StrokeCap.round,
-                  //     child: Container(
-                  //       height: 150,
-                  //       width: 188,
-                  //       decoration: BoxDecoration(color: lightBlue),
-                  //       child: Padding(
-                  //         padding: const EdgeInsets.all(16.0),
-                  //         child: Column(
-                  //           mainAxisAlignment: MainAxisAlignment.center,
-                  //           children: [
-                  //             Icon(Icons.upload_file, color: darkBlue),
-                  //             kVSpace8,
-                  //             Text(
-                  //               'صورة لمساحة العمل من الجهاز',
-                  //               style: TextStyle(
-                  //                   fontFamily: 'Tajawal',
-                  //                   fontWeight: FontWeight.w400,
-                  //                   fontSize: 12,
-                  //                   color: darkBlue),
-                  //             ),
-                  //             kVSpace8,
-                  //             ElevatedButton(
-                  //                 style: ElevatedButton.styleFrom(
-                  //                     backgroundColor: darkBlue),
-                  //                 onPressed: () {},
-                  //                 child: const CustomButton(
-                  //                     buttonTitle: 'اختيار من الجهاز',
-                  //                     textSize: 8,
-                  //                     fontWeight: FontWeight.w400))
-                  //           ],
-                  //         ),
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
+                  Center(
+                    child: DottedBorder(
+                      dashPattern: const [5, 5],
+                      color: darkGrey,
+                      strokeCap: StrokeCap.round,
+                      child: Container(
+                        height: 150,
+                        width: 188,
+                        decoration: BoxDecoration(color: lightBlue),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.upload_file, color: darkBlue),
+                              kVSpace8,
+                              Text(
+                                'صورة لمساحة العمل من الجهاز',
+                                style: TextStyle(
+                                    fontFamily: 'Tajawal',
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 12,
+                                    color: darkBlue),
+                              ),
+                              kVSpace8,
+                              // image == null
+                              //     ? const SizedBox.shrink()
+                              //     : Image.file(File(image!.path)),
+                              ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                      backgroundColor: darkBlue),
+                                  onPressed: () async {
+                                    //           image = await picker.pickImage(
+                                    //               source: ImageSource.gallery);
+                                    //               final Map body = {
+                                    //                 "id_product":
+                                    //                 "url_image":
+                                    // };
+                                    //           await addImage(body: body);
+                                    //  var bytes = await ImagePicker.pickImage(source: ImageSource.gallery).readAsBytes();
+                                    var bytes = await ImagePicker()
+                                        .pickImage(source: ImageSource.gallery)
+                                        .asStream();
+                                    setState(() {});
+                                  },
+                                  child: const CustomButton(
+                                      buttonTitle: 'اختيار من الجهاز',
+                                      textSize: 8,
+                                      fontWeight: FontWeight.w400))
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                   kVSpace40,
                   Center(
                     child: ElevatedButton(
@@ -188,11 +212,9 @@ class _AddSpaceState extends State<AddSpace> {
                             "feature_5": feature5.text,
                             "feature_6": feature6.text,
                           };
-                          final response = await addProductOwner(body: body);
-                          if (response.statusCode == 200) {
-                            context.nextPage(view: const HomeScreen());
-                            setState(() {});
-                          }
+                          await addProductOwner(body: body);
+                          context.nextPage(view: const HomeScreen());
+                          setState(() {});
                         },
                         child: const CustomButton(
                             buttonTitle: 'اضافة',

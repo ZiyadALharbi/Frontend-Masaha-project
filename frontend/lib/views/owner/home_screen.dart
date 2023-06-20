@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final response = await displayProduct();
     if (response.statusCode == 200) {
       try {
-        ownerProducts = json.decode(response.body)["data"];
+        ownerProducts = json.decode(response.body);
         setState(() {});
       } catch (error) {
         print(error);

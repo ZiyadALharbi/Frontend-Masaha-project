@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:frontend/services/extensions/nav.dart';
 import 'package:frontend/views/onboard/onboard.dart';
 import 'package:get_storage/get_storage.dart';
-
 import '../../constants/colors.dart';
 import '../../constants/spaces.dart';
 
