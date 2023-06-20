@@ -7,11 +7,14 @@ environment:
   sdk: '>=3.0.2 <4.0.0'
 dependencies:
   font_awesome_flutter: ^10.4.0
+  
+  
   flutter:
     sdk: flutter
   
 
   cupertino_icons: ^1.0.2
+
   flutter_localizations:
     sdk: flutter
   intl: any
@@ -22,6 +25,9 @@ dependencies:
   image_picker: ^0.8.9
   dotted_border: ^2.0.0+3
   smooth_page_indicator: ^1.1.0
+  rive: ^0.7.16
+  
+  
 
 dev_dependencies:
   flutter_test:
@@ -35,6 +41,7 @@ flutter:
 
   assets:
     - images/
+    - assets/animations/
 
   fonts:
     - family: Tajawal
