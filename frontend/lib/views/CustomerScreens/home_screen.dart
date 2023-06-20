@@ -8,7 +8,6 @@ import '../../components/HomeCusComp/CardHomeCus.dart';
 import '../../constants/colors.dart';
 import '../../services/api/customer/display_product_api.dart';
 
-
 class CustomerHome extends StatefulWidget {
   const CustomerHome({super.key});
 
