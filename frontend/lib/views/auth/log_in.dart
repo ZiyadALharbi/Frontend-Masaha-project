@@ -19,9 +19,8 @@ import '../../components/All/title_page.dart';
 import '../../constants/colors.dart';
 
 class LogIn extends StatefulWidget {
-  const LogIn({super.key, required this.userType});
+  const LogIn({super.key,});
 
-  final String userType;
 
   @override
   State<LogIn> createState() => _LogInState();
@@ -79,11 +78,18 @@ class _LogInState extends State<LogIn> {
                             final box = GetStorage();
                             box.write(
                                 "token", json.decode(response.body)["token"]);
-                            context.nextPage(view: const HomeNav());
-                            context.nextPage(
-                                view: widget.userType == 'customer'
-                                    ? const CustomerNavBar()
-                                    : const HomeNav());
+                            box.write("UserType", json.decode(response.body)["UserType"]);
+                            // context.nextPage(view: const HomeNav());
+                            // context.nextPage(
+                            //     view: widget.userType == 'customer'
+                            //         ? const CustomerNavBar()
+                            //         : const HomeNav());
+                            
+                              if(box.read("UserType").toString().contains("customer")){
+                                context.pushAndRemove(view: CustomerNavBar());
+                              } else if(box.read("UserType").toString().contains("owner")){
+                                context.pushAndRemove(view: HomeNav());
+                              }
                           } else {
                             showDialog(
                               context: context,

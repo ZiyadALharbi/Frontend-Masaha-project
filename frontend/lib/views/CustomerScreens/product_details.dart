@@ -5,14 +5,16 @@ import '../../components/Customer/Product_Details/details_icons.dart';
 import '../../components/Customer/Product_Details/images_product.dart';
 
 class ProductDetails extends StatelessWidget {
-  const ProductDetails({super.key});
+  const ProductDetails({super.key, required this.product});
+
+  final Map product;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
-        children: const [
-          Stack(
+        children: [
+          const Stack(
             children: [
               Images(
                 image1Url: 'images/Group 71.png',
@@ -23,14 +25,14 @@ class ProductDetails extends StatelessWidget {
             ],
           ),
           Details(
-            ownerName: 'إسم المالك',
-            spaceName: 'المساحة',
-            price: '550',
+            ownerName: product['owner_username'],
+            spaceName: product['type'],
+            price: product['price'].toString(),
             location: 'الموقع',
-            description:
-                "بْجَدْ هَوَّزْ حُطِّي كَلَمُنْ سَعْفُصْ قُرشت ثخذ ضظغ أَبْجَدْ هَوَّزْبْجَدْ هَوَّزْ حُطِّي كَلَمُنْ سَعْفُصْ قُرشت ثخذ ضظغ أَبْجَدْ هَوَّزْبْجَدْ هَوَّزْ حُطِّي كَلَمُنْ سَعْفُصْ قُرشت ثخذ ضظغ أَبْجَدْ هَوَّزْبْجَدْ هَوَّزْ حُطِّي كَلَمُنْ سَعْفُصْ قُرشت ثخذ ضظغ أَبْجَدْ هَوَّزْبْجَدْ هَوَّزْ حُطِّي بْجَدْ هَوَّزْ حُطِّي كَلَمُنْ سَعْفُصْ قُرشت ثخذ ضظغ أَبْجَدْ هَوَّزْكَلَمُنْ سَعْفُصْ قُرشت ثخذ ضظغ أَبْجَدْ هَوَّزْ",
+            description: product['description'],
+            features: product,
           ),
-          BookingButton()
+          const BookingButton()
         ],
       ),
     );

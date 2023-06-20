@@ -1,11 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:frontend/constants/spaces.dart';
-import 'package:frontend/services/extensions/nav.dart';
-// import 'package:frontend/extan/PushPage.dart';
-import 'package:frontend/views/CustomerScreens/product_details.dart';
+import 'dart:convert';
 
+import 'package:flutter/material.dart';
+import 'package:frontend/services/extensions/nav.dart';
+import 'package:frontend/views/CustomerScreens/product_details.dart';
+import '../../constants/spaces.dart';
 import '../../components/HomeCusComp/CardHomeCus.dart';
 import '../../constants/colors.dart';
+import '../../services/api/owner/display_product_api.dart';
 
 class CustomerHome extends StatefulWidget {
   const CustomerHome({super.key});
@@ -15,6 +16,26 @@ class CustomerHome extends StatefulWidget {
 }
 
 class _CustomerHomeState extends State<CustomerHome> {
+  List prodcuts = [];
+
+  @override
+  void initState() {
+    super.initState();
+    getProducts();
+  }
+
+  getProducts() async {
+    final response = await displayProduct();
+    if (response.statusCode == 200) {
+      try {
+        prodcuts = json.decode(response.body);
+        setState(() {});
+      } catch (error) {
+        print(error);
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -63,50 +84,12 @@ class _CustomerHomeState extends State<CustomerHome> {
                     borderRadius: BorderRadius.circular(50),
                   ),
                   labelPadding: const EdgeInsets.symmetric(horizontal: 11),
-                  tabs: [
-                    Tab(
-                      child: Text(
-                        'مساحة مشتركة',
-                        style: TextStyle(
-                            fontFamily: 'Tajawal',
-                            fontWeight: FontWeight.w800,
-                            fontSize: 12,
-                            color: black),
-                      ),
-                    ),
-                    Tab(
-                      child: Text(
-                        'مساحة خاصة',
-                        style: TextStyle(
-                            fontFamily: 'Tajawal',
-                            fontWeight: FontWeight.w800,
-                            fontSize: 12,
-                            color: black),
-                      ),
-                    ),
-                    const Tab(
-                      child: TabTitle(),
-                    ),
-                    Tab(
-                      child: Text(
-                        'قاعة اجتماعات',
-                        style: TextStyle(
-                            fontFamily: 'Tajawal',
-                            fontWeight: FontWeight.w800,
-                            fontSize: 12,
-                            color: black),
-                      ),
-                    ),
-                    Tab(
-                      child: Text(
-                        'ورشة عمل',
-                        style: TextStyle(
-                            fontFamily: 'Tajawal',
-                            fontWeight: FontWeight.w800,
-                            fontSize: 12,
-                            color: black),
-                      ),
-                    ),
+                  tabs: const [
+                    Tab(child: TabTitle(spaceType: 'مساحة مشتركة')),
+                    Tab(child: TabTitle(spaceType: 'مساحة خاصة')),
+                    Tab(child: TabTitle(spaceType: 'مكتب خاص')),
+                    Tab(child: TabTitle(spaceType: 'قاعة اجتماعات')),
+                    Tab(child: TabTitle(spaceType: 'ورشة عمل')),
                   ],
                 ),
                 Expanded(
@@ -114,126 +97,92 @@ class _CustomerHomeState extends State<CustomerHome> {
                     children: [
                       ListView(
                         children: [
-                          InkWell(
-                            child: const CardHomeCus(
-                              NameSpace: 'كفة',
-                              match: "4.5",
-                              tybeSpace: "mating",
-                              ThePrice: "١٠٠",
-                              imgUrl:
-                                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYIa6D7LhMk7211BoEiPhRGHFRpLUEBmWjOQ&usqp=CAU",
-                            ),
-                            onTap: () {
-                              context.nextPage(view: const ProductDetails());
-                            },
-                          ),
-                          InkWell(
-                            child: const CardHomeCus(
-                              NameSpace: 'كفة',
-                              match: "4.5",
-                              tybeSpace: "mating",
-                              ThePrice: "١٠٠",
-                              imgUrl:
-                                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYIa6D7LhMk7211BoEiPhRGHFRpLUEBmWjOQ&usqp=CAU",
-                            ),
-                            onTap: () {
-                              context.nextPage(view: const ProductDetails());
-                            },
-                          ),
-                          InkWell(
-                            child: const CardHomeCus(
-                              NameSpace: 'كفة',
-                              match: "4.5",
-                              tybeSpace: "mating",
-                              ThePrice: "١٠٠",
-                              imgUrl:
-                                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYIa6D7LhMk7211BoEiPhRGHFRpLUEBmWjOQ&usqp=CAU",
-                            ),
-                            onTap: () {
-                              context.nextPage(view: const ProductDetails());
-                            },
-                          ),
-                          InkWell(
-                            child: const CardHomeCus(
-                              NameSpace: 'كفة',
-                              match: "4.5",
-                              tybeSpace: "mating",
-                              ThePrice: "١٠٠",
-                              imgUrl:
-                                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYIa6D7LhMk7211BoEiPhRGHFRpLUEBmWjOQ&usqp=CAU",
-                            ),
-                            onTap: () {
-                              context.nextPage(view: const ProductDetails());
-                            },
-                          ),
+                          for (var item in prodcuts)
+                            item['type'] == 'المساحة الأولى'
+                                ? InkWell(
+                                    child: CardHomeCus(
+                                        card: item,
+                                        imgUrl:
+                                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYIa6D7LhMk7211BoEiPhRGHFRpLUEBmWjOQ&usqp=CAU'),
+                                    onTap: () {
+                                      context.nextPage(
+                                          view: ProductDetails(product: item));
+                                      print(item);
+                                      setState(() {});
+                                    })
+                                : const SizedBox.shrink()
                         ],
                       ),
                       ListView(
                         children: [
-                          InkWell(
-                            child: const CardHomeCus(
-                              NameSpace: 'كفة',
-                              match: "4.5",
-                              tybeSpace: "mating",
-                              ThePrice: "١٠٠",
-                              imgUrl:
-                                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYIa6D7LhMk7211BoEiPhRGHFRpLUEBmWjOQ&usqp=CAU",
-                            ),
-                            onTap: () {
-                              context.nextPage(view: const ProductDetails());
-                            },
-                          ),
+                          for (var item in prodcuts)
+                            item['type'] == 'المساحة الثانية'
+                                ? InkWell(
+                                    child: CardHomeCus(
+                                        card: item,
+                                        imgUrl:
+                                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYIa6D7LhMk7211BoEiPhRGHFRpLUEBmWjOQ&usqp=CAU'),
+                                    onTap: () {
+                                      context.nextPage(
+                                          view: ProductDetails(product: item));
+                                      print(item);
+                                      setState(() {});
+                                    })
+                                : const SizedBox.shrink()
                         ],
                       ),
                       ListView(
                         children: [
-                          InkWell(
-                            child: const CardHomeCus(
-                              NameSpace: 'كفة',
-                              match: "4.5",
-                              tybeSpace: "mating",
-                              ThePrice: "١٠٠",
-                              imgUrl:
-                                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYIa6D7LhMk7211BoEiPhRGHFRpLUEBmWjOQ&usqp=CAU",
-                            ),
-                            onTap: () {
-                              context.nextPage(view: const ProductDetails());
-                            },
-                          ),
+                          for (var item in prodcuts)
+                            item['type'] == 'المساحة الثالثة'
+                                ? InkWell(
+                                    child: CardHomeCus(
+                                        card: item,
+                                        imgUrl:
+                                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYIa6D7LhMk7211BoEiPhRGHFRpLUEBmWjOQ&usqp=CAU'),
+                                    onTap: () {
+                                      context.nextPage(
+                                          view: ProductDetails(product: item));
+                                      print(item);
+                                      setState(() {});
+                                    })
+                                : const SizedBox.shrink()
                         ],
                       ),
                       ListView(
                         children: [
-                          InkWell(
-                            child: const CardHomeCus(
-                              NameSpace: 'كفة',
-                              match: "4.5",
-                              tybeSpace: "mating",
-                              ThePrice: "١٠٠",
-                              imgUrl:
-                                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYIa6D7LhMk7211BoEiPhRGHFRpLUEBmWjOQ&usqp=CAU",
-                            ),
-                            onTap: () {
-                              context.nextPage(view: const ProductDetails());
-                            },
-                          ),
+                          for (var item in prodcuts)
+                            item['type'] == 'المساحة الرابعة'
+                                ? InkWell(
+                                    child: CardHomeCus(
+                                        card: item,
+                                        imgUrl:
+                                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYIa6D7LhMk7211BoEiPhRGHFRpLUEBmWjOQ&usqp=CAU'),
+                                    onTap: () {
+                                      context.nextPage(
+                                          view: ProductDetails(product: item));
+                                      print(item);
+                                      setState(() {});
+                                    })
+                                : const SizedBox.shrink()
                         ],
                       ),
                       ListView(
                         children: [
-                          InkWell(
-                            child: const CardHomeCus(
-                              NameSpace: 'كفة',
-                              match: "4.5",
-                              tybeSpace: "mating",
-                              ThePrice: "١٠٠",
-                              imgUrl:
-                                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYIa6D7LhMk7211BoEiPhRGHFRpLUEBmWjOQ&usqp=CAU",
-                            ),
-                            onTap: () {
-                              context.nextPage(view: const ProductDetails());
-                            },
-                          ),
+                          for (var item in prodcuts)
+                            item['type'] == 'المساحة الخامسة'
+                                ? InkWell(
+                                    child: CardHomeCus(
+                                        card: item,
+                                        imgUrl:
+                                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYIa6D7LhMk7211BoEiPhRGHFRpLUEBmWjOQ&usqp=CAU'),
+                                    onTap: () {
+                                      context.nextPage(
+                                          view: ProductDetails(product: item));
+                                      print(item);
+                                      setState(() {});
+                                    })
+                                : const SizedBox.shrink()
                         ],
                       ),
                     ],
@@ -249,12 +198,15 @@ class _CustomerHomeState extends State<CustomerHome> {
 class TabTitle extends StatelessWidget {
   const TabTitle({
     super.key,
+    required this.spaceType,
   });
+
+  final String spaceType;
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      'مكتب خاص',
+      spaceType,
       style: TextStyle(
           fontFamily: 'Tajawal',
           fontWeight: FontWeight.w800,

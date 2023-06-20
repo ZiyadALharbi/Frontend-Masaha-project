@@ -4,16 +4,10 @@ import 'package:frontend/constants/colors.dart';
 class CardListOfReservations extends StatelessWidget {
   const CardListOfReservations({
     super.key,
-    required this.NameSpace,
-    this.ThePrice,
-    this.Address,
-    this.Date,
     this.imgUrl,
+    required this.reservation,
   });
-  final String NameSpace;
-  final ThePrice;
-  final Address;
-  final Date;
+  final Map reservation;
   final imgUrl;
   @override
   Widget build(BuildContext context) {
@@ -54,7 +48,7 @@ class CardListOfReservations extends StatelessWidget {
                                 SizedBox(
                                   width: 70,
                                   child: Text(
-                                    "$ThePrice  ر.س",
+                                    reservation['price'].toString(),
                                     overflow: TextOverflow.ellipsis,
                                     style: const TextStyle(
                                       fontSize: 19,
@@ -68,7 +62,7 @@ class CardListOfReservations extends StatelessWidget {
                               children: [
                                 SizedBox(
                                     width: 25,
-                                    child: Text(Date,
+                                    child: Text(reservation['created_at'],
                                         style: const TextStyle(
                                           fontFamily: 'Tajawal',
                                         ),
@@ -91,7 +85,7 @@ class CardListOfReservations extends StatelessWidget {
                                 SizedBox(
                                   width: 50,
                                   child: Text(
-                                    NameSpace,
+                                    reservation['product_name'],
                                     textAlign: TextAlign.end,
                                     overflow: TextOverflow.ellipsis,
                                     style: const TextStyle(

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../constants/colors.dart';
 import '../../../constants/spaces.dart';
 import '../../All/product_features.dart';
@@ -12,6 +11,7 @@ class Details extends StatelessWidget {
     required this.price,
     required this.location,
     required this.description,
+    required this.features,
   });
 
   final String ownerName;
@@ -19,6 +19,7 @@ class Details extends StatelessWidget {
   final String price;
   final String location;
   final String description;
+  final Map features;
 
   @override
   Widget build(BuildContext context) {
@@ -113,14 +114,13 @@ class Details extends StatelessWidget {
             ],
           ),
         ),
-        const Features(
-          feature1Name: 'الميزة الأولى',
-          feature2Name: 'الميزة الثانية',
-          feature3Name: 'الميزة الثالثة',
-          feature4Name: 'الميزة الرابعة',
-          feature5Name: 'الميزة الخامسة',
-          feature6Name: 'الميزة السادسة',
-        ),
+        Features(
+            feature1Name: features['feature_1'],
+            feature2Name: features['feature_2'],
+            feature3Name: features['feature_3'],
+            feature4Name: features['feature_4'],
+            feature5Name: features['feature_5'],
+            feature6Name: features['feature_6']),
       ],
     );
   }
