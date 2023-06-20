@@ -21,7 +21,7 @@ class ProfileCustomer extends StatelessWidget {
               padding: const EdgeInsets.only(right: 21),
               child: Row(
                 children: [
-                  Text('مرحبا فلان،',
+                  Text('مرحبا',
                       style: TextStyle(
                           fontFamily: 'Tajawal',
                           fontWeight: FontWeight.w700,
@@ -44,7 +44,7 @@ class ProfileCustomer extends StatelessWidget {
               cardIcon: (Icons.shield_outlined),
             ),
             kVSpace16,
-            SignOutButton(),
+            const SignOutButton(),
             Divider(
               height: 1,
               color: darkGrey,

@@ -20,7 +20,7 @@ class ProfileOwner extends StatelessWidget {
               padding: const EdgeInsets.only(right: 21),
               child: Row(
                 children: [
-                  Text('مرحبا فلان،',
+                  Text('مرحبا',
                       style: TextStyle(
                           fontFamily: 'Tajawal',
                           fontWeight: FontWeight.w700,
