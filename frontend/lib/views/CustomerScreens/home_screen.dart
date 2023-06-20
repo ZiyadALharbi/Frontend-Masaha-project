@@ -8,7 +8,6 @@ import '../../components/HomeCusComp/CardHomeCus.dart';
 import '../../constants/colors.dart';
 import '../../services/api/customer/display_product_api.dart';
 
-
 class CustomerHome extends StatefulWidget {
   const CustomerHome({super.key});
 
@@ -26,7 +25,7 @@ class _CustomerHomeState extends State<CustomerHome> {
   }
 
   getProducts() async {
-    final response = await displayOwnerProduct();
+    final response = await displayProduct();
     if (response.statusCode == 200) {
       try {
         prodcuts = json.decode(response.body);
