@@ -1,19 +1,10 @@
 import 'package:flutter/material.dart';
 
 class CardHomeCus extends StatelessWidget {
-  const CardHomeCus({
-    super.key,
-    required this.NameSpace,
-    required this.ThePrice,
-    required this.match,
-    required this.tybeSpace,
-    required this.imgUrl,
-  });
-  final String NameSpace;
-  final String ThePrice;
-  final String match;
-  final String tybeSpace;
+  const CardHomeCus({super.key, required this.card, required this.imgUrl});
   final String imgUrl;
+  final Map card;
+
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -64,7 +55,7 @@ class CardHomeCus extends StatelessWidget {
                                         SizedBox(
                                           width: 70,
                                           child: Text(
-                                            "$ThePrice  ر.س",
+                                            card['price'].toString(),
                                             overflow: TextOverflow.ellipsis,
                                             style: const TextStyle(
                                               fontSize: 19,
@@ -97,7 +88,7 @@ class CardHomeCus extends StatelessWidget {
                                         SizedBox(
                                           width: 50,
                                           child: Text(
-                                            NameSpace,
+                                            card['name'],
                                             textAlign: TextAlign.end,
                                             overflow: TextOverflow.ellipsis,
                                             style: const TextStyle(
@@ -112,32 +103,13 @@ class CardHomeCus extends StatelessWidget {
                                   Padding(
                                     padding: const EdgeInsets.only(
                                         top: 4, bottom: 10),
-                                    child: SizedBox(
-                                      width: 55,
-                                      child: Row(
-                                        children: [
-                                          Text(
-                                            tybeSpace,
-                                            style: const TextStyle(
-                                              color: Color.fromARGB(
-                                                  255, 129, 129, 129),
-                                              fontSize: 17,
-                                              fontFamily: 'Tajawal',
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 55,
                                     child: Row(
                                       children: [
                                         SizedBox(
-                                          width: 31,
+                                          width: 55,
                                           child: Text(
+                                            card['type'],
                                             overflow: TextOverflow.ellipsis,
-                                            match,
                                             style: const TextStyle(
                                               color: Color.fromARGB(
                                                   255, 129, 129, 129),
@@ -145,8 +117,28 @@ class CardHomeCus extends StatelessWidget {
                                               fontFamily: 'Tajawal',
                                             ),
                                           ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 55,
+                                    child: Row(
+                                      children: [
+                                        SizedBox(
+                                          width: 31,
+                                          child: Text(
+                                            overflow: TextOverflow.ellipsis,
+                                            '4.5',
+                                            style: TextStyle(
+                                              color: Color.fromARGB(
+                                                  255, 129, 129, 129),
+                                              fontSize: 17,
+                                              fontFamily: 'Tajawal',
+                                            ),
+                                          ),
                                         ),
-                                        const Icon(
+                                        Icon(
                                           Icons.star,
                                           color: Colors.amber,
                                         )

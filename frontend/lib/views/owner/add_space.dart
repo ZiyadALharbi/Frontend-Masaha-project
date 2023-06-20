@@ -5,9 +5,9 @@ import 'dart:io';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:frontend/components/home/home_nav.dart';
-import 'package:frontend/services/api/owner/add_image_api.dart';
+// import 'package:frontend/services/api/owner/add_image_api.dart';
 import 'package:frontend/services/extensions/nav.dart';
-import 'package:frontend/views/owner/home_screen.dart';
+// import 'package:frontend/views/owner/home_screen.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../components/All/custom_button.dart';
 import '../../components/All/textfield.dart';
@@ -24,12 +24,11 @@ class AddSpace extends StatefulWidget {
 }
 
 List<String> spaceTypes = [
-  'المساحة الأولى',
-  'المساحة الثانية',
-  'المساحة الثالثة',
-  'المساحة الرابعة',
-  'المساحة الخامسة',
-  "المساحة السادسة"
+  'مساحة مشتركة',
+  'مساحة خاصة',
+  'مكتب خاص',
+  'قاعة اجتماعات',
+  'ورشة عمل'
 ];
 List<String> selectedspaceTypes = [];
 List<String> planTypes = ['بالساعات', 'بالأيام', 'بالأسابيع', 'بالشهر'];
@@ -48,8 +47,8 @@ TextEditingController feature5 = TextEditingController();
 TextEditingController feature6 = TextEditingController();
 
 class _AddSpaceState extends State<AddSpace> {
-  // final ImagePicker picker = ImagePicker();
-  // XFile? image;
+  final ImagePicker picker = ImagePicker();
+  XFile? image;
 
   @override
   Widget build(BuildContext context) {
@@ -164,25 +163,20 @@ class _AddSpaceState extends State<AddSpace> {
                                     color: darkBlue),
                               ),
                               kVSpace8,
-                              // image == null
-                              //     ? const SizedBox.shrink()
-                              //     : Image.file(File(image!.path)),
+                              image == null
+                                  ? const SizedBox.shrink()
+                                  : Image.file(File(image!.path)),
                               ElevatedButton(
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: darkBlue),
                                   onPressed: () async {
-                                    //           image = await picker.pickImage(
-                                    //               source: ImageSource.gallery);
+                                              // image = await picker.pickImage(
+                                              //     source: ImageSource.gallery);
                                     //               final Map body = {
                                     //                 "id_product":
                                     //                 "url_image":
                                     // };
-                                    //           await addImage(body: body);
-                                    //  var bytes = await ImagePicker.pickImage(source: ImageSource.gallery).readAsBytes();
-                                    var bytes = await ImagePicker()
-                                        .pickImage(source: ImageSource.gallery)
-                                        .asStream();
-                                    setState(() {});
+                                              // await addImage(body: body);
                                   },
                                   child: const CustomButton(
                                       buttonTitle: 'اختيار من الجهاز',
