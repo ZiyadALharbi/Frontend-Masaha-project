@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 
 import '../../constant_api.dart';
 
-Future<Response> displayProduct() async {
+Future<Response> displayOwnerProduct() async {
   try {
     final box = GetStorage();
     var url = Uri.http(Api().url, Api().displayOwnerProduct);

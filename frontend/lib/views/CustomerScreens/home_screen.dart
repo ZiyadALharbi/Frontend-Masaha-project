@@ -25,7 +25,7 @@ class _CustomerHomeState extends State<CustomerHome> {
   }
 
   getProducts() async {
-    final response = await displayProduct();
+    final response = await displayOwnerProduct();
     if (response.statusCode == 200) {
       try {
         prodcuts = json.decode(response.body);

@@ -12,7 +12,8 @@ mixin AuthEndpoint {
 mixin CustomerEndPoint {
   // String productType = "/customer/product-type";
   // String displayType = '/customer/display-type/';
-  String addToBookmark = "/add-to-bookmark";
+  // String displayProduct = "/display-"
+  String addToBookmark = "/customer/add-to-bookmark";
   String displayReservationCustomer = '/customer/display-customer-reservations';
 }
 mixin OwnerEndPoint {
