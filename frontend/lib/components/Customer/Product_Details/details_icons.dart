@@ -23,6 +23,7 @@ class DetailsIcons extends StatelessWidget {
             onPressed: () async {
               final Map body = {"id": product["id"]};
               final response = await addToBookmark(body: body);
+
               if (response.statusCode == 200) {
                 print(response.body);
                 print(product["id"]);
@@ -30,6 +31,7 @@ class DetailsIcons extends StatelessWidget {
                 print(response.body);
                 print("-1");
               }
+
             },
             mini: true,
             elevation: 0,
