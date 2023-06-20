@@ -26,7 +26,7 @@ class HomeScreenState extends State<HomeScreen> {
   }
 
   getProducts() async {
-    final response = await displayProduct();
+    final response = await displayOwnerProduct();
     if (response.statusCode == 200) {
       try {
         ownerProducts = json.decode(response.body);

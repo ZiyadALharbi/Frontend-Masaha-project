@@ -7,10 +7,10 @@ import 'package:http/http.dart' as http;
 
 import '../../constant_api.dart';
 
-Future<Response> displayOwnerProduct() async {
+Future<Response> displayProduct() async {
   try {
     final box = GetStorage();
-    var url = Uri.http(Api().url, Api().displayOwnerProduct);
+    var url = Uri.http(Api().url, Api().displayProduct);
     var response =
         await http.get(url, headers: {'authorization': box.read('token')});
 
