@@ -25,7 +25,7 @@ class _SignUpState extends State<SignUp> {
   final phoneController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  String? userType;
+  String? userType = "customer";
 
   @override
   Widget build(BuildContext context) {

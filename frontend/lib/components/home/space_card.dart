@@ -2,9 +2,10 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:frontend/views/owner/home_screen.dart';
+
 import '../../constants/colors.dart';
 import '../../services/api/owner/delete_product_api.dart';
+import '../../views/owner/home_screen.dart';
 
 class CustomCard extends StatefulWidget {
   const CustomCard({super.key, required this.card});
@@ -19,73 +20,163 @@ class _CustomCardState extends State<CustomCard> {
   @override
   Widget build(BuildContext context) {
     log(widget.card['id'].toString());
-    return Container(
-      decoration:
-          BoxDecoration(borderRadius: BorderRadius.circular(10), color: white),
-      child: Column(
-        children: [
-          SizedBox(
-            height: 200,
-            child: ListTile(
-              title: Text(
-                widget.card['name'],
-                style: TextStyle(
-                    fontFamily: 'Tajawal',
-                    fontSize: 20,
-                    color: darkBlue,
-                    fontWeight: FontWeight.bold),
-              ),
-              subtitle: Padding(
-                padding: const EdgeInsets.only(top: 12),
-                child: Text(
-                  widget.card['type'],
-                  style: TextStyle(
-                      fontFamily: 'Tajawal',
-                      fontSize: 14,
-                      color: darkBlue,
-                      fontWeight: FontWeight.w400),
-                ),
-              ),
-              trailing: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: [
-                    Text(
-                      widget.card['price'].toString(),
-                      style: TextStyle(
-                          fontFamily: 'Tajawal',
-                          fontSize: 16,
-                          color: blue,
-                          fontWeight: FontWeight.w700),
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: Padding(
+        padding: const EdgeInsets.only(right: 4.0, left: 4.0),
+        child: Container(
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),
+          child: Container(
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),
+            child: SizedBox(
+              width: 410,
+              height: 135,
+              child: Column(
+                children: [
+                  Container(
+                    child: SizedBox(
+                      width: 390,
+                      height: 60,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Container(
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.only(bottom: 8, right: 8),
+                                child: SizedBox(
+                                  width: 60,
+                                  height: 35,
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Text(
+                                            widget.card['price'].toString(),
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                fontFamily: 'Tajawal',
+                                                fontSize: 16,
+                                                color: blue,
+                                                fontWeight: FontWeight.w700)),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              child: SizedBox(
+                                width: 280,
+                                height: 35,
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      widget.card['name'],
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          fontFamily: 'Tajawal',
+                                          fontSize: 20,
+                                          color: darkBlue,
+                                          fontWeight: FontWeight.bold),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
                     ),
-                    IconButton(
-                        onPressed: () async {
-                          context
-                              .findRootAncestorStateOfType<HomeScreenState>()
-                              ?.ownerProducts
-                              .removeWhere((product) =>
-                                  product['id'] == widget.card['id']);
-                          context
-                              .findRootAncestorStateOfType<HomeScreenState>()
-                              ?.setState(() {});
-                          deleteProduct(id: widget.card['id']);
-                          setState(() {});
-                        },
-                        icon: const Icon(FontAwesomeIcons.trashCan))
-                  ],
-                ),
+                  ),
+                  Container(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: SizedBox(
+                        width: 390,
+                        height: 50,
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Container(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      bottom: 8, right: 8),
+                                  child: SizedBox(
+                                    width: 70,
+                                    height: 35,
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        IconButton(
+                                            onPressed: () async {
+                                              context
+                                                  .findRootAncestorStateOfType<
+                                                      HomeScreenState>()
+                                                  ?.ownerProducts
+                                                  .removeWhere((product) =>
+                                                      product['id'] ==
+                                                      widget.card['id']);
+                                              context
+                                                  .findRootAncestorStateOfType<
+                                                      HomeScreenState>()
+                                                  ?.setState(() {});
+                                              deleteProduct(
+                                                  id: widget.card['id']);
+                                              setState(() {});
+                                            },
+                                            icon: const Icon(
+                                                FontAwesomeIcons.trashCan)),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                child: SizedBox(
+                                  width: 280,
+                                  height: 35,
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Text(widget.card['type'],
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                              fontFamily: 'Tajawal',
+                                              fontSize: 14,
+                                              color: darkBlue,
+                                              fontWeight: FontWeight.w400))
+                                    ],
+                                  ),
+                                ),
+                              )
+                            ]),
+                      ),
+                    ),
+                  ),
+                  const Divider(
+                    height: 1,
+                    color: Color.fromRGBO(91, 80, 80, 1),
+                    thickness: 0.1,
+                  ),
+                ],
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Divider(
-              height: 1,
-              color: darkGrey,
-              thickness: 0.1,
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }

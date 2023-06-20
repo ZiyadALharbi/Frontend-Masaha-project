@@ -79,11 +79,7 @@ class _LogInState extends State<LogIn> {
                             box.write(
                                 "token", json.decode(response.body)["token"]);
                             box.write("UserType", json.decode(response.body)["UserType"]);
-                            // context.nextPage(view: const HomeNav());
-                            // context.nextPage(
-                            //     view: widget.userType == 'customer'
-                            //         ? const CustomerNavBar()
-                            //         : const HomeNav());
+              
                             
                               if(box.read("UserType").toString().contains("customer")){
                                 context.pushAndRemove(view: CustomerNavBar());

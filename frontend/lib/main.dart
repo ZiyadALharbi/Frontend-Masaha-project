@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:frontend/components/Customer/CustomerNavBar.dart';
 
-import 'package:frontend/views/onboard/onboard.dart';
 import 'package:get_storage/get_storage.dart';
+
+import 'components/All/page_direction.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,6 +25,6 @@ class MyApp extends StatelessWidget {
         ],
         supportedLocales: const [Locale("ar", "")],
         locale: const Locale("ar", ""),
-        home: box.hasData('token') ? const CustomerNavBar() : const OnBoard());
+        home: pageDirection());
   }
 }
