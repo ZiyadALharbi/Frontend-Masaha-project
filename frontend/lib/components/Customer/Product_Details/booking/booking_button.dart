@@ -6,10 +6,10 @@ import '../../../../views/CustomerScreens/booking_page.dart';
 
 class BookingButton extends StatelessWidget {
   const BookingButton({
-    super.key, required this.price,
+    super.key, required this.product,
   });
 
-  final String price;
+  final Map product;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class BookingButton extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(20, 100, 20, 20),
       child: ElevatedButton(
         onPressed: () {
-          context.nextPage(view:  BookingScreen(price: price));
+          context.nextPage(view:  BookingScreen(product: product));
         },
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all(orange),

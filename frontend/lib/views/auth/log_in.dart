@@ -9,7 +9,6 @@ import '../../components/auth/popup_message.dart';
 import '../../constants/spaces.dart';
 import '../../services/api/auth/login_user.dart';
 import '../../services/extensions/nav.dart';
-import '../owner/home_screen.dart';
 import 'reset_password.dart';
 import 'sign_up.dart';
 import '../../components/All/custom_button.dart';
@@ -19,8 +18,9 @@ import '../../components/All/title_page.dart';
 import '../../constants/colors.dart';
 
 class LogIn extends StatefulWidget {
-  const LogIn({super.key,});
-
+  const LogIn({
+    super.key,
+  });
 
   @override
   State<LogIn> createState() => _LogInState();
@@ -66,9 +66,11 @@ class _LogInState extends State<LogIn> {
                   Center(
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 105, vertical: 16),
                             backgroundColor: darkBlue,
                             shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10))),
+                                borderRadius: BorderRadius.circular(8))),
                         onPressed: () async {
                           final response = await loginUser(body: {
                             "email": emailController.text,
@@ -78,14 +80,21 @@ class _LogInState extends State<LogIn> {
                             final box = GetStorage();
                             box.write(
                                 "token", json.decode(response.body)["token"]);
-                            box.write("UserType", json.decode(response.body)["UserType"]);
-              
-                            
-                              if(box.read("UserType").toString().contains("customer")){
-                                context.pushAndRemove(view: CustomerNavBar());
-                              } else if(box.read("UserType").toString().contains("owner")){
-                                context.pushAndRemove(view: HomeNav());
-                              }
+                            box.write("UserType",
+                                json.decode(response.body)["UserType"]);
+
+                            if (box
+                                .read("UserType")
+                                .toString()
+                                .contains("customer")) {
+                              context.pushAndRemove(
+                                  view: const CustomerNavBar());
+                            } else if (box
+                                .read("UserType")
+                                .toString()
+                                .contains("owner")) {
+                              context.pushAndRemove(view: const HomeNav());
+                            }
                           } else {
                             showDialog(
                               context: context,

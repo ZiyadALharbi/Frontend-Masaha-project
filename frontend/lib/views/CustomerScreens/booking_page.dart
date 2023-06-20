@@ -1,15 +1,32 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:frontend/constants/colors.dart';
 import 'package:frontend/constants/spaces.dart';
+import 'package:frontend/services/extensions/nav.dart';
 
 import '../../components/All/textfield.dart';
-import '../../components/Customer/Product_Details/booking/confirm_button.dart';
 import '../../components/Customer/Product_Details/booking/label_booking.dart';
+import '../../services/api/customer/add_reservation_customer_api.dart';
+import 'confirm_booking.dart';
 
-class BookingScreen extends StatelessWidget {
-  BookingScreen({super.key, required this.price});
+class BookingScreen extends StatefulWidget {
+  const BookingScreen({super.key, required this.product});
 
-  final String price;
+  final Map product;
+
+  @override
+  State<BookingScreen> createState() => _BookingScreenState();
+}
+
+class _BookingScreenState extends State<BookingScreen> {
+  TextEditingController nameController = TextEditingController();
+
+  TextEditingController phoneController = TextEditingController();
+
+  TextEditingController emailController = TextEditingController();
+
+  // final String price;
   final TextEditingController name = TextEditingController();
   final TextEditingController phone = TextEditingController();
   final TextEditingController email = TextEditingController();
@@ -18,7 +35,6 @@ class BookingScreen extends StatelessWidget {
   final TextEditingController cardName = TextEditingController();
   final TextEditingController expireDate = TextEditingController();
   final TextEditingController cvv = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,21 +55,21 @@ class BookingScreen extends StatelessWidget {
                   label: 'الإسم بالكامل',
                   width: 350,
                   height: 56,
-                  textController: name,
+                  textController: nameController,
                 ),
                 kVSpace32,
                 TextFieldCustom(
                   label: 'رقم الجوال',
                   width: 350,
                   height: 56,
-                  textController: phone,
+                  textController: phoneController,
                 ),
                 kVSpace32,
                 TextFieldCustom(
                   label: 'البريد الالكتروني',
                   width: 350,
                   height: 56,
-                  textController: email,
+                  textController: emailController,
                 ),
                 kVSpace32,
                 // DropDownMenuOwner(
@@ -87,7 +103,7 @@ class BookingScreen extends StatelessWidget {
                   label: 'التاريخ والوقت',
                   width: 350,
                   height: 56,
-                  textController: dateAndTime,
+                  // textController: dateAndTime,
                 ),
                 kVSpace70,
                 const LabelBooking(
@@ -100,27 +116,27 @@ class BookingScreen extends StatelessWidget {
                   size: 36,
                 ),
                 kVSpace70,
-                TextFieldCustom(
-                  textController: cardNumber,
+                const TextFieldCustom(
+                  // textController: cardNumber,
                   label: 'رقم البطاقة',
                   hint: 'XXXX   XXXX  XXXX  XXXX',
                   width: 350,
                   height: 56,
                 ),
                 kVSpace32,
-                TextFieldCustom(
-                  textController: cardName,
+                const TextFieldCustom(
+                  // textController: cardName,
                   label: 'إسم حامل البطاقة',
                   hint: 'ااسم الظاهر على البطاقة',
                   width: 350,
                   height: 56,
                 ),
                 kVSpace32,
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TextFieldCustom(
-                      textController: expireDate,
+                      // textController: expireDate,
                       label: 'تاريخ الانتهاء',
                       hint: 'yy/mm',
                       width: 104,
@@ -130,7 +146,7 @@ class BookingScreen extends StatelessWidget {
                     kHSpace64,
                     kHSpace16,
                     TextFieldCustom(
-                      textController: cvv,
+                      // textController: cvv,
                       label: 'CVV',
                       hint: '123',
                       width: 104,
@@ -147,15 +163,44 @@ class BookingScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     LabelBooking(
-                      title: 'السعر ${int.parse(price)} ريال',
+                      title: 'السعر ${int.parse(widget.product["price"].toString())} ريال',
                       titlesize: 20,
                     ),
                     kHSpace32,
-                    ConfirmButton(reservation: {
-                      'customer_name': name.text,
-                      'customer_phone': phone.text,
-                      'customer_email': email.text,
-                    }),
+                    ElevatedButton(
+                      onPressed: () async {
+                        final Map body = {
+                          "name": nameController.text,
+                          "email": emailController.text,
+                          "phone": phoneController.text,
+                          "id": widget.product["id"],
+                        };
+                        final response = await addReservationCustomer(body: body);
+                        if (response.statusCode == 200) {
+                          context.nextPage(view: const ConfirmBooking());
+                        } else {
+                          print(response.body);
+                        }
+                        setState(() {});
+                      },
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStatePropertyAll(orange)),
+                      child: const Padding(
+                        padding: EdgeInsets.all(12.0),
+                        child: Text(
+                          'تأكيد الحجز',
+                          style: TextStyle(
+                              fontFamily: 'Tajawal',
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700),
+                        ),
+                      ),
+                    ),
+                    // ConfirmButton(reservation: {
+                    //   'name': nameController.text,
+                    //   'phone': phoneController.text,
+                    //   'email': emailController.text,
+                    // }),
                   ],
                 ),
                 kVSpace32,
