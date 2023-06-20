@@ -32,7 +32,7 @@ class ProductDetails extends StatelessWidget {
             description: product['description'],
             features: product,
           ),
-          const BookingButton()
+           BookingButton(price: product['price'].toString())
         ],
       ),
     );

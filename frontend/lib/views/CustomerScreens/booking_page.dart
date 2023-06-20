@@ -6,14 +6,18 @@ import '../../components/All/textfield.dart';
 import '../../components/Customer/Product_Details/booking/confirm_button.dart';
 import '../../components/Customer/Product_Details/booking/label_booking.dart';
 
-class BookingScreen extends StatefulWidget {
-  const BookingScreen({super.key});
+class BookingScreen extends StatelessWidget {
+  BookingScreen({super.key, required this.price});
 
-  @override
-  State<BookingScreen> createState() => _BookingScreenState();
-}
-
-class _BookingScreenState extends State<BookingScreen> {
+  final String price;
+  TextEditingController name = TextEditingController();
+  TextEditingController phone = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController dateAndTime = TextEditingController();
+  TextEditingController cardNumber = TextEditingController();
+  TextEditingController cardName = TextEditingController();
+  TextEditingController expireDate = TextEditingController();
+  TextEditingController cvv = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,22 +34,25 @@ class _BookingScreenState extends State<BookingScreen> {
                     titlesize: 36,
                   ),
                 ),
-                const TextFieldCustom(
+                TextFieldCustom(
                   label: 'الإسم بالكامل',
                   width: 350,
                   height: 56,
+                  textController: name,
                 ),
                 kVSpace32,
-                const TextFieldCustom(
+                TextFieldCustom(
                   label: 'رقم الجوال',
                   width: 350,
                   height: 56,
+                  textController: phone,
                 ),
                 kVSpace32,
-                const TextFieldCustom(
+                TextFieldCustom(
                   label: 'البريد الالكتروني',
                   width: 350,
                   height: 56,
+                  textController: email,
                 ),
                 kVSpace32,
                 // DropDownMenuOwner(
@@ -79,6 +86,7 @@ class _BookingScreenState extends State<BookingScreen> {
                   label: 'التاريخ والوقت',
                   width: 350,
                   height: 56,
+                  textController: dateAndTime,
                 ),
                 kVSpace70,
                 const LabelBooking(
@@ -91,24 +99,27 @@ class _BookingScreenState extends State<BookingScreen> {
                   size: 36,
                 ),
                 kVSpace70,
-                const TextFieldCustom(
+                TextFieldCustom(
+                  textController: cardNumber,
                   label: 'رقم البطاقة',
                   hint: 'XXXX   XXXX  XXXX  XXXX',
                   width: 350,
                   height: 56,
                 ),
                 kVSpace32,
-                const TextFieldCustom(
+                TextFieldCustom(
+                  textController: cardName,
                   label: 'إسم حامل البطاقة',
                   hint: 'ااسم الظاهر على البطاقة',
                   width: 350,
                   height: 56,
                 ),
                 kVSpace32,
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TextFieldCustom(
+                      textController: expireDate,
                       label: 'تاريخ الانتهاء',
                       hint: 'yy/mm',
                       width: 104,
@@ -118,6 +129,7 @@ class _BookingScreenState extends State<BookingScreen> {
                     kHSpace64,
                     kHSpace16,
                     TextFieldCustom(
+                      textController: cvv,
                       label: 'CVV',
                       hint: '123',
                       width: 104,
@@ -130,15 +142,19 @@ class _BookingScreenState extends State<BookingScreen> {
                   height: 16,
                 ),
                 kVSpace8,
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     LabelBooking(
-                      title: 'السعر 500 ريال',
+                      title: 'السعر ${int.parse(price)} ريال',
                       titlesize: 20,
                     ),
                     kHSpace32,
-                    ConfirmButton(),
+                    ConfirmButton(reservation: {
+                      'customer_name': name.text,
+                      'customer_phone': phone.text,
+                      'customer_email': email.text,
+                    }),
                   ],
                 ),
                 kVSpace32,

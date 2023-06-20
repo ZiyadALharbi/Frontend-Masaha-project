@@ -10,11 +10,10 @@ mixin AuthEndpoint {
   String confirmPassword = "/auth/confirm-password";
 }
 mixin CustomerEndPoint {
-  // String productType = "/customer/product-type";
-  // String displayType = '/customer/display-type/';
   String addToBookmark = "/customer/add-to-bookmark";
   String displayProduct = "/customer/display-product";
   String displayReservationCustomer = '/customer/display-customer-reservations';
+  String addReservationCustomer = '/customer/add-reservation';
 }
 mixin OwnerEndPoint {
   String displayReservationOwner = '/owner/display-owner-reservations';
