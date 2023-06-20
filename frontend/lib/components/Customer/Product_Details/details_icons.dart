@@ -21,8 +21,16 @@ class DetailsIcons extends StatelessWidget {
           FloatingActionButton(
             heroTag: null,
             onPressed: () async {
-              final Map body = {"id_product": product["id"]};
+              final Map body = {"id": product["id"]};
               final response = await addToBookmark(body: body);
+
+              if (response.statusCode == 200) {
+                print(response.body);
+                print(product["id"]);
+              } else {
+                print(response.body);
+                print("-1");
+              }
             },
             mini: true,
             elevation: 0,
