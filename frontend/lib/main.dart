@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'package:frontend/views/auth/log_in.dart';
 import 'package:frontend/views/auth/sign_up.dart';
 
 import 'package:frontend/views/onboard/onboard.dart';

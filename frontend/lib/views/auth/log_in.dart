@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:frontend/views/CustomerScreens/home_screen.dart';
 import 'package:frontend/views/owner/home_screen.dart';
 import 'package:get_storage/get_storage.dart';
+import '../../components/Customer/CustomerNavBar.dart';
 import '../../components/auth/popup_message.dart';
 import '../../constants/spaces.dart';
 import '../../services/api/auth/login_user.dart';
@@ -80,7 +81,10 @@ class _LogInState extends State<LogIn> {
                             final box = GetStorage();
                             box.write(
                                 "token", json.decode(response.body)["token"]);
-                            context.nextPage(view: widget.userType == 'customer' ? CustomerHome() : HomeScreen());
+                            context.nextPage(
+                                view: widget.userType == 'customer'
+                                    ? const CustomerNavBar()
+                                    : const HomeScreen());
                           } else {
                             showDialog(
                               context: context,
