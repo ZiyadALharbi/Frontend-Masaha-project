@@ -15,7 +15,7 @@ mixin CustomerEndPoint {
 
   String addToBookmark = "/customer/add-to-bookmark";
   String displayProduct = "/customer/display-product";
-
+  String displayBookmark = "/customer/display-bookmark";
   String displayReservationCustomer = '/customer/display-customer-reservations';
 }
 mixin OwnerEndPoint {
