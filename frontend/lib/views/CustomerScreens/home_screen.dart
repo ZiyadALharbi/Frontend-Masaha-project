@@ -98,7 +98,7 @@ class _CustomerHomeState extends State<CustomerHome> {
                       ListView(
                         children: [
                           for (var item in prodcuts)
-                            item['type'] == 'المساحة الأولى'
+                            item['type'] == 'مساحة مشتركة'
                                 ? InkWell(
                                     child: CardHomeCus(
                                         card: item,
@@ -116,7 +116,7 @@ class _CustomerHomeState extends State<CustomerHome> {
                       ListView(
                         children: [
                           for (var item in prodcuts)
-                            item['type'] == 'المساحة الثانية'
+                            item['type'] == 'مساحة خاصة'
                                 ? InkWell(
                                     child: CardHomeCus(
                                         card: item,
@@ -134,7 +134,7 @@ class _CustomerHomeState extends State<CustomerHome> {
                       ListView(
                         children: [
                           for (var item in prodcuts)
-                            item['type'] == 'المساحة الثالثة'
+                            item['type'] == 'مكتب خاص'
                                 ? InkWell(
                                     child: CardHomeCus(
                                         card: item,
@@ -152,7 +152,7 @@ class _CustomerHomeState extends State<CustomerHome> {
                       ListView(
                         children: [
                           for (var item in prodcuts)
-                            item['type'] == 'المساحة الرابعة'
+                            item['type'] == 'قاعة اجتماعات'
                                 ? InkWell(
                                     child: CardHomeCus(
                                         card: item,
@@ -170,7 +170,7 @@ class _CustomerHomeState extends State<CustomerHome> {
                       ListView(
                         children: [
                           for (var item in prodcuts)
-                            item['type'] == 'المساحة الخامسة'
+                            item['type'] == 'ورشة عمل'
                                 ? InkWell(
                                     child: CardHomeCus(
                                         card: item,
