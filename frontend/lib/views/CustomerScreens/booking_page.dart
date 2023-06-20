@@ -10,14 +10,15 @@ class BookingScreen extends StatelessWidget {
   BookingScreen({super.key, required this.price});
 
   final String price;
-  TextEditingController name = TextEditingController();
-  TextEditingController phone = TextEditingController();
-  TextEditingController email = TextEditingController();
-  TextEditingController dateAndTime = TextEditingController();
-  TextEditingController cardNumber = TextEditingController();
-  TextEditingController cardName = TextEditingController();
-  TextEditingController expireDate = TextEditingController();
-  TextEditingController cvv = TextEditingController();
+  final TextEditingController name = TextEditingController();
+  final TextEditingController phone = TextEditingController();
+  final TextEditingController email = TextEditingController();
+  final TextEditingController dateAndTime = TextEditingController();
+  final TextEditingController cardNumber = TextEditingController();
+  final TextEditingController cardName = TextEditingController();
+  final TextEditingController expireDate = TextEditingController();
+  final TextEditingController cvv = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

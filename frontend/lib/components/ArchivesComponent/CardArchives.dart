@@ -2,17 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../constants/colors.dart';
+import '../../views/CustomerScreens/home_screen.dart';
 
 class CardArchives extends StatelessWidget {
-  const CardArchives({
-    super.key,
-    required this.NameSpace,
-    this.Address,
-    this.imgUrl,
-  });
-  final String NameSpace;
-
-  final Address;
+  const CardArchives({super.key, this.imgUrl, required this.archive});
+  final Map archive;
 
   final imgUrl;
   @override
@@ -83,7 +77,7 @@ class CardArchives extends StatelessWidget {
                                 SizedBox(
                                   width: 80,
                                   child: Text(
-                                    NameSpace,
+                                    archive['products']['name'],
                                     textAlign: TextAlign.end,
                                     overflow: TextOverflow.ellipsis,
                                     style: const TextStyle(

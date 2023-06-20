@@ -7,6 +7,7 @@ import '../../constant_api.dart';
 
 Future<Response> addReservationCustomer({required Map body}) async {
   try {
+    log(body.toString());
     final box = GetStorage();
     var url = Uri.http(Api().url, Api().addReservationCustomer);
     var response = await http.post(url,

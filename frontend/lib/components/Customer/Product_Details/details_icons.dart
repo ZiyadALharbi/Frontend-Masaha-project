@@ -22,16 +22,7 @@ class DetailsIcons extends StatelessWidget {
             heroTag: null,
             onPressed: () async {
               final Map body = {"id": product["id"]};
-              final response = await addToBookmark(body: body);
-
-              if (response.statusCode == 200) {
-                print(response.body);
-                print(product["id"]);
-              } else {
-                print(response.body);
-                print("-1");
-              }
-
+              await addToBookmark(body: body);
             },
             mini: true,
             elevation: 0,
