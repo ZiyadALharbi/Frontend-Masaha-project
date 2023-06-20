@@ -26,7 +26,7 @@ class _CustomCardState extends State<CustomCard> {
         children: [
           SizedBox(
             height: 200,
-            child: ListTile(
+            child: ListTile( 
               title: Text(
                 widget.card['name'],
                 style: TextStyle(
