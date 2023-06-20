@@ -20,6 +20,7 @@ class _BookingScreenState extends State<BookingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
+        bottom: false,
         child: ListView(
           children: [
             Column(
@@ -94,7 +95,7 @@ class _BookingScreenState extends State<BookingScreen> {
                 ),
                 kVSpace32,
                 const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TextFieldCustom(
                       label: 'تاريخ الانتهاء',
@@ -102,6 +103,9 @@ class _BookingScreenState extends State<BookingScreen> {
                       width: 104,
                       height: 56,
                     ),
+                    kHSpace64,
+                    kHSpace64,
+                    kHSpace16,
                     TextFieldCustom(
                       label: 'CVV',
                       hint: '123',
@@ -110,8 +114,23 @@ class _BookingScreenState extends State<BookingScreen> {
                     ),
                   ],
                 ),
-                kVSpace70,
-                const ConfirmButton(),
+                kVSpace64,
+                const Divider(
+                  height: 16,
+                ),
+                kVSpace8,
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    LabelBooking(
+                      title: 'السعر 500 ريال',
+                      titlesize: 20,
+                    ),
+                    kHSpace32,
+                    ConfirmButton(),
+                  ],
+                ),
+                kVSpace32,
               ],
             ),
           ],
