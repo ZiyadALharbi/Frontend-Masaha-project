@@ -15,7 +15,7 @@ class HomeNav extends StatefulWidget {
 
 class _HomeNavState extends State<HomeNav> {
   List screens = [
-    HomeScreen(),
+    const HomeScreen(),
     const AppointmentScreen(),
     const ProfileOwner(),
   ];
