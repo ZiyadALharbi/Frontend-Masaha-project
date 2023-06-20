@@ -44,7 +44,7 @@ class _SignUpState extends State<SignUp> {
                   TextButtonQuestion(
                     question: 'لديك حساب؟',
                     login: 'تسجيل الدخول',
-                    page: LogIn(),
+                    page: const LogIn(),
                   ),
                   TextFieldCustom(
                     label: 'الإسم',
@@ -71,6 +71,8 @@ class _SignUpState extends State<SignUp> {
                   Center(
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 105, vertical: 16),
                             backgroundColor: darkBlue,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10))),
@@ -87,7 +89,7 @@ class _SignUpState extends State<SignUp> {
                           );
 
                           if (response.statusCode == 200) {
-                            context.nextPage(view: LogIn());
+                            context.nextPage(view: const LogIn());
                           } else {
                             showDialog(
                               context: context,

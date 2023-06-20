@@ -23,8 +23,8 @@ class TextFieldCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: width ?? 313,
-      height: height ?? 43,
+      width: width ?? 346,
+      height: height ?? 56,
       child: TextField(
         controller: textController,
         decoration: InputDecoration(

@@ -23,6 +23,14 @@ class _ResetPassowrdState extends State<ResetPassowrd> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: white,
+      appBar: AppBar(
+        title: const Text(
+          'استعادة كلمة المرور',
+          style: TextStyle(fontFamily: 'Tajawal', fontSize: 18),
+        ),
+        backgroundColor: darkBlue,
+        elevation: 0,
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: ConstrainedBox(
@@ -30,21 +38,28 @@ class _ResetPassowrdState extends State<ResetPassowrd> {
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 75, horizontal: 28),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const TitlePage(title: 'نسيت كلمة المرور'),
-                  TextButtonQuestion(
-                      question:
-                          'سوف يتم إرسال رمز التحقق على البريد الالكتروني'),
                   Image.asset('images/otp-security.png',
                       width: 316, height: 316),
                   TextFieldCustom(
                       label: 'البريد الالكتروني',
                       textController: emailController),
                   kVSpace32,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      TextButtonQuestion(
+                          question:
+                              'سوف يتم إرسال رمز التحقق على البريد الالكتروني'),
+                    ],
+                  ),
                   Center(
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 105, vertical: 16),
                             backgroundColor: darkBlue,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10))),
@@ -57,7 +72,7 @@ class _ResetPassowrdState extends State<ResetPassowrd> {
                         },
                         child: const CustomButton(
                             buttonTitle: 'أرسل رمز التحقق', textSize: 18)),
-                  )
+                  ),
                 ],
               ),
             ),
