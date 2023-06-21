@@ -18,7 +18,6 @@ class ListOfReservationsScreen extends StatefulWidget {
 
 class _ListOfReservationsScreenState extends State<ListOfReservationsScreen> {
   List reservation = [];
-  final bool _isLoading = true;
 
   @override
   void initState() {
@@ -31,9 +30,7 @@ class _ListOfReservationsScreenState extends State<ListOfReservationsScreen> {
     if (response.statusCode == 200) {
       try {
         reservation = json.decode(response.body);
-        setState(() {
-          bool isLoading = false;
-        });
+        setState(() {});
       } catch (error) {
         print(error);
       }
@@ -53,14 +50,6 @@ class _ListOfReservationsScreenState extends State<ListOfReservationsScreen> {
           child: SafeArea(
             child: ListView(
               children: [
-                if (_isLoading)
-                  SizedBox(
-                    height: 100,
-                    width: 100,
-                    child: CircularProgressIndicator(
-                      backgroundColor: black.withOpacity(0.5),
-                    ),
-                  ),
                 const TextListOfReservations(),
                 for (var item in reservation)
                   CardListOfReservations(
