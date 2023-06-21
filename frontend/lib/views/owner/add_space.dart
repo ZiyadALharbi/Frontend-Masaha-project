@@ -184,8 +184,8 @@ class _AddSpaceState extends State<AddSpace> {
                                         .upload("$randomNumber.png", file);
 
                                     final String publicUrl = supabase.storage
-                                        .from('public-bucket')
-                                        .getPublicUrl('result');
+                                        .from("ProductImages")
+                                        .getPublicUrl(result);
 
                                     print("loaded");
                                     print(publicUrl);
