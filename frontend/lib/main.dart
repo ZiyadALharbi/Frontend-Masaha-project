@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:frontend/components/All/page_direction.dart';
+import 'package:frontend/views/auth/log_in.dart';
 import 'package:get_storage/get_storage.dart';
-import 'components/All/page_direction.dart';
+
+
+
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,15 +17,15 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return  MaterialApp(
         debugShowCheckedModeBanner: false,
-        localizationsDelegates: const [
+        localizationsDelegates: [
           GlobalCupertinoLocalizations.delegate,
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-        supportedLocales: const [Locale("ar", "")],
-        locale: const Locale("ar", ""),
+        supportedLocales: [Locale("ar", "")],
+        locale: Locale("ar", ""),
         home: pageDirection());
   }
 }

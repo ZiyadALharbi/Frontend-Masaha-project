@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:frontend/components/home/home_nav.dart';
 import 'package:frontend/services/extensions/nav.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:rive/rive.dart';
 import '../../components/All/custom_button.dart';
 import '../../components/All/textfield.dart';
 import '../../constants/spaces.dart';
@@ -204,13 +205,31 @@ class _AddSpaceState extends State<AddSpace> {
                                     File file = File((image ?? XFile('')).path);
 
                                     print("loading");
+                                    showDialog(
+                                      context: context,
+                                      builder: (BuildContext context) =>
+                                          const Scaffold(
+                                        backgroundColor: Colors.transparent,
+                                        body: Center(
+                                          child: SizedBox(
+                                            height: 200,
+                                            width: 400,
+                                            child: RiveAnimation.asset(
+                                                'assets/animations/projects-icon.riv'),
+                                          ),
+                                        ),
+                                      ),
+                                    );
                                     final result = await supabase.storage
                                         .from("ProductImages")
                                         .upload("$randomNumber.png", file);
 
+                                    Navigator.pop(context);
+
                                     final String publicUrl = supabase.storage
                                         .from("ProductImages")
-                                        .getPublicUrl(result);
+                                        .getPublicUrl(result)
+                                        .replaceAll("/ProductImages/", "/");
 
                                     print("loaded");
                                     print(publicUrl);
@@ -277,3 +296,10 @@ class _AddSpaceState extends State<AddSpace> {
                                     // var bytes = await ImagePicker()
                                         // .pickImage(source: ImageSource.gallery)
                                         // .asStream();
+
+
+
+                                        /*
+                                         https://qjjzsudjbsudodsamcpw.supabase.co/storage/v1/object/public/ProductImages/ProductImages/8043044.png
+                                         https://qjjzsudjbsudodsamcpw.supabase.co/storage/v1/object/public/ProductImages/8043044.png
+                                         */

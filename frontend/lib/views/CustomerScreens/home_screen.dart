@@ -133,7 +133,7 @@ class _CustomerHomeState extends State<CustomerHome> {
                                     child: CardHomeCus(
                                         card: item,
                                         imgUrl:
-                                            item["images"].toString() ?? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYIa6D7LhMk7211BoEiPhRGHFRpLUEBmWjOQ&usqp=CAU"),
+                                            'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_1010/https://ico.org.sa/wp-content/uploads/2021/04/camels-1-e1618841285447.png'),
                                     onTap: () {
                                       context.nextPage(
                                           view: ProductDetails(product: item));

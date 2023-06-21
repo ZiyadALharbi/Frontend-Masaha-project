@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 
 class CardHomeCus extends StatelessWidget {
@@ -179,6 +181,7 @@ class CardHomeCus extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(20)),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(20),
+                                
                                 child: Image(
                                   fit: BoxFit.cover,
                                   width: 129,
@@ -188,8 +191,8 @@ class CardHomeCus extends StatelessWidget {
                                     print(card["images"].toString());
                                     return Image.network(imgUrl);
                                   },
-                                  image:
-                                      NetworkImage(card["images"].toString()),
+                                  image: NetworkImage(
+                                      json.decode(card["images"]).first),
                                 ),
                               ),
                             )

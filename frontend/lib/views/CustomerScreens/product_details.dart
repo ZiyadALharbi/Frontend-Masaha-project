@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import '../../components/Customer/Product_Details/booking/booking_button.dart';
@@ -18,13 +20,14 @@ class ProductDetails extends StatelessWidget {
             children: [
               ImageSlideshow(
                 children: [
-                  for (var item in product["images"])
-                    Builder(builder: (context){
+                  for (var item in jsonDecode(product["images"]))
+                    Builder(builder: (context) {
                       return Image.network(
-                      '$item',
-                      fit: BoxFit.cover,
-                    );
+                        '$item',
+                        fit: BoxFit.cover,
+                      );
                     })
+                  //     Image.network(product["images"])
                 ],
               ),
 
