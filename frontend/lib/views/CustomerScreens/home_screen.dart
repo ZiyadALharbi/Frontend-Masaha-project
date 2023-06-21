@@ -39,6 +39,7 @@ class _CustomerHomeState extends State<CustomerHome> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
+        animationDuration: const Duration(milliseconds: 150),
         length: 5,
         child: Scaffold(
           body: Padding(
@@ -73,8 +74,9 @@ class _CustomerHomeState extends State<CustomerHome> {
                     ),
                   ],
                 ),
-                kVSpace16,
+                kVSpace32,
                 TabBar(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
                   isScrollable: true,
                   physics: const ClampingScrollPhysics(
                       parent: AlwaysScrollableScrollPhysics()),
@@ -209,8 +211,8 @@ class TabTitle extends StatelessWidget {
       spaceType,
       style: TextStyle(
           fontFamily: 'Tajawal',
-          fontWeight: FontWeight.w800,
-          fontSize: 12,
+          fontWeight: FontWeight.w700,
+          fontSize: 15,
           color: black),
     );
   }
