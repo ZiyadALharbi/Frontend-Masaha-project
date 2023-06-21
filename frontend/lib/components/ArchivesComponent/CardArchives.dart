@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../constants/colors.dart';
-import '../../views/CustomerScreens/home_screen.dart';
 
 class CardArchives extends StatelessWidget {
   const CardArchives({super.key, this.imgUrl, required this.archive});
@@ -20,9 +19,9 @@ class CardArchives extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(boxShadow: [
                 BoxShadow(
-                  color: darkGrey.withOpacity(0.3),
+                  color: darkGrey.withOpacity(0.1),
                   spreadRadius: 2,
-                  blurRadius: 4,
+                  blurRadius: 2,
                   offset: const Offset(0, 3), // changes position of shadow
                 ),
               ], color: white, borderRadius: BorderRadius.circular(20)),
@@ -32,7 +31,7 @@ class CardArchives extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: white, borderRadius: BorderRadius.circular(30)),
                   width: 430,
-                  height: 130,
+                  height: 100,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -47,17 +46,8 @@ class CardArchives extends StatelessWidget {
                               children: [
                                 SizedBox(
                                   width: 70,
-                                  child: Icon(FontAwesomeIcons.solidHeart,
-                                      size: 30, color: red),
-                                )
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                SizedBox(
-                                  width: 70,
                                   child: Icon(FontAwesomeIcons.trashCan,
-                                      size: 25, color: orange),
+                                      size: 25, color: red),
                                 )
                               ],
                             ),
@@ -116,7 +106,9 @@ class CardArchives extends StatelessWidget {
                               fit: BoxFit.cover,
                               width: 160,
                               height: 135,
+
                               image: NetworkImage(imgUrl)),
+
                         ),
                       )
                     ],

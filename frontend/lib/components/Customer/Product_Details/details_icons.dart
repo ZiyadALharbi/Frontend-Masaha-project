@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/components/Customer/CustomerNavBar.dart';
+import 'package:frontend/constants/colors.dart';
 import 'package:frontend/services/api/customer/add_to_bookmark.dart';
 import 'package:frontend/services/extensions/nav.dart';
-
-import '../../../views/CustomerScreens/home_screen.dart';
 
 class DetailsIcons extends StatelessWidget {
   const DetailsIcons({
@@ -19,6 +19,7 @@ class DetailsIcons extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           FloatingActionButton(
+            splashColor: red,
             heroTag: null,
             onPressed: () async {
               final Map body = {"id": product["id"]};
@@ -38,7 +39,7 @@ class DetailsIcons extends StatelessWidget {
               FloatingActionButton(
                 heroTag: null,
                 onPressed: () {
-                  context.pushAndRemove(view: const CustomerHome());
+                  context.pushAndRemove(view: const CustomerNavBar());
                 },
                 mini: true,
                 elevation: 0,

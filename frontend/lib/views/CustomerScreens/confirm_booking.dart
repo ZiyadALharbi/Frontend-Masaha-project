@@ -27,7 +27,7 @@ class _ConfirmBookingState extends State<ConfirmBooking> {
                   height: 200,
                   width: 400,
                   child: RiveAnimation.asset(
-                      'assets/animations/checkmark_icon.riv'),
+                      'assets/animations/projects-icon.riv'),
                 ),
                 Column(
                   children: [
