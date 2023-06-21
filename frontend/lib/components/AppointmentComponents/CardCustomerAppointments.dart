@@ -8,7 +8,8 @@ import '../../constants/spaces.dart';
 class CardCustomerAppointments extends StatelessWidget {
   const CardCustomerAppointments({
     super.key,
-    required this.BookingStatus,required this.listOfReservation,
+    required this.BookingStatus,
+    required this.listOfReservation,
   });
   final BookingStatus;
 
@@ -91,7 +92,8 @@ class CardCustomerAppointments extends StatelessWidget {
                                           Padding(
                                             padding: const EdgeInsets.all(9.0),
                                             child: Text(
-                                              listOfReservation['customer_username'],
+                                              listOfReservation[
+                                                  'customer_username'],
                                               textAlign: TextAlign.end,
                                               style: const TextStyle(
                                                 fontSize: 20,
@@ -103,16 +105,20 @@ class CardCustomerAppointments extends StatelessWidget {
                                             padding: const EdgeInsets.all(9.0),
                                             child: Row(
                                               children: [
-                                                Text(listOfReservation['created_at'],
-                                                    textAlign: TextAlign.end,
-                                                    style: const TextStyle(
-                                                        fontFamily: 'Tajawal',
-                                                        fontSize: 15)),
-                                                Text(listOfReservation['created_at'],
+                                                Text(
+                                                    listOfReservation['date'] ??
+                                                        '',
                                                     textAlign: TextAlign.end,
                                                     style: const TextStyle(
                                                         fontFamily: 'Tajawal',
                                                         fontSize: 15))
+                                                // Text(
+                                                //     listOfReservation[
+                                                //         'created_at'],
+                                                //     textAlign: TextAlign.end,
+                                                //     style: const TextStyle(
+                                                //         fontFamily: 'Tajawal',
+                                                //         fontSize: 15))
                                               ],
                                             ),
                                           ),

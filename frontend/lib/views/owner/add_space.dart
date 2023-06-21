@@ -53,6 +53,19 @@ class _AddSpaceState extends State<AddSpace> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: white,
+        foregroundColor: darkBlue,
+        elevation: 0,
+        title: Text(
+          'إضافة مساحة جديدة',
+          style: TextStyle(
+              fontFamily: 'Tajawal',
+              fontWeight: FontWeight.w700,
+              fontSize: 20,
+              color: darkBlue),
+        ),
+      ),
       backgroundColor: white,
       body: SafeArea(
         child: SingleChildScrollView(
@@ -100,11 +113,22 @@ class _AddSpaceState extends State<AddSpace> {
                     },
                   ),
                   kVSpace24,
+                  Text(
+                    'الميزات أو الخدمات',
+                    style: TextStyle(
+                        fontFamily: 'Tajawal',
+                        fontWeight: FontWeight.w700,
+                        fontSize: 20,
+                        color: darkBlue),
+                  ),
+                  kVSpace16,
                   GridView(
                       shrinkWrap: true,
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2, crossAxisSpacing: 16.0),
+                              mainAxisExtent: 80,
+                              crossAxisCount: 2,
+                              crossAxisSpacing: 16.0),
                       children: [
                         TextFieldCustom(
                             label: 'الميزة الأولى',
@@ -138,14 +162,15 @@ class _AddSpaceState extends State<AddSpace> {
                     icon: const Icon(Icons.location_pin,
                         color: Color.fromRGBO(243, 17, 17, 1)),
                   ),
+                  kVSpace40,
                   Center(
                     child: DottedBorder(
                       dashPattern: const [5, 5],
                       color: darkGrey,
                       strokeCap: StrokeCap.round,
                       child: Container(
-                        height: 150,
-                        width: 188,
+                        height: 300,
+                        width: 300,
                         decoration: BoxDecoration(color: lightBlue),
                         child: Padding(
                           padding: const EdgeInsets.all(16.0),
@@ -159,7 +184,7 @@ class _AddSpaceState extends State<AddSpace> {
                                 style: TextStyle(
                                     fontFamily: 'Tajawal',
                                     fontWeight: FontWeight.w400,
-                                    fontSize: 12,
+                                    fontSize: 20,
                                     color: darkBlue),
                               ),
                               kVSpace8,
@@ -195,7 +220,7 @@ class _AddSpaceState extends State<AddSpace> {
                                   },
                                   child: const CustomButton(
                                       buttonTitle: 'اختيار من الجهاز',
-                                      textSize: 8,
+                                      textSize: 18,
                                       fontWeight: FontWeight.w400))
                             ],
                           ),
@@ -227,10 +252,14 @@ class _AddSpaceState extends State<AddSpace> {
                           context.nextPage(view: const HomeNav());
                           setState(() {});
                         },
-                        child: const CustomButton(
-                            buttonTitle: 'اضافة',
-                            textSize: 8,
-                            fontWeight: FontWeight.w400)),
+                        child: const Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 56, vertical: 16),
+                          child: CustomButton(
+                              buttonTitle: 'اضافة',
+                              textSize: 20,
+                              fontWeight: FontWeight.w400),
+                        )),
                   )
                 ],
               ),
