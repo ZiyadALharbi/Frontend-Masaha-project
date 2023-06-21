@@ -107,7 +107,7 @@ class _CustomerHomeState extends State<CustomerHome> {
                                     child: CardHomeCus(
                                         card: item,
                                         imgUrl:
-                                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYIa6D7LhMk7211BoEiPhRGHFRpLUEBmWjOQ&usqp=CAU'),
+                                            item["images"].toString() ?? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYIa6D7LhMk7211BoEiPhRGHFRpLUEBmWjOQ&usqp=CAU"),
                                     onTap: () {
                                       context.nextPage(
                                           view: ProductDetails(product: item));
