@@ -177,13 +177,20 @@ class _AddSpaceState extends State<AddSpace> {
                                         Random().nextInt(9999999);
                                     final supabase = SupabaseEnv().supabase;
                                     File file = File((image ?? XFile('')).path);
+
                                     print("loading");
                                     final result = await supabase.storage
                                         .from("ProductImages")
                                         .upload("$randomNumber.png", file);
-                                    print("loaded");
-                                    print(result);
 
+                                    final String publicUrl = supabase.storage
+                                        .from('public-bucket')
+                                        .getPublicUrl('result');
+
+                                    print("loaded");
+                                    print(publicUrl);
+                                    images.add(publicUrl);
+                                    print(images);
                                     setState(() {});
                                   },
                                   child: const CustomButton(

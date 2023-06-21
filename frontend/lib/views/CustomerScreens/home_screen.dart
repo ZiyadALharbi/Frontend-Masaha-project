@@ -50,7 +50,7 @@ class _CustomerHomeState extends State<CustomerHome> {
                   padding: const EdgeInsets.only(right: 30),
                   child: Row(
                     children: [
-                      Text('مرحبا فلان،',
+                      Text('مرحبا',
                           style: TextStyle(
                               fontFamily: 'Tajawal',
                               fontWeight: FontWeight.w700,
