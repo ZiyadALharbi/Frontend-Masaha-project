@@ -11,10 +11,10 @@ class ArchivesScreens extends StatefulWidget {
   const ArchivesScreens({super.key});
 
   @override
-  State<ArchivesScreens> createState() => _ArchivesScreensState();
+  State<ArchivesScreens> createState() => ArchivesScreensState();
 }
 
-class _ArchivesScreensState extends State<ArchivesScreens> {
+class ArchivesScreensState extends State<ArchivesScreens> {
   List bookmark = [];
 
   @override

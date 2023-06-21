@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:frontend/services/api/customer/delete_bookmark_api.dart';
+import 'package:http/http.dart';
 
 import '../../constants/colors.dart';
+import '../../views/CustomerScreens/ArchivesScreens.dart';
 
-class CardArchives extends StatelessWidget {
+class CardArchives extends StatefulWidget {
   const CardArchives({super.key, this.imgUrl, required this.archive});
   final Map archive;
 
   final imgUrl;
+
+  @override
+  State<CardArchives> createState() => _CardArchivesState();
+}
+
+class _CardArchivesState extends State<CardArchives> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -46,8 +55,26 @@ class CardArchives extends StatelessWidget {
                               children: [
                                 SizedBox(
                                   width: 70,
-                                  child: Icon(FontAwesomeIcons.trashCan,
-                                      size: 25, color: red),
+                                  child: IconButton(
+                                    onPressed: () {
+                                      context
+                                          .findRootAncestorStateOfType<
+                                              ArchivesScreensState>()
+                                          ?.bookmark
+                                          .removeWhere((product) =>
+                                              widget.archive["id_product"] ==
+                                              product["id"]);
+                                      context
+                                          .findRootAncestorStateOfType<
+                                              ArchivesScreensState>()
+                                          ?.setState(() {});
+                                        deleteBookmark(
+                                          body: widget.archive["id_product"]
+                                        );
+                                    },
+                                    icon: Icon(FontAwesomeIcons.trashCan,
+                                        size: 25, color: red),
+                                  ),
                                 )
                               ],
                             ),
@@ -67,7 +94,7 @@ class CardArchives extends StatelessWidget {
                                 SizedBox(
                                   width: 80,
                                   child: Text(
-                                    archive['products']['name'],
+                                    widget.archive['products']['name'],
                                     textAlign: TextAlign.end,
                                     overflow: TextOverflow.ellipsis,
                                     style: const TextStyle(
@@ -106,9 +133,7 @@ class CardArchives extends StatelessWidget {
                               fit: BoxFit.cover,
                               width: 160,
                               height: 135,
-
-                              image: NetworkImage(imgUrl)),
-
+                              image: NetworkImage(widget.imgUrl)),
                         ),
                       )
                     ],
