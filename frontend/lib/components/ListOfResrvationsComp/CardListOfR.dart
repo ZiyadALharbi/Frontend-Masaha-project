@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:frontend/constants/colors.dart';
 
@@ -124,7 +126,7 @@ class CardListOfReservations extends StatelessWidget {
                               fit: BoxFit.cover,
                               width: 193,
                               height: 135,
-                              image: NetworkImage(imgUrl)),
+                              image: NetworkImage(json.decode(reservation["products"]["images"]).first)),
                         ),
                       )
                     ],

@@ -59,7 +59,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                 for (var reservation in reservations)
                   CardCustomerAppointments(
                     listOfReservation: reservation,
-                    BookingStatus: 'ملغي',
+                    BookingStatus: 'تم الحجز',
                   )
               ],
             ),
