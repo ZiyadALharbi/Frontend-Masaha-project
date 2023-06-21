@@ -18,7 +18,7 @@ class CardListOfReservations extends StatelessWidget {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(right: 4.0, left: 4, top: 16),
+            padding: const EdgeInsets.only(right: 4.0, left: 0, top: 16),
             child: Container(
               decoration: BoxDecoration(boxShadow: [
                 BoxShadow(
@@ -40,21 +40,25 @@ class CardListOfReservations extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(
-                            top: 11.0, bottom: 20, left: 20, right: 60),
+                            top: 11.0, bottom: 20, left: 7, right: 0),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Row(
                               children: [
-                                SizedBox(
-                                  width: 70,
-                                  child: Text(
-                                    reservation['price'].toString(),
-                                    overflow: TextOverflow.ellipsis,
-                                    style: const TextStyle(
-                                      fontSize: 19,
-                                      fontFamily: 'Tajawal',
+                                Container(
+                                  color:
+                                      const Color.fromARGB(255, 255, 255, 255),
+                                  child: SizedBox(
+                                    width: 55,
+                                    child: Text(
+                                      reservation['price'].toString(),
+                                      overflow: TextOverflow.ellipsis,
+                                      style: const TextStyle(
+                                        fontSize: 19,
+                                        fontFamily: 'Tajawal',
+                                      ),
                                     ),
                                   ),
                                 )
@@ -62,13 +66,17 @@ class CardListOfReservations extends StatelessWidget {
                             ),
                             Row(
                               children: [
-                                SizedBox(
-                                    width: 25,
-                                    child: Text(reservation['created_at'],
-                                        style: const TextStyle(
-                                          fontFamily: 'Tajawal',
-                                        ),
-                                        overflow: TextOverflow.ellipsis))
+                                Container(
+                                  color:
+                                      const Color.fromARGB(255, 255, 255, 255),
+                                  child: SizedBox(
+                                      width: 83,
+                                      child: Text(reservation['created_at'],
+                                          style: const TextStyle(
+                                            fontFamily: 'Tajawal',
+                                          ),
+                                          overflow: TextOverflow.ellipsis)),
+                                )
                               ],
                             ),
                           ],
@@ -84,15 +92,19 @@ class CardListOfReservations extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                SizedBox(
-                                  width: 50,
-                                  child: Text(
-                                    reservation['product_name'],
-                                    textAlign: TextAlign.end,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: const TextStyle(
-                                      fontFamily: 'Tajawal',
-                                      fontSize: 20,
+                                Container(
+                                  color:
+                                      const Color.fromARGB(255, 255, 255, 255),
+                                  child: SizedBox(
+                                    width: 110,
+                                    child: Text(
+                                      reservation['product_name'],
+                                      textAlign: TextAlign.end,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: const TextStyle(
+                                        fontFamily: 'Tajawal',
+                                        fontSize: 20,
+                                      ),
                                     ),
                                   ),
                                 )
@@ -100,18 +112,21 @@ class CardListOfReservations extends StatelessWidget {
                             ),
                             Padding(
                               padding: const EdgeInsets.only(top: 39),
-                              child: Row(
-                                children: [
-                                  InkWell(
-                                      onTap: () {},
-                                      child: const Text(
-                                        "الموقع",
-                                        style: TextStyle(
-                                          fontSize: 17,
-                                          fontFamily: 'Tajawal',
-                                        ),
-                                      ))
-                                ],
+                              child: Container(
+                                color: const Color.fromARGB(255, 255, 255, 255),
+                                child: Row(
+                                  children: [
+                                    InkWell(
+                                        onTap: () {},
+                                        child: const Text(
+                                          "الموقع",
+                                          style: TextStyle(
+                                            fontSize: 17,
+                                            fontFamily: 'Tajawal',
+                                          ),
+                                        ))
+                                  ],
+                                ),
                               ),
                             ),
                           ],
@@ -126,7 +141,9 @@ class CardListOfReservations extends StatelessWidget {
                               fit: BoxFit.cover,
                               width: 193,
                               height: 135,
-                              image: NetworkImage(json.decode(reservation["products"]["images"]).first)),
+                              image: NetworkImage(json
+                                  .decode(reservation["products"]["images"])
+                                  .first)),
                         ),
                       )
                     ],
