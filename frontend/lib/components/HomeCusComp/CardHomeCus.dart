@@ -86,7 +86,7 @@ class CardHomeCus extends StatelessWidget {
                                                     width: 105,
                                                     height: 50,
                                                     child: Text(
-                                                      card['name'],
+                                                      card['name'].toString(),
                                                       textAlign: TextAlign.end,
                                                       overflow:
                                                           TextOverflow.ellipsis,
@@ -116,7 +116,7 @@ class CardHomeCus extends StatelessWidget {
                                                 width: 150,
                                                 height: 30,
                                                 child: Text(
-                                                  card['type'],
+                                                  card['type'].toString(),
                                                   overflow:
                                                       TextOverflow.ellipsis,
                                                   textAlign: TextAlign.end,
@@ -177,10 +177,17 @@ class CardHomeCus extends StatelessWidget {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(20),
                                 child: Image(
-                                    fit: BoxFit.cover,
-                                    width: 193,
-                                    height: 135,
-                                    image: NetworkImage(imgUrl)),
+                                  fit: BoxFit.cover,
+                                  width: 193,
+                                  height: 135,
+                                  errorBuilder: (context, error, stackTrace) {
+                                    print("=-=-=-");
+                                    print(card["images"].toString());
+                                    return Image.network(imgUrl);
+                                  },
+                                  image: NetworkImage(
+                                      card["images"].toString()),
+                                ),
                               ),
                             )
                           ],

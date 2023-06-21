@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import '../../components/Customer/Product_Details/booking/booking_button.dart';
 import '../../components/Customer/Product_Details/details.dart';
 import '../../components/Customer/Product_Details/details_icons.dart';
-import '../../components/Customer/Product_Details/images_product.dart';
 
 class ProductDetails extends StatelessWidget {
   const ProductDetails({super.key, required this.product});
@@ -16,11 +16,24 @@ class ProductDetails extends StatelessWidget {
         children: [
           Stack(
             children: [
-              const Images(
-                image1Url: 'images/Group 71.png',
-                image2Url: 'images/Group 68.png',
-                image3Url: 'images/Group 72.png',
+              ImageSlideshow(
+                children: [
+                  for (var item in product["images"])
+                    Builder(builder: (context){
+                      return Image.network(
+                      '$item',
+                      fit: BoxFit.cover,
+                    );
+                    })
+                ],
               ),
+
+              // const Images(
+              //   image1Url: 'images/Group 71.png',
+              //   image2Url: 'images/Group 68.png',
+              //   image3Url: 'images/Group 72.png',
+
+              // ),
               DetailsIcons(product: product),
             ],
           ),
@@ -32,7 +45,7 @@ class ProductDetails extends StatelessWidget {
             description: product['description'],
             features: product,
           ),
-           BookingButton(product: product)
+          BookingButton(product: product)
         ],
       ),
     );

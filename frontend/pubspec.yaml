@@ -6,6 +6,8 @@ version: 1.0.0+1
 environment:
   sdk: ">=3.0.2 <4.0.0"
 dependencies:
+  flutter_carousel_slider: ^1.1.0
+  flutter_image_slideshow: ^0.1.5
   supabase: ^1.8.1
   font_awesome_flutter: ^10.4.0
   

@@ -84,7 +84,7 @@ class HomeScreenState extends State<HomeScreen> {
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
-                  for (var item in ownerProducts) CustomCard(card: item)
+                  for (var item in ownerProducts.reversed) CustomCard(card: item)
                 ],
               ),
             ),
