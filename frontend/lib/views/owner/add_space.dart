@@ -22,7 +22,7 @@ class AddSpace extends StatefulWidget {
   State<AddSpace> createState() => _AddSpaceState();
 }
 
-List<String> images = [];
+String images = "";
 List<String> spaceTypes = [
   'مساحة مشتركة',
   'مساحة خاصة',
@@ -189,7 +189,7 @@ class _AddSpaceState extends State<AddSpace> {
 
                                     print("loaded");
                                     print(publicUrl);
-                                    images.add(publicUrl);
+                                    images = publicUrl;
                                     print(images);
                                     setState(() {});
                                   },

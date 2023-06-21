@@ -186,7 +186,7 @@ class CardHomeCus extends StatelessWidget {
                                     return Image.network(imgUrl);
                                   },
                                   image: NetworkImage(
-                                      card["images"].toString()),
+                                      card["images"].toString() ?? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYIa6D7LhMk7211BoEiPhRGHFRpLUEBmWjOQ&usqp=CAU'),
                                 ),
                               ),
                             )
