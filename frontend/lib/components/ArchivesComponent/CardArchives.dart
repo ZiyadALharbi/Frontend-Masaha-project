@@ -1,7 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:frontend/services/api/customer/delete_bookmark_api.dart';
-import 'package:http/http.dart';
 
 import '../../constants/colors.dart';
 import '../../views/CustomerScreens/ArchivesScreens.dart';
@@ -56,21 +57,20 @@ class _CardArchivesState extends State<CardArchives> {
                                 SizedBox(
                                   width: 70,
                                   child: IconButton(
-                                    onPressed: () async{
+                                    onPressed: () async {
                                       context
                                           .findRootAncestorStateOfType<
                                               ArchivesScreensState>()
                                           ?.bookmark
                                           .removeWhere((product) =>
-                                               product["id"] == widget.archive["id"]
-                                              );
+                                              product["id"] ==
+                                              widget.archive["id"]);
                                       context
                                           .findRootAncestorStateOfType<
                                               ArchivesScreensState>()
                                           ?.setState(() {});
-                                        deleteBookmark(
-                                          body: widget.archive["id"]
-                                        );
+                                      deleteBookmark(
+                                          body: widget.archive["id"]);
                                     },
                                     icon: Icon(FontAwesomeIcons.trashCan,
                                         size: 25, color: red),
@@ -133,7 +133,9 @@ class _CardArchivesState extends State<CardArchives> {
                               fit: BoxFit.cover,
                               width: 160,
                               height: 135,
-                              image: NetworkImage(widget.imgUrl)),
+                              image: NetworkImage(json
+                                  .decode(widget.archive["products"]["images"])
+                                  .first)),
                         ),
                       )
                     ],
