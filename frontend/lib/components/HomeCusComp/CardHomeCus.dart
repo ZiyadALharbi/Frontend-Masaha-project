@@ -181,18 +181,17 @@ class CardHomeCus extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(20)),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(20),
-                                
                                 child: Image(
                                   fit: BoxFit.cover,
                                   width: 129,
                                   height: 135,
                                   errorBuilder: (context, error, stackTrace) {
                                     print("=-=-=-");
-                                    print(card["images"].toString());
+                                    print(json.decode(card["images"])[0]);
                                     return Image.network(imgUrl);
                                   },
                                   image: NetworkImage(
-                                      json.decode(card["images"]).first),
+                                      json.decode(card["images"])[0]),
                                 ),
                               ),
                             )

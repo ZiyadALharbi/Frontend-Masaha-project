@@ -209,13 +209,14 @@ class _AddSpaceState extends State<AddSpace> {
                                       context: context,
                                       builder: (BuildContext context) =>
                                           const Scaffold(
-                                        backgroundColor: Colors.transparent,
+                                        backgroundColor:
+                                            Color.fromARGB(231, 255, 255, 255),
                                         body: Center(
                                           child: SizedBox(
                                             height: 200,
                                             width: 400,
                                             child: RiveAnimation.asset(
-                                                'assets/animations/projects-icon.riv'),
+                                                'assets/animations/loading (3).riv'),
                                           ),
                                         ),
                                       ),
