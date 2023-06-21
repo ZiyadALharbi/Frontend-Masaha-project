@@ -1,6 +1,5 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:frontend/components/AppointmentComponents/date_picker.dart';
 import 'package:frontend/constants/colors.dart';
 import 'package:frontend/constants/spaces.dart';
 import 'package:frontend/services/extensions/nav.dart';
@@ -18,6 +17,8 @@ class BookingScreen extends StatefulWidget {
   @override
   State<BookingScreen> createState() => _BookingScreenState();
 }
+
+String selectedDate = '2023-06-21';
 
 class _BookingScreenState extends State<BookingScreen> {
   TextEditingController nameController = TextEditingController();
@@ -72,38 +73,11 @@ class _BookingScreenState extends State<BookingScreen> {
                   textController: emailController,
                 ),
                 kVSpace32,
-                // DropDownMenuOwner(
-                //   width: 400,
-                //   height: 56,
-                //   label: 'الخطط',
-                //   hint: 'إختر نوع الخطة التي تريد إضافتها',
-                //   typesAndPlans: planTypes,
-                //   selectedTypesAndPlans: selectedPlanTypes,
-                //   onTypeChange: (List<dynamic> hhh) {},
-                // ),
-
-                // RadioButton(
-                //   onTypeChange: (newValue) {
-                //     var userType = newValue;
-                //     setState(() {});
-                //   },
-                // ),
-                // RadioButton(
-                //   onTypeChange: (newValue) {
-                //     var userType = newValue;
-                //     setState(() {});
-                //   },
-                // ),
-                kVSpace32,
-                TextFieldCustom(
-                  icon: Icon(
-                    Icons.calendar_month_rounded,
-                    color: darkBlue,
-                  ),
-                  label: 'التاريخ والوقت',
-                  width: 350,
-                  height: 56,
-                  // textController: dateAndTime,
+                DayPicker(
+                  onTypeChange: (selectedDay) {
+                    selectedDate = selectedDay;
+                    setState(() {});
+                  },
                 ),
                 kVSpace70,
                 const LabelBooking(
@@ -163,7 +137,8 @@ class _BookingScreenState extends State<BookingScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     LabelBooking(
-                      title: 'السعر ${int.parse(widget.product["price"].toString())} ريال',
+                      title:
+                          'السعر ${int.parse(widget.product["price"].toString())} ريال',
                       titlesize: 20,
                     ),
                     kHSpace32,
@@ -174,8 +149,10 @@ class _BookingScreenState extends State<BookingScreen> {
                           "email": emailController.text,
                           "phone": phoneController.text,
                           "id": widget.product["id"],
+                          "date": selectedDate
                         };
-                        final response = await addReservationCustomer(body: body);
+                        final response =
+                            await addReservationCustomer(body: body);
                         if (response.statusCode == 200) {
                           context.nextPage(view: const ConfirmBooking());
                         } else {
