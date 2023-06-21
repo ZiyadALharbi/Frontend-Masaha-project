@@ -1,8 +1,14 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 class DayPicker extends StatefulWidget {
-  const DayPicker({super.key});
+  DayPicker({super.key, required this.onTypeChange});
+
+  final Function(String) onTypeChange;
+  String? chosenDay;
 
   @override
   DayPickerState createState() => DayPickerState();
@@ -10,17 +16,20 @@ class DayPicker extends StatefulWidget {
 
 /// State for DayPicker
 class DayPickerState extends State<DayPicker> {
-  void _onSelectionChanged(DateRangePickerSelectionChangedArgs args) {
-    setState(() {});
-  }
-
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
         Positioned(
           child: SfDateRangePicker(
-            onSelectionChanged: _onSelectionChanged,
+            controller: DateRangePickerController(),
+            onSelectionChanged: (dateRangePickerSelectionChangedArgs) {
+              String day = DateFormat('dd, MMMM yyyy')
+                  .format(dateRangePickerSelectionChangedArgs.value)
+                  .toString();
+              widget.onTypeChange(widget.chosenDay = day);
+              setState(() {});
+            },
             selectionMode: DateRangePickerSelectionMode.single,
             initialSelectedRange: PickerDateRange(
                 DateTime.now().subtract(const Duration(days: 4)),
