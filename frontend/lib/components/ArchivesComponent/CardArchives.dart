@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:frontend/services/api/customer/delete_bookmark_api.dart';
-import 'package:http/http.dart';
 
 import '../../constants/colors.dart';
 import '../../views/CustomerScreens/ArchivesScreens.dart';
