@@ -18,6 +18,7 @@ class ListOfReservationsScreen extends StatefulWidget {
 
 class _ListOfReservationsScreenState extends State<ListOfReservationsScreen> {
   List reservation = [];
+  final bool _isLoading = true;
 
   @override
   void initState() {
@@ -30,7 +31,9 @@ class _ListOfReservationsScreenState extends State<ListOfReservationsScreen> {
     if (response.statusCode == 200) {
       try {
         reservation = json.decode(response.body);
-        setState(() {});
+        setState(() {
+          bool isLoading = false;
+        });
       } catch (error) {
         print(error);
       }
@@ -49,13 +52,22 @@ class _ListOfReservationsScreenState extends State<ListOfReservationsScreen> {
           textDirection: TextDirection.ltr,
           child: SafeArea(
             child: ListView(
-              children:  [
-                TextListOfReservations(),
+              children: [
+                if (_isLoading)
+                  SizedBox(
+                    height: 100,
+                    width: 100,
+                    child: CircularProgressIndicator(
+                      backgroundColor: black.withOpacity(0.5),
+                    ),
+                  ),
+                const TextListOfReservations(),
                 for (var item in reservation)
-                CardListOfReservations(
-                  imgUrl:
-                      "https://1.bp.blogspot.com/--zmpEoUGNhU/X-QXzhRR9GI/AAAAAAAABtY/TU0eL4WbHpAYah9NLlHt0lSUd5Y_zH5ngCLcBGAsYHQ/s638/images%2B-%2B2020-12-24T062310.080.jpeg", reservation: item,
-                ),
+                  CardListOfReservations(
+                    imgUrl:
+                        "https://1.bp.blogspot.com/--zmpEoUGNhU/X-QXzhRR9GI/AAAAAAAABtY/TU0eL4WbHpAYah9NLlHt0lSUd5Y_zH5ngCLcBGAsYHQ/s638/images%2B-%2B2020-12-24T062310.080.jpeg",
+                    reservation: item,
+                  ),
               ],
             ),
           ),

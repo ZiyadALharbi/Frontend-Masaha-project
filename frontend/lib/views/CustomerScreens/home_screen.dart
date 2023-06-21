@@ -17,6 +17,7 @@ class CustomerHome extends StatefulWidget {
 
 class _CustomerHomeState extends State<CustomerHome> {
   List prodcuts = [];
+  bool _isLoading = true;
 
   @override
   void initState() {
@@ -29,7 +30,9 @@ class _CustomerHomeState extends State<CustomerHome> {
     if (response.statusCode == 200) {
       try {
         prodcuts = json.decode(response.body);
-        setState(() {});
+        setState(() {
+          _isLoading = false;
+        });
       } catch (error) {
         print(error);
       }
@@ -49,6 +52,7 @@ class _CustomerHomeState extends State<CustomerHome> {
                 Padding(
                   padding: const EdgeInsets.only(right: 30),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text('مرحبا فلان،',
                           style: TextStyle(
@@ -56,6 +60,12 @@ class _CustomerHomeState extends State<CustomerHome> {
                               fontWeight: FontWeight.w700,
                               fontSize: 36,
                               color: darkBlue)),
+                      // const SizedBox(
+                      //   height: 50,
+                      //   width: 50,
+                      //   child: RiveAnimation.asset(
+                      //       'assets/animations/trash-can.riv'),
+                      // ),
                     ],
                   ),
                 ),
@@ -94,6 +104,14 @@ class _CustomerHomeState extends State<CustomerHome> {
                     Tab(child: TabTitle(spaceType: 'ورشة عمل')),
                   ],
                 ),
+                if (_isLoading)
+                  SizedBox(
+                    height: 200,
+                    width: 200,
+                    child: CircularProgressIndicator(
+                      backgroundColor: black.withOpacity(0.5),
+                    ),
+                  ),
                 Expanded(
                   child: TabBarView(
                     children: [

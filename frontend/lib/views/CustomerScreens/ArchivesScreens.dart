@@ -29,6 +29,7 @@ class _ArchivesScreensState extends State<ArchivesScreens> {
       bookmark = json.decode(response.body);
       print(bookmark);
     } else {
+      print(bookmark);
       print(response.body);
     }
     setState(() {});
@@ -48,12 +49,14 @@ class _ArchivesScreensState extends State<ArchivesScreens> {
             child: ListView(
               children: [
                 const TextArchives(),
-                for (var archive in bookmark)
-                  CardArchives(
-                    imgUrl:
-                        "https://1.bp.blogspot.com/--zmpEoUGNhU/X-QXzhRR9GI/AAAAAAAABtY/TU0eL4WbHpAYah9NLlHt0lSUd5Y_zH5ngCLcBGAsYHQ/s638/images%2B-%2B2020-12-24T062310.080.jpeg",
-                    archive: archive,
-                  ),
+                for (Map archive in bookmark)
+                  archive.isEmpty
+                      ? const SizedBox.shrink()
+                      : CardArchives(
+                          imgUrl:
+                              "https://1.bp.blogspot.com/--zmpEoUGNhU/X-QXzhRR9GI/AAAAAAAABtY/TU0eL4WbHpAYah9NLlHt0lSUd5Y_zH5ngCLcBGAsYHQ/s638/images%2B-%2B2020-12-24T062310.080.jpeg",
+                          archive: archive,
+                        ),
               ],
             ),
           ),
