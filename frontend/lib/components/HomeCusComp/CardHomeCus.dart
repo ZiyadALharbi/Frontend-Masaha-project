@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 
 class CardHomeCus extends StatelessWidget {
@@ -14,7 +16,8 @@ class CardHomeCus extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(right: 4.0, left: 4, top: 16),
+              padding: const EdgeInsets.only(
+                  right: 4.0, left: 4, top: 0, bottom: 16),
               child: Container(
                 decoration: BoxDecoration(
                     boxShadow: [
@@ -46,7 +49,7 @@ class CardHomeCus extends StatelessWidget {
                               padding: const EdgeInsets.only(
                                   top: 11.0, bottom: 10, left: 11, right: 10),
                               child: SizedBox(
-                                width: 190,
+                                width: 250,
                                 child: Container(
                                   child: Column(children: [
                                     Container(
@@ -106,7 +109,7 @@ class CardHomeCus extends StatelessWidget {
                                     //  _______________row tow______________
                                     Container(
                                       child: SizedBox(
-                                        width: 200,
+                                        width: 260,
                                         child: Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.end,
@@ -136,7 +139,7 @@ class CardHomeCus extends StatelessWidget {
                                     Container(
                                       child: SizedBox(
                                         height: 25,
-                                        width: 200,
+                                        width: 260,
                                         child: Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.end,
@@ -171,14 +174,17 @@ class CardHomeCus extends StatelessWidget {
                               ),
                             ),
                             Container(
+                              width: 129,
                               decoration: BoxDecoration(
-                                  color: Colors.amber,
+                                  color:
+                                      const Color.fromARGB(255, 255, 255, 255),
                                   borderRadius: BorderRadius.circular(20)),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(20),
+                                
                                 child: Image(
                                   fit: BoxFit.cover,
-                                  width: 193,
+                                  width: 129,
                                   height: 135,
                                   errorBuilder: (context, error, stackTrace) {
                                     print("=-=-=-");
@@ -186,7 +192,7 @@ class CardHomeCus extends StatelessWidget {
                                     return Image.network(imgUrl);
                                   },
                                   image: NetworkImage(
-                                      card["images"].toString() ?? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYIa6D7LhMk7211BoEiPhRGHFRpLUEBmWjOQ&usqp=CAU'),
+                                      json.decode(card["images"]).first),
                                 ),
                               ),
                             )

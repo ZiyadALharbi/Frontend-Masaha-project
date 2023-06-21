@@ -22,7 +22,7 @@ class AddSpace extends StatefulWidget {
   State<AddSpace> createState() => _AddSpaceState();
 }
 
-String images = "";
+List<String> images = [];
 List<String> spaceTypes = [
   'مساحة مشتركة',
   'مساحة خاصة',
@@ -184,12 +184,15 @@ class _AddSpaceState extends State<AddSpace> {
                                         .upload("$randomNumber.png", file);
 
                                     final String publicUrl = supabase.storage
-                                        .from('public-bucket')
-                                        .getPublicUrl('result');
+                                        .from("ProductImages")
+                                        .getPublicUrl(result)
+                                        .replaceAll(
+                                            "/ProductImages/",
+                                            "/");
 
                                     print("loaded");
                                     print(publicUrl);
-                                    images = publicUrl;
+                                    images.add(publicUrl);
                                     print(images);
                                     setState(() {});
                                   },
@@ -248,3 +251,10 @@ class _AddSpaceState extends State<AddSpace> {
                                     // var bytes = await ImagePicker()
                                         // .pickImage(source: ImageSource.gallery)
                                         // .asStream();
+
+
+
+                                        /*
+                                         https://qjjzsudjbsudodsamcpw.supabase.co/storage/v1/object/public/ProductImages/ProductImages/8043044.png
+                                         https://qjjzsudjbsudodsamcpw.supabase.co/storage/v1/object/public/ProductImages/8043044.png
+                                         */
