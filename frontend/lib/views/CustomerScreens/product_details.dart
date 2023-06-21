@@ -11,7 +11,6 @@ class ProductDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(product);
     return Scaffold(
       body: ListView(
         children: [
@@ -20,10 +19,12 @@ class ProductDetails extends StatelessWidget {
               ImageSlideshow(
                 children: [
                   for (var item in product["images"])
-                    Image.network(
+                    Builder(builder: (context){
+                      return Image.network(
                       '$item',
                       fit: BoxFit.cover,
-                    )
+                    );
+                    })
                 ],
               ),
 

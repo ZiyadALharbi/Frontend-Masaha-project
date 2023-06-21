@@ -28,7 +28,9 @@ class _CustomerHomeState extends State<CustomerHome> {
     final response = await displayProduct();
     if (response.statusCode == 200) {
       try {
-        prodcuts = json.decode(response.body);
+        print(await json.decode(response.body));
+        print("----1");
+        prodcuts = await json.decode(response.body);
         setState(() {});
       } catch (error) {
         print(error);
@@ -99,7 +101,7 @@ class _CustomerHomeState extends State<CustomerHome> {
                     children: [
                       ListView(
                         children: [
-                          for (var item in prodcuts)
+                          for (Map item in prodcuts)
                             item['type'] == 'مساحة مشتركة'
                                 ? InkWell(
                                     child: CardHomeCus(
@@ -109,7 +111,7 @@ class _CustomerHomeState extends State<CustomerHome> {
                                     onTap: () {
                                       context.nextPage(
                                           view: ProductDetails(product: item));
-                                      print(item);
+
                                       setState(() {});
                                     })
                                 : const SizedBox.shrink()
@@ -123,7 +125,7 @@ class _CustomerHomeState extends State<CustomerHome> {
                                     child: CardHomeCus(
                                         card: item,
                                         imgUrl:
-                                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYIa6D7LhMk7211BoEiPhRGHFRpLUEBmWjOQ&usqp=CAU'),
+                                            'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_1010/https://ico.org.sa/wp-content/uploads/2021/04/camels-1-e1618841285447.png'),
                                     onTap: () {
                                       context.nextPage(
                                           view: ProductDetails(product: item));

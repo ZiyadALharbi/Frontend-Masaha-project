@@ -56,20 +56,20 @@ class _CardArchivesState extends State<CardArchives> {
                                 SizedBox(
                                   width: 70,
                                   child: IconButton(
-                                    onPressed: () {
+                                    onPressed: () async{
                                       context
                                           .findRootAncestorStateOfType<
                                               ArchivesScreensState>()
                                           ?.bookmark
                                           .removeWhere((product) =>
-                                              widget.archive["id_product"] ==
-                                              product["id"]);
+                                               product["id"] == widget.archive["id"]
+                                              );
                                       context
                                           .findRootAncestorStateOfType<
                                               ArchivesScreensState>()
                                           ?.setState(() {});
                                         deleteBookmark(
-                                          body: widget.archive["id_product"]
+                                          body: widget.archive["id"]
                                         );
                                     },
                                     icon: Icon(FontAwesomeIcons.trashCan,
