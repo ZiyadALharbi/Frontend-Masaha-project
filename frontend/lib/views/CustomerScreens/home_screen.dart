@@ -76,7 +76,7 @@ class _CustomerHomeState extends State<CustomerHome> {
                 ),
                 kVSpace32,
                 TabBar(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
                   isScrollable: true,
                   physics: const ClampingScrollPhysics(
                       parent: AlwaysScrollableScrollPhysics()),
@@ -85,7 +85,7 @@ class _CustomerHomeState extends State<CustomerHome> {
                     color: orange.withOpacity(0.80),
                     borderRadius: BorderRadius.circular(50),
                   ),
-                  labelPadding: const EdgeInsets.symmetric(horizontal: 11),
+                  labelPadding: const EdgeInsets.symmetric(horizontal: 16),
                   tabs: const [
                     Tab(child: TabTitle(spaceType: 'مساحة مشتركة')),
                     Tab(child: TabTitle(spaceType: 'مساحة خاصة')),
