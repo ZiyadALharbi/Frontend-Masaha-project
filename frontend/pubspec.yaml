@@ -26,6 +26,7 @@ dependencies:
   dotted_border: ^2.0.0+3
   smooth_page_indicator: ^1.1.0
   rive: ^0.7.16
+  syncfusion_flutter_datepicker: ^22.1.34
   
   
 
