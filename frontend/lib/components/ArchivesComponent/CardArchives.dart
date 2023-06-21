@@ -116,7 +116,7 @@ class CardArchives extends StatelessWidget {
                               fit: BoxFit.cover,
                               width: 160,
                               height: 135,
-                              image: NetworkImage(archive["images"].first["url_image"])),
+                              image: NetworkImage(imgUrl)),
                         ),
                       )
                     ],
