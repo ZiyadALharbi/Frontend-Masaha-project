@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:frontend/services/extensions/nav.dart';
 import 'package:frontend/views/CustomerScreens/product_details.dart';
+import 'package:rive/rive.dart';
 import '../../constants/spaces.dart';
 import '../../components/HomeCusComp/CardHomeCus.dart';
 import '../../constants/colors.dart';
@@ -22,7 +23,9 @@ class _CustomerHomeState extends State<CustomerHome> {
   @override
   void initState() {
     super.initState();
-    getProducts();
+    Future.delayed(const Duration(seconds: 2), () {
+      getProducts();
+    });
   }
 
   getProducts() async {
@@ -47,6 +50,7 @@ class _CustomerHomeState extends State<CustomerHome> {
         animationDuration: const Duration(milliseconds: 150),
         length: 5,
         child: Scaffold(
+          backgroundColor: white,
           body: Padding(
             padding: const EdgeInsets.fromLTRB(0, 103, 0, 0),
             child: Column(
@@ -88,7 +92,8 @@ class _CustomerHomeState extends State<CustomerHome> {
                 ),
                 kVSpace32,
                 TabBar(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  padding: const EdgeInsets.only(
+                      left: 16, right: 16, top: 0, bottom: 0),
                   isScrollable: true,
                   physics: const ClampingScrollPhysics(
                       parent: AlwaysScrollableScrollPhysics()),
@@ -97,7 +102,8 @@ class _CustomerHomeState extends State<CustomerHome> {
                     color: orange.withOpacity(0.80),
                     borderRadius: BorderRadius.circular(50),
                   ),
-                  labelPadding: const EdgeInsets.symmetric(horizontal: 16),
+                  labelPadding: const EdgeInsets.only(
+                      left: 16, right: 16, top: 0, bottom: 0),
                   tabs: const [
                     Tab(child: TabTitle(spaceType: 'مساحة مشتركة')),
                     Tab(child: TabTitle(spaceType: 'مساحة خاصة')),
@@ -107,11 +113,13 @@ class _CustomerHomeState extends State<CustomerHome> {
                   ],
                 ),
                 if (_isLoading)
-                  SizedBox(
-                    height: 200,
-                    width: 200,
-                    child: CircularProgressIndicator(
-                      backgroundColor: black.withOpacity(0.5),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 150),
+                    child: SizedBox(
+                      height: 200,
+                      width: 200,
+                      child: RiveAnimation.asset(
+                          'assets/animations/ui_loader.riv'),
                     ),
                   ),
                 Expanded(
