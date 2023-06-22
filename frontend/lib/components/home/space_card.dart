@@ -48,20 +48,27 @@ class _CustomCardState extends State<CustomCard> {
                                 padding:
                                     const EdgeInsets.only(bottom: 8, right: 8),
                                 child: SizedBox(
-                                  width: 60,
+                                  width: 70,
                                   height: 35,
                                   child: Row(
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
+                                      const Text(
+                                        'ر.س',
+                                        style: TextStyle(
+                                            fontFamily: 'Tajawal',
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w400),
+                                      ),
                                       Padding(
-                                        padding: const EdgeInsets.all(8.0),
+                                        padding: const EdgeInsets.all(0.0),
                                         child: Text(
                                             widget.card['price'].toString(),
                                             overflow: TextOverflow.ellipsis,
                                             style: TextStyle(
                                                 fontFamily: 'Tajawal',
-                                                fontSize: 16,
+                                                fontSize: 24,
                                                 color: blue,
                                                 fontWeight: FontWeight.w700)),
                                       )
@@ -83,7 +90,7 @@ class _CustomCardState extends State<CustomCard> {
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                           fontFamily: 'Tajawal',
-                                          fontSize: 20,
+                                          fontSize: 24,
                                           color: darkBlue,
                                           fontWeight: FontWeight.bold),
                                     )
@@ -136,8 +143,10 @@ class _CustomCardState extends State<CustomCard> {
                                                   id: widget.card['id']);
                                               setState(() {});
                                             },
-                                            icon: const Icon(
-                                                FontAwesomeIcons.trashCan)),
+                                            icon: Icon(
+                                              FontAwesomeIcons.trashCan,
+                                              color: red,
+                                            )),
                                       ],
                                     ),
                                   ),
@@ -152,25 +161,27 @@ class _CustomCardState extends State<CustomCard> {
                                         CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
-                                      Text(widget.card['type'],
-                                          overflow: TextOverflow.ellipsis,
-                                          style: TextStyle(
-                                              fontFamily: 'Tajawal',
-                                              fontSize: 14,
-                                              color: darkBlue,
-                                              fontWeight: FontWeight.w400))
+                                      Text(
+                                        widget.card['type'],
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                            fontFamily: 'Tajawal',
+                                            fontSize: 16,
+                                            color: darkBlue,
+                                            fontWeight: FontWeight.w400),
+                                      ),
                                     ],
                                   ),
                                 ),
-                              )
+                              ),
                             ]),
                       ),
                     ),
                   ),
-                  const Divider(
+                  Divider(
                     height: 1,
-                    color: Color.fromRGBO(91, 80, 80, 1),
-                    thickness: 0.1,
+                    thickness: 0.3,
+                    color: darkGrey.withOpacity(0.3),
                   ),
                 ],
               ),
