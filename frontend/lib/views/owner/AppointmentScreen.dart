@@ -56,7 +56,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
               children: [
                 kVSpace48,
                 const AppointmentsText(),
-                for (var reservation in reservations)
+                for (var reservation in reservations.reversed)
                   CardCustomerAppointments(
                     listOfReservation: reservation,
                     BookingStatus: 'تم الحجز',
